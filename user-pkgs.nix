@@ -1,5 +1,4 @@
-{ config, pkgs, ...}:
-{
+{ config, pkgs, ... }: {
   home.packages = with pkgs; [
     lunarvim
     rustup
@@ -30,5 +29,7 @@
     bandwhich
     grex
     zoxide
+    tre-command
+    nixpkgs-fmt
   ];
 }
