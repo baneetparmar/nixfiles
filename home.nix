@@ -41,6 +41,7 @@ in {
     shellInit = "
       fish_config theme choose 'Dracula Official'
       direnv hook fish | source
+      zoxide init fish | source
     ";
   };
   programs.starship = {
