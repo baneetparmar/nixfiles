@@ -31,5 +31,6 @@
     zoxide
     tre-command
     nixpkgs-fmt
+    feh
   ];
 }

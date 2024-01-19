@@ -27,14 +27,12 @@ in {
     enable = true;
     shellAliases = {
       eh = "home-manager edit";
-      hup = "nix-channel --update && home-manager switch";
-      hus = "home-manager switch";
-      bkup = "cd ~/dotfiles/ && rm * && cp ~/.config/home-manager/* . && cd ~";
-      gup = " cd ~/dotfiles && rm ~/dotfiles/* && cp ~/.config/home-manager/* ~/dotfiles/ && git add . && git commit -m 'update config' && git push && cd ~";
+      hup = "cd ~/.dotFiles && nix flake update && home-manager switch --flake ~/.dotFiles/";
       lv = "lvim";
       ls = "lsd";
       cat = "bat";
       du = "dust";
+
 
 
     };
