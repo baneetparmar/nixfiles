@@ -6,7 +6,8 @@
     python311Packages.pip
     git
     gnumake
-    nodejs_20
+    nodejs_21
+    bun
     lazygit
     gh
     gnumake
