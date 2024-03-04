@@ -4,12 +4,12 @@
     enable = true;
     lfs.enable = true;
     userName = "Baneet Parmar";
-    userEmail = "eraseableshadow@gmail.com";
+    userEmail = "baneetparmar7@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
       core.editor = "lvim";
       commit.gpgsign = true;
-      user.signingkey = "D62277961A380B36";
+      user.signingkey ="B4B30DDF71713D91";
     };
   };
 }
