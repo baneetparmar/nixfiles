@@ -33,5 +33,6 @@
     tre-command
     nixpkgs-fmt
     feh
+    poetry
   ];
 }
