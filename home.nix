@@ -27,7 +27,7 @@ in {
     enable = true;
     shellAliases = {
       eh = "home-manager edit";
-      hup = "cd ~/.dotFiles && nix flake update && home-manager switch --flake ~/.dotFiles/";
+      hup = "cd ~/.dotfiles && nix flake update && home-manager switch --flake ~/.dotfiles/";
       lv = "lvim";
       ls = "lsd";
       cat = "bat";

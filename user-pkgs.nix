@@ -4,6 +4,8 @@
     rustup
     python311
     python311Packages.pip
+    python311Packages.jupyter
+    python311Packages.pipx
     git
     gnumake
     nodejs_21
@@ -34,5 +36,6 @@
     nixpkgs-fmt
     feh
     poetry
+    nodePackages.ijavascript
   ];
 }
