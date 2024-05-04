@@ -1,0 +1,42 @@
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [
+    lunarvim
+    rustup
+    python311
+    python311Packages.pip
+    python311Packages.jupyter
+    python311Packages.pipx
+    git
+    gnumake
+    nodejs_21
+    bun
+    lazygit
+    gh
+    gnumake
+    pinentry-curses
+    cachix
+    tealdeer
+    gcc
+    wget
+    lldb_16
+    neovim
+    ripgrep
+    lsd
+    bat
+    fd
+    procs
+    sd
+    du-dust
+    tokei
+    hyperfine
+    bandwhich
+    grex
+    zoxide
+    tre-command
+    nixpkgs-fmt
+    feh
+    poetry
+    nodePackages.ijavascript
+    kitty
+  ];
+}
