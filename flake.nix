@@ -4,20 +4,24 @@
   # takes urls for pkgs and inputs, imports, pkgs repos etc..
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    matugen.url = "github:InioX/Matugen";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
 
   # tells what to do with pkgs/urls/inputs in input block
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, matugen, spicetify-nix, ...}@inputs :
     let
 
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-
+      pkgs-common-configs = {system = "x86_64-linux"; config.allowUnfree = true;};
+      
+      pkgs = import nixpkgs pkgs-common-configs;
+      pkgs-unstable = import nixpkgs-unstable pkgs-common-configs;
     in
     {
 
@@ -25,7 +29,14 @@
         inherit pkgs;
         modules = [
           ./home.nix
+          # ./spicetify.nix
+          # ./matugen.nix
         ];
+        extraSpecialArgs = {
+          inherit pkgs-unstable;
+          inherit spicetify-nix;
+          inherit matugen;
+      };
       };
     };
 }

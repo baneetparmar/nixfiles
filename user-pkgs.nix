@@ -1,42 +1,106 @@
-{ config, pkgs, ... }: {
-  home.packages = with pkgs; [
-    lunarvim
+{inputs, config, pkgs, pkgs-unstable, ... }: {
+  home.packages = ( with pkgs; [
+    # =====  Dev tools & s/w ===== #
+    gh
+    git
+    
+    gcc
+    gnumake
+    lldb_16
+
     rustup
+    
+    poetry
     python311
     python311Packages.pip
     python311Packages.jupyter
     python311Packages.pipx
-    git
-    gnumake
-    nodejs_21
+
     bun
-    lazygit
-    gh
-    gnumake
-    pinentry-curses
-    cachix
-    tealdeer
-    gcc
-    wget
-    lldb_16
-    neovim
-    ripgrep
-    lsd
-    bat
-    fd
-    procs
-    sd
-    du-dust
-    tokei
-    hyperfine
-    bandwhich
-    grex
-    zoxide
-    tre-command
-    nixpkgs-fmt
-    feh
-    poetry
+    nodejs_21
     nodePackages.ijavascript
-    kitty
-  ];
+    
+    tokei
+    cachix
+    nixpkgs-fmt
+    pinentry-curses
+
+    # ===== Utils ===== #
+    sd
+    fd
+    lf
+    feh
+    lsd
+    fzf
+    bat
+    wget
+    grex
+    procs
+    zoxide
+    neovim
+    zfxtop
+    ripgrep
+    lazygit
+    tealdeer
+    lunarvim
+    bandwhich
+    hyperfine
+    tre-command
+    pavucontrol
+
+
+    # Ricing & hyprland stuff 
+    tofi
+    swww
+    slurp
+    sassc
+    swappy
+    du-dust
+    dart-sass
+    hyprpaper
+    hyprpicker
+    wf-recorder
+    google-fonts
+    wl-clipboard
+    inotify-tools
+    brightnessctl
+    reversal-icon-theme
+    whitesur-icon-theme
+
+    # ===== Gnome pkgs ===== #
+    gtk3
+    amberol
+    libadwaita
+    accountsservice
+    gnome.libgnome-keyring
+    gnome.gnome-tweaks
+    xdg-desktop-portal-gnome
+
+    # <<<=== s/w === >>> #
+    mpv
+    wayshot
+    stremio
+    vesktop 
+    ncmpcpp
+    qbittorrent
+    telegram-desktop
+    
+  ])
+
+  ++( with pkgs-unstable; [
+    # =====  Dev tools & s/w ===== #
+    vscode
+
+    #====== Ricing & Hyprland Stuff
+    anyrun
+    wezterm
+    hyprlock
+    hypridle
+    hyprcursor
+    phinger-cursors
+    xdg-desktop-portal-hyprland
+
+    # ==== s/w ===== #
+  ]);
+
 }

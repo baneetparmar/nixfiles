@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ libs, ... }:
 let system = "x86_64-linux";
 
 
@@ -10,6 +10,8 @@ in {
   imports = [
     ./git.nix
     ./user-pkgs.nix
+    ./matugen.nix
+    ./spicetify.nix
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
@@ -36,7 +38,7 @@ in {
 
     };
     shellInit = "
-      fish_config theme choose 'Dracula Official'
+      fish_config theme choose 'RosePineMoon'
       direnv hook fish | source
       zoxide init fish | source
     ";
