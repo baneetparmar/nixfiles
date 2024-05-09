@@ -9,9 +9,10 @@ in {
 
   imports = [
     ./git.nix
-    ./user-pkgs.nix
     ./matugen.nix
     ./spicetify.nix
+    ./user-pkgs.nix
+    ./hyprcursor-phinger.nix
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.

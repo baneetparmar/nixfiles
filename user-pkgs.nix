@@ -1,4 +1,4 @@
-{inputs, config, pkgs, pkgs-unstable, ... }: {
+{nputs, config, pkgs, pkgs-unstable, ... }: {
   home.packages = ( with pkgs; [
     # =====  Dev tools & s/w ===== #
     gh
@@ -8,6 +8,7 @@
     gnumake
     lldb_16
 
+    bacon
     rustup
     
     poetry
@@ -17,6 +18,7 @@
     python311Packages.pipx
 
     bun
+    yarn
     nodejs_21
     nodePackages.ijavascript
     
@@ -34,6 +36,7 @@
     fzf
     bat
     wget
+    ncdu
     grex
     procs
     zoxide
@@ -43,6 +46,7 @@
     lazygit
     tealdeer
     lunarvim
+    fastfetch
     bandwhich
     hyperfine
     tre-command
@@ -58,12 +62,14 @@
     du-dust
     dart-sass
     hyprpaper
+    maple-mono
     hyprpicker
     wf-recorder
     google-fonts
     wl-clipboard
     inotify-tools
     brightnessctl
+    maple-mono-NF
     reversal-icon-theme
     whitesur-icon-theme
 
@@ -72,18 +78,20 @@
     amberol
     libadwaita
     accountsservice
-    gnome.libgnome-keyring
     gnome.gnome-tweaks
-    xdg-desktop-portal-gnome
+    gnome.libgnome-keyring
 
-    # <<<=== s/w === >>> #
+    # ====== kde pkgs ======= #
+
+    # <<<=== s-w === >>> #
     mpv
     wayshot
-    stremio
     vesktop 
     ncmpcpp
-    qbittorrent
+    appimage-run
+    google-chrome
     telegram-desktop
+    openrgb-with-all-plugins
     
   ])
 
@@ -92,15 +100,22 @@
     vscode
 
     #====== Ricing & Hyprland Stuff
-    anyrun
     wezterm
+    nwg-look
     hyprlock
     hypridle
     hyprcursor
     phinger-cursors
-    xdg-desktop-portal-hyprland
 
-    # ==== s/w ===== #
+    # ====== kde pkgs ======= #
+    kdePackages.qt6ct
+
+    # ==== s-w ===== #
+    librum
+    stremio
+    obsidian
+    localsend
+    qbittorrent
   ]);
 
 }

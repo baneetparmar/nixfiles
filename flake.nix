@@ -11,11 +11,12 @@
     };
     matugen.url = "github:InioX/Matugen";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
   };
 
 
   # tells what to do with pkgs/urls/inputs in input block
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, matugen, spicetify-nix, ...}@inputs :
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, matugen, spicetify-nix, hyprcursor-phinger, ...}@inputs :
     let
 
       pkgs-common-configs = {system = "x86_64-linux"; config.allowUnfree = true;};
@@ -29,13 +30,12 @@
         inherit pkgs;
         modules = [
           ./home.nix
-          # ./spicetify.nix
-          # ./matugen.nix
         ];
         extraSpecialArgs = {
           inherit pkgs-unstable;
           inherit spicetify-nix;
           inherit matugen;
+          inherit hyprcursor-phinger;
       };
       };
     };
