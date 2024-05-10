@@ -1,5 +1,4 @@
-{ pkgs, config, flake, ... }:
-{
+{ pkgs, config, flake, ... }: {
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -9,7 +8,7 @@
       init.defaultBranch = "main";
       core.editor = "lvim";
       commit.gpgsign = true;
-      user.signingkey ="ECB96860AEE08FB3";
+      user.signingkey = "ECB96860AEE08FB3";
     };
   };
 }

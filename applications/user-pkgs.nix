@@ -1,16 +1,16 @@
-{nputs, config, pkgs, pkgs-unstable, ... }: {
-  home.packages = ( with pkgs; [
+{ config, pkgs, pkgs-unstable, ... }: {
+  home.packages = (with pkgs; [
     # =====  Dev tools & s/w ===== #
     gh
     git
-    
+
     gcc
     gnumake
     lldb_16
 
     bacon
     rustup
-    
+
     poetry
     python311
     python311Packages.pip
@@ -21,7 +21,7 @@
     yarn
     nodejs_21
     nodePackages.ijavascript
-    
+
     tokei
     cachix
     nixpkgs-fmt
@@ -52,7 +52,6 @@
     tre-command
     pavucontrol
 
-
     # Ricing & hyprland stuff 
     tofi
     swww
@@ -82,40 +81,42 @@
     gnome.libgnome-keyring
 
     # ====== kde pkgs ======= #
+    libsForQt5.qt5ct
+    qt6Packages.qt6ct
+    qt6Packages.qtstyleplugin-kvantum
 
     # <<<=== s-w === >>> #
-    mpv
+    mpd
     wayshot
-    vesktop 
+    vesktop
     ncmpcpp
     appimage-run
     google-chrome
     telegram-desktop
     openrgb-with-all-plugins
-    
+
   ])
 
-  ++( with pkgs-unstable; [
-    # =====  Dev tools & s/w ===== #
-    vscode
+    ++ (with pkgs-unstable; [
+      # =====  Dev tools & s/w ===== #
+      vscode
 
-    #====== Ricing & Hyprland Stuff
-    wezterm
-    nwg-look
-    hyprlock
-    hypridle
-    hyprcursor
-    phinger-cursors
+      #====== Ricing & Hyprland Stuff
+      wezterm
+      nwg-look
+      hyprlock
+      hypridle
+      hyprcursor
+      phinger-cursors
 
-    # ====== kde pkgs ======= #
-    kdePackages.qt6ct
+      # ====== kde pkgs ======= #
 
-    # ==== s-w ===== #
-    librum
-    stremio
-    obsidian
-    localsend
-    qbittorrent
-  ]);
+      # ==== s-w ===== #
+      librum
+      stremio
+      obsidian
+      localsend
+      qbittorrent
+    ]);
 
 }
