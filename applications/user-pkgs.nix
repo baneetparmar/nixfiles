@@ -5,6 +5,7 @@
     git
 
     gcc
+    glibc
     gnumake
     lldb_16
 
@@ -69,8 +70,6 @@
     inotify-tools
     brightnessctl
     maple-mono-NF
-    reversal-icon-theme
-    whitesur-icon-theme
 
     # ===== Gnome pkgs ===== #
     gtk3
@@ -81,20 +80,20 @@
     gnome.libgnome-keyring
 
     # ====== kde pkgs ======= #
-    libsForQt5.qt5ct
-    qt6Packages.qt6ct
-    qt6Packages.qtstyleplugin-kvantum
 
     # <<<=== s-w === >>> #
     mpd
+    aria
     wayshot
     vesktop
     ncmpcpp
+    alsa-oss
+    persepolis
+    qbittorrent
     appimage-run
     google-chrome
+    uget-integrator
     telegram-desktop
-    openrgb-with-all-plugins
-
   ])
 
     ++ (with pkgs-unstable; [
@@ -107,7 +106,6 @@
       hyprlock
       hypridle
       hyprcursor
-      phinger-cursors
 
       # ====== kde pkgs ======= #
 
@@ -116,7 +114,6 @@
       stremio
       obsidian
       localsend
-      qbittorrent
     ]);
 
 }
