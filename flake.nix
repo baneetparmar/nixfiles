@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags.url = "github:Aylur/ags";
+    stylix.url = "github:danth/stylix/release-23.11";
     matugen.url = "github:InioX/Matugen";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
@@ -17,7 +18,7 @@
 
   # tells what to do with pkgs/urls/inputs in input block
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, matugen, spicetify-nix
-    , hyprcursor-phinger, ags, ... }@inputs:
+    , hyprcursor-phinger, ags, stylix, ... }@inputs:
     let
 
       pkgs-common-configs = {
@@ -31,12 +32,16 @@
 
       homeConfigurations."bane" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ 
+          ./home.nix 
+        ];
+
         extraSpecialArgs = {
+          inherit ags;
+          inherit stylix;
+          inherit matugen;
           inherit pkgs-unstable;
           inherit spicetify-nix;
-          inherit matugen;
-          inherit ags;
           inherit hyprcursor-phinger;
         };
       };

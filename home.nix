@@ -13,7 +13,7 @@ in {
     ./applications/spicetify.nix
     ./applications/user-pkgs.nix
     ./applications/hyprcursor-phinger.nix
-    # ./config/config.nix
+    # ./config/stylix.nix
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
@@ -50,6 +50,7 @@ in {
     nix-direnv.enable = true;
     enableBashIntegration = true;
   };
+
 
   programs.gpg.enable = true;
   services.gpg-agent = {
@@ -91,7 +92,7 @@ in {
     iconTheme.package = pkgs.whitesur-icon-theme;
     iconTheme.name = "WhiteSur-dark"; 
   };
-
+  
   programs.home-manager.enable = true;
 }
 

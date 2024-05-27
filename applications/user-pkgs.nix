@@ -60,6 +60,7 @@
     sassc
     swappy
     du-dust
+    ydotool
     dart-sass
     hyprpaper
     maple-mono
@@ -80,10 +81,12 @@
     gnome.libgnome-keyring
 
     # ====== kde pkgs ======= #
+    qt6.qtwayland
 
     # <<<=== s-w === >>> #
     mpd
     aria
+    brave
     wayshot
     vesktop
     ncmpcpp
@@ -108,6 +111,7 @@
       hyprcursor
 
       # ====== kde pkgs ======= #
+      libsForQt5.qt5.qtwayland
 
       # ==== s-w ===== #
       librum
