@@ -85,7 +85,6 @@
 
     # <<<=== s-w === >>> #
     mpd
-    aria
     brave
     wayshot
     vesktop
@@ -114,6 +113,7 @@
       libsForQt5.qt5.qtwayland
 
       # ==== s-w ===== #
+      miru
       librum
       stremio
       obsidian

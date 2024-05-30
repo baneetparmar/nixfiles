@@ -10,8 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags.url = "github:Aylur/ags";
-    stylix.url = "github:danth/stylix/release-23.11";
     matugen.url = "github:InioX/Matugen";
+    stylix.url = "github:danth/stylix/release-23.11";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
   };
