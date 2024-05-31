@@ -6,10 +6,7 @@ in {
   home.homeDirectory = "/home/bane";
   nixpkgs.config.allowUnfree = true;
 
-  imports = [
-    ./config/config.nix
-   ./applications/applications.nix
-  ];
+  imports = [ ./config/config.nix ./applications/applications.nix ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
@@ -41,9 +38,9 @@ in {
     theme.package = pkgs.whitesur-gtk-theme;
     theme.name = "WhiteSur-Dark";
     iconTheme.package = pkgs.whitesur-icon-theme;
-    iconTheme.name = "WhiteSur-dark"; 
+    iconTheme.name = "WhiteSur-dark";
   };
-  
+
   programs.home-manager.enable = true;
 }
 

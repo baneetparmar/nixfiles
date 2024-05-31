@@ -1,9 +1,7 @@
-{...}:
-{
+{ ... }: {
   programs.yt-dlp = {
     enable = true;
-    extraConfig = 
-    ''
+    extraConfig = ''
       --no-overwrites
       --no-playlist
       --embed-metadata

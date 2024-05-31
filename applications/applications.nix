@@ -1,4 +1,4 @@
-{pkgs, ...}:{
+{ pkgs, ... }: {
   imports = [
     # ./tofi.nix
     ./ags.nix
@@ -20,7 +20,6 @@
     nix-direnv.enable = true;
     enableBashIntegration = true;
   };
-
 
   programs.gpg.enable = true;
   services.gpg-agent = {
