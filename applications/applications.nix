@@ -2,9 +2,9 @@
   imports = [
     # ./tofi.nix
     ./ags.nix
+    ./fish.nix
     ./aria2.nix
     ./yt-dlp.nix
-    ./matugen.nix
     ./spicetify.nix
     ./user-pkgs.nix
     ./hyprcursor-phinger.nix

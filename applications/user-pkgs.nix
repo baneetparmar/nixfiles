@@ -84,17 +84,13 @@
     qt6.qtwayland
 
     # <<<=== s-w === >>> #
-    mpd
     brave
     wayshot
     vesktop
-    ncmpcpp
     alsa-oss
-    persepolis
     qbittorrent
     appimage-run
     google-chrome
-    uget-integrator
     telegram-desktop
   ])
 
@@ -114,7 +110,6 @@
 
       # ==== s-w ===== #
       miru
-      librum
       stremio
       obsidian
       localsend

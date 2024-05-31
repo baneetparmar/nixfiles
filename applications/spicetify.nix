@@ -8,13 +8,9 @@ in {
 
   programs.spicetify = {
     enable = true;
-    # theme = spicePkgs.themes.Onepunch;
-
     enabledExtensions = with spicePkgs.extensions; [ hidePodcasts adblock ];
-    # specify that we want to use our custom colorscheme
-    colorScheme = "custom";
 
-    # color definition for custom color scheme. (rosepine)
+    colorScheme = "custom";
     customColorScheme = {
       text = "ebbcba";
       subtext = "F0F0F0";
@@ -33,6 +29,5 @@ in {
       notification-error = "eb6f92";
       misc = "6e6a86";
     };
-
   };
 }
