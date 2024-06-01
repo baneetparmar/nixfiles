@@ -8,7 +8,7 @@
       init.defaultBranch = "main";
       core.editor = "lvim";
       commit.gpgsign = true;
-      user.signingkey = "ECB96860AEE08FB3";
+      user.signingkey = "D5EA058BA8C6C7A9";
     };
   };
 }

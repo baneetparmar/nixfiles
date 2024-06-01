@@ -20,7 +20,7 @@
 
     bun
     yarn
-    nodejs_21
+    nodejs_22
     nodePackages.ijavascript
 
     tokei
@@ -82,8 +82,6 @@
 
     # ====== kde pkgs ======= #
     qt6.qtwayland
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
 
     # <<<=== s-w === >>> #
     brave
@@ -103,6 +101,9 @@
   ++ (with pkgs-unstable; [
     # =====  Dev tools & s/w ===== #
     vscode
+    
+    #====== fonts ======== #
+    fira-code-nerdfont
 
     #====== Ricing & Hyprland Stuff
     wezterm

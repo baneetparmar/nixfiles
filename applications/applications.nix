@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    # ./tofi.nix
     ./ags.nix
+    ./tofi.nix
     ./fish.nix
     ./aria2.nix
     ./yt-dlp.nix
@@ -25,8 +25,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryFlavor = "curses";
-
+    pinentryPackage = pkgs.pinentry-curses;
   };
 
   services.kdeconnect = {
