@@ -1,11 +1,11 @@
 { pkgs, ... }: {
   imports = [
-    ./ags.nix
     ./tofi.nix
     ./fish.nix
     ./aria2.nix
     ./yt-dlp.nix
     ./wezterm.nix
+    ./ags/ags.nix
     ./spicetify.nix
     ./hypr/hypr.nix
     ./user-pkgs.nix

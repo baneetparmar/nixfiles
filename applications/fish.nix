@@ -5,7 +5,7 @@
       eh = "home-manager edit";
       hup =
         "cd ~/.nixfiles && nix flake update && home-manager switch --flake ~/.nixfiles/ && cd ~";
-      hupb = "cd ~/.nixfiles && nix flake update && home-manager switch --flake -b backup ~/nixfiles/ && cd ~";
+      hupb = "cd ~/.nixfiles && nix flake update && home-manager switch --flake ~/nixfiles/ -b backup && cd ~";
       lv = "lvim";
       ls = "lsd";
       cat = "bat";
