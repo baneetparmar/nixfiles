@@ -5,7 +5,9 @@
     ./fish.nix
     ./aria2.nix
     ./yt-dlp.nix
+    ./wezterm.nix
     ./spicetify.nix
+    ./hypr/hypr.nix
     ./user-pkgs.nix
     ./hyprcursor-phinger.nix
   ];

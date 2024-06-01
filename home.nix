@@ -17,7 +17,7 @@ in {
   home.sessionVariables = { EDITOR = "lvim"; };
 
   fonts.fontconfig.enable = true;
-
+  
   qt = {
     enable = true;
     platformTheme.name = "qtct";
@@ -33,12 +33,23 @@ in {
 
   gtk = {
     enable = true;
-    cursorTheme.package = pkgs.phinger-cursors;
-    cursorTheme.name = "phinger-cursors";
-    theme.package = pkgs.whitesur-gtk-theme;
-    theme.name = "WhiteSur-Dark";
-    iconTheme.package = pkgs.whitesur-icon-theme;
-    iconTheme.name = "WhiteSur-dark";
+    cursorTheme = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors";
+      size = 24;
+    };
+    theme = {
+      package = pkgs.whitesur-gtk-theme;
+      name = "WhiteSur-Dark";
+    };
+    iconTheme = {
+      package = pkgs.whitesur-icon-theme;
+      name = "WhiteSur-dark";
+    };
+    font = {
+      name = "Open Sans Regular";
+      size = 10;
+    };
   };
 
   programs.home-manager.enable = true;

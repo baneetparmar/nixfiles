@@ -46,7 +46,6 @@
     ripgrep
     lazygit
     tealdeer
-    lunarvim
     fastfetch
     bandwhich
     hyperfine
@@ -62,7 +61,6 @@
     du-dust
     ydotool
     dart-sass
-    hyprpaper
     maple-mono
     hyprpicker
     wf-recorder
@@ -105,11 +103,12 @@
     #====== fonts ======== #
     fira-code-nerdfont
 
+    # ======= utils ===== #
+    lunarvim
+
     #====== Ricing & Hyprland Stuff
     wezterm
     nwg-look
-    hyprlock
-    hypridle
     hyprcursor
 
     # ====== kde pkgs ======= #
