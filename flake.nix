@@ -15,8 +15,15 @@
   };
 
   # tells what to do with pkgs/urls/inputs in input block
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, spicetify-nix
-    , hyprcursor-phinger, ags, ... }@inputs:
+  outputs =
+    { nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , spicetify-nix
+    , hyprcursor-phinger
+    , ags
+    , ...
+    }@inputs:
     let
 
       pkgs-common-configs = {
@@ -26,7 +33,8 @@
 
       pkgs = import nixpkgs pkgs-common-configs;
       pkgs-unstable = import nixpkgs-unstable pkgs-common-configs;
-    in {
+    in
+    {
 
       homeConfigurations."bane" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

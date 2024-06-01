@@ -82,6 +82,8 @@
 
     # ====== kde pkgs ======= #
     qt6.qtwayland
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
 
     # <<<=== s-w === >>> #
     brave
@@ -92,27 +94,33 @@
     appimage-run
     google-chrome
     telegram-desktop
+
+    # ====== misc ========= #
+    krabby
+
   ])
 
-    ++ (with pkgs-unstable; [
-      # =====  Dev tools & s/w ===== #
-      vscode
+  ++ (with pkgs-unstable; [
+    # =====  Dev tools & s/w ===== #
+    vscode
 
-      #====== Ricing & Hyprland Stuff
-      wezterm
-      nwg-look
-      hyprlock
-      hypridle
-      hyprcursor
+    #====== Ricing & Hyprland Stuff
+    wezterm
+    nwg-look
+    hyprlock
+    hypridle
+    hyprcursor
 
-      # ====== kde pkgs ======= #
-      libsForQt5.qt5.qtwayland
+    # ====== kde pkgs ======= #
+    libsForQt5.qt5.qtwayland
 
-      # ==== s-w ===== #
-      miru
-      stremio
-      obsidian
-      localsend
-    ]);
+    # ==== s-w ===== #
+    miru
+    varia
+    gparted
+    stremio
+    obsidian
+    localsend
+  ]);
 
 }
