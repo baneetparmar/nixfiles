@@ -6,9 +6,9 @@
     ./yt-dlp.nix
     ./wezterm.nix
     ./ags/ags.nix
+    ./pkgsList.nix
     ./spicetify.nix
     ./hypr/hypr.nix
-    ./user-pkgs.nix
     ./hyprcursor-phinger.nix
   ];
 
