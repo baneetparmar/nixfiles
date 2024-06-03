@@ -111,7 +111,8 @@
             disable_hyprland_logo = true
         }
 
-        windowrulev2 = opaque , title:(.*)(- mpv)$
+        windowrulev2 = opaque, title:(.*)(- mpv)$
+        windowrulev2 = opaque, class:(com.stremio.stremio)$
 
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 

@@ -6,7 +6,7 @@ in {
   home.homeDirectory = "/home/bane";
   nixpkgs.config.allowUnfree = true;
 
-  imports = [ ./config/config.nix ./applications/applications.nix ];
+  imports = [ ./config ./applications ];
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
