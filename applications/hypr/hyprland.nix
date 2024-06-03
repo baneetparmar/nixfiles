@@ -1,190 +1,177 @@
-{...}:{
+{ ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = 
-    ''
-      monitor=,highrr,0x0,1
+    extraConfig =
+      ''
+        monitor=,highrr,0x0,1
 
-      # Execute your favorite apps at launch
-      exec-once = ags -q && ags &
-      exec-once = hyprpaper &
-      exec-once = bluetoothctl connect FC:58:FA:41:8F:73 &
-      exec-once = waydroid session start
-      exec-once = varia &
+        # Execute your favorite apps at launch
+        exec-once = ags -q && ags &
+        exec-once = hyprpaper &
+        exec-once = bluetoothctl connect FC:58:FA:41:8F:73 &
+        exec-once = waydroid session start
+        exec-once = varia &
 
+        # Some default env vars.
+        env = XCURSOR_SIZE,24
+        env = XCURSOR_THEME,phinger-cursors-dark
+        env = HYPRCURSOR_SIZE,24
+        env = HYPRCURSOR_THEME,phinger-cursors-dark
 
-      # Source a file (multi-file configs)
-      # source = ~/.config/hypr/rose-pine-theme.conf
+        # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
+        input {
+            kb_layout = us
+            kb_variant =
+            kb_model =
+            kb_options =
+            kb_rules =
 
-      # Some default env vars.
-      env = XCURSOR_SIZE,24
-      env = XCURSOR_THEME,phinger-cursors-dark
-      env = HYPRCURSOR_SIZE,24
-      env = HYPRCURSOR_THEME,phinger-cursors-dark
+            follow_mouse = 1
+            sensitivity = 0.6
+            force_no_accel = yes
 
-      # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-      input {
-          kb_layout = us
-          kb_variant =
-          kb_model =
-          kb_options =
-          kb_rules =
+            touchpad {
+                natural_scroll = no
+            }
 
-          follow_mouse = 1
+        }
 
-          touchpad {
-              natural_scroll = no
-          }
+        general {
+            # See https://wiki.hyprland.org/Configuring/Variables/ for more
+            gaps_in = 5
+            gaps_out = 7
+            border_size = 0
 
-      }
+            layout = dwindle
 
-      general {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-          gaps_in = 5
-          gaps_out = 10
-          border_size = 0
-          # col.active_border = $rose $pine $love $iris 90deg
-          # col.inactive_border = $muted
+            # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+            allow_tearing = false
+        }
 
-          layout = dwindle
+        decoration {
+            # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-          # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-          allow_tearing = false
-      }
+            rounding = 10
+            active_opacity = 0.95
+            inactive_opacity = 0.9
 
-      decoration {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
+            blur {
+                enabled = true
+                size = 8
+                passes = 4
+                noise = 0
+                brightness = 1
+                special = true
+                popups = true
+                new_optimizations = on
+                ignore_opacity = yes
+                xray = yes
+            }
 
-          rounding = 10
+            drop_shadow = yes
+            shadow_range = 4
+            shadow_render_power = 3
+            col.shadow = rgba(1a1a1aee)
+        }
 
-          blur {
-              enabled = true
-              size = 10
-              passes = 5
-              new_optimizations = on
-              # ignore_opacity = yes
-              xray = yes
-          }
+        animations {
+            enabled = yes
+            first_launch_animation = true
 
-          drop_shadow = yes
-          shadow_range = 4
-          shadow_render_power = 3
-          col.shadow = rgba(1a1a1aee)
-          active_opacity = 0.85
-          fullscreen_opacity = 1
-      }
+            bezier = easeInOutBounce,0.175,0.885,0.32,1.275
 
-      animations {
-          enabled = yes
+            animation = windows, 1, 7,easeInOutBounce
+            animation = windowsOut, 1, 7, default, popin 80%
+            animation = border, 1, 10, default
+            animation = borderangle, 1, 8, default
+            animation = fade, 1, 7, default
+            animation = workspaces, 1, 6, default
+        }
 
-          # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+        dwindle {
+            # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+            pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+            preserve_split = yes # you probably want this
+        }
 
-          # bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-          bezier = easeInOutBounce,0.175,0.885,0.32,1.275
+        master {
+            # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+            new_is_master = true
+        }
 
-          animation = windows, 1, 7,easeInOutBounce
-          animation = windowsOut, 1, 7, default, popin 80%
-          animation = border, 1, 10, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-          animation = workspaces, 1, 6, default
-      }
+        gestures {
+            # See https://wiki.hyprland.org/Configuring/Variables/ for more
+            workspace_swipe = off
+        }
 
-      dwindle {
-          # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-          pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-          preserve_split = yes # you probably want this
-      }
+        misc {
+            # See https://wiki.hyprland.org/Configuring/Variables/ for more
+            force_default_wallpaper = 0 # Set to 0 to disable the anime mascot wallpapers
+            animate_manual_resizes = true
+            disable_hyprland_logo = true
+        }
 
-      master {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          new_is_master = true
-      }
+        windowrulev2 = opaque , title:(.*)(- mpv)$
 
-      gestures {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-          workspace_swipe = off
-      }
+        # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
-      misc {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-          force_default_wallpaper = 0 # Set to 0 to disable the anime mascot wallpapers
-          animate_manual_resizes = true
-      }
+        $mainMod = SUPER
 
-      # Example per-device config
-      # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-      # device:epic-mouse-v1 {
-      #     sensitivity = 0.6
-      # }
+        # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
+        bind = $mainMod, RETURN, exec, wezterm
+        bind = $mainMod, Q, killactive,
+        bind = $mainMod, E, exec, nautilus -w
+        bind = $mainMod, V, togglefloating,
+        bind = $mainMod, P, pseudo, # dwindle
+        bind = $mainMod, J, togglesplit, # dwindle
+        bind = $mainMod, L, exec, hyprlock
+        bind = SUPERSHIFT, F, fullscreen, 0
+        bind = $mainMod, F, fullscreen, 1
+        bind = CONTROLALT, Delete, exec, ags -t powermenu
+        bind = ALT, Space, exec, tofi-drun | xargs hyprctl dispatch exec --
+        bind = $mainMod,S, exec, cd ~/Pictures/Screenshots/ && wayshot
 
-      input {
-        sensitivity= 0.6
-        force_no_accel = 1
-        natural_scroll = true
-      }
-      # Example windowrule v1
-      # windowrule = opacity 0.8 0.8
-      windowrulev2 = opaque , title:(.*)(- mpv)$
+        # Move focus with mainMod + arrow keys
+        bind = $mainMod, left, movefocus, l
+        bind = $mainMod, right, movefocus, r
+        bind = $mainMod, up, movefocus, u
+        bind = $mainMod, down, movefocus, d
 
-      # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-      $mainMod = SUPER
+        # Switch workspaces with mainMod + [0-9]
+        bind = $mainMod, 1, workspace, 1
+        bind = $mainMod, 2, workspace, 2
+        bind = $mainMod, 3, workspace, 3
+        bind = $mainMod, 4, workspace, 4
+        bind = $mainMod, 5, workspace, 5
+        bind = $mainMod, 6, workspace, 6
+        bind = $mainMod, 7, workspace, 7
+        bind = $mainMod, 8, workspace, 8
+        bind = $mainMod, 9, workspace, 9
+        bind = $mainMod, 0, workspace, 10
 
-      # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-      bind = $mainMod, RETURN, exec, wezterm
-      bind = $mainMod, Q, killactive,
-      bind = $mainMod, E, exec, nautilus -w
-      bind = $mainMod, V, togglefloating,
-      bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, J, togglesplit, # dwindle
-      bind = $mainMod, L, exec, hyprlock
-      bind = SUPERSHIFT, F, fullscreen, 0
-      bind = $mainMod, F, fullscreen, 1
-      bind = CONTROLALT, Delete, exec, ags -t powermenu
-      bind = ALT, Space, exec, tofi-drun | xargs hyprctl dispatch exec --
-      bind = $mainMod,S, exec, cd ~/Pictures/Screenshots/ && wayshot
+        # Move active window to a workspace with mainMod + SHIFT + [0-9]
+        bind = $mainMod SHIFT, 1, movetoworkspace, 1
+        bind = $mainMod SHIFT, 2, movetoworkspace, 2
+        bind = $mainMod SHIFT, 3, movetoworkspace, 3
+        bind = $mainMod SHIFT, 4, movetoworkspace, 4
+        bind = $mainMod SHIFT, 5, movetoworkspace, 5
+        bind = $mainMod SHIFT, 6, movetoworkspace, 6
+        bind = $mainMod SHIFT, 7, movetoworkspace, 7
+        bind = $mainMod SHIFT, 8, movetoworkspace, 8
+        bind = $mainMod SHIFT, 9, movetoworkspace, 9
+        bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
-      # Move focus with mainMod + arrow keys
-      bind = $mainMod, left, movefocus, l
-      bind = $mainMod, right, movefocus, r
-      bind = $mainMod, up, movefocus, u
-      bind = $mainMod, down, movefocus, d
+        # Example special workspace (scratchpad)
+        bind = $mainMod, M, togglespecialworkspace, magic
+        bind = $mainMod SHIFT, M, movetoworkspace, special:magic
 
-      # Switch workspaces with mainMod + [0-9]
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 10
+        # Scroll through existing workspaces with mainMod + scroll
+        bind = $mainMod, mouse_down, workspace, e+1
+        bind = $mainMod, mouse_up, workspace, e-1
 
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      bind = $mainMod SHIFT, 1, movetoworkspace, 1
-      bind = $mainMod SHIFT, 2, movetoworkspace, 2
-      bind = $mainMod SHIFT, 3, movetoworkspace, 3
-      bind = $mainMod SHIFT, 4, movetoworkspace, 4
-      bind = $mainMod SHIFT, 5, movetoworkspace, 5
-      bind = $mainMod SHIFT, 6, movetoworkspace, 6
-      bind = $mainMod SHIFT, 7, movetoworkspace, 7
-      bind = $mainMod SHIFT, 8, movetoworkspace, 8
-      bind = $mainMod SHIFT, 9, movetoworkspace, 9
-      bind = $mainMod SHIFT, 0, movetoworkspace, 10
-
-      # Example special workspace (scratchpad)
-      bind = $mainMod, M, togglespecialworkspace, magic
-      bind = $mainMod SHIFT, M, movetoworkspace, special:magic
-
-      # Scroll through existing workspaces with mainMod + scroll
-      bind = $mainMod, mouse_down, workspace, e+1
-      bind = $mainMod, mouse_up, workspace, e-1
-
-      # Move/resize windows with mainMod + LMB/RMB and dragging
-      bindm = $mainMod, mouse:272, movewindow
-      bindm = $mainMod, mouse:273, resizewindow
-    '';
+        # Move/resize windows with mainMod + LMB/RMB and dragging
+        bindm = $mainMod, mouse:272, movewindow
+        bindm = $mainMod, mouse:273, resizewindow
+      '';
   };
 }

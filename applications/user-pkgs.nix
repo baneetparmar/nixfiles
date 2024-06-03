@@ -80,6 +80,8 @@
 
     # ====== kde pkgs ======= #
     qt6.qtwayland
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
 
     # <<<=== s-w === >>> #
     brave
@@ -99,7 +101,7 @@
   ++ (with pkgs-unstable; [
     # =====  Dev tools & s/w ===== #
     vscode
-    
+
     #====== fonts ======== #
     fira-code-nerdfont
 

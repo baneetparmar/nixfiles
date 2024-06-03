@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-unstable, ... }: {
   imports = [
     ./tofi.nix
     ./fish.nix
@@ -28,12 +28,6 @@
     enable = true;
     enableSshSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
-  };
-
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-    # package = pkgs-unstable.kdePackages.kdeconnect-kde;
   };
 
   programs.mpv = {
