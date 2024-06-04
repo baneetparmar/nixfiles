@@ -22,7 +22,7 @@ class Wallpaper extends Service {
       {},
       {
         wallpaper: ["string"],
-      }
+      },
     );
   }
 
