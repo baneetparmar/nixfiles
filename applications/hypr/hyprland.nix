@@ -121,7 +121,7 @@
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod, RETURN, exec, wezterm
         bind = $mainMod, Q, killactive,
-        bind = $mainMod, W, firefox --new-window
+        bind = $mainMod, W, exec, firefox --new-window
         bind = $mainMod, E, exec, nautilus -w
         bind = $mainMod, V, togglefloating,
         bind = $mainMod, P, pseudo, # dwindle
