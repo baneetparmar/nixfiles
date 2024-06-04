@@ -4,6 +4,9 @@
     gh
     git
 
+    nurl
+    nix-prefetch-scripts
+
     gcc
     glibc
     gnumake
@@ -54,12 +57,10 @@
 
     # Ricing & hyprland stuff 
     tofi
-    swww
     slurp
     sassc
     swappy
     du-dust
-    ydotool
     dart-sass
     maple-mono
     hyprpicker

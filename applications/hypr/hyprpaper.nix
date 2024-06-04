@@ -1,5 +1,5 @@
 { builtins, ... }:
-let wall = "~/Pictures/Wallpapers/1334626.jpg";
+let wall = "~/Pictures/Wallpapers/1251766.jpg";
 in
 {
   services.hyprpaper = {

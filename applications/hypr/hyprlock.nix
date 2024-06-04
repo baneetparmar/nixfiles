@@ -5,7 +5,7 @@
       # BACKGROUND
       background {
           monitor =
-          path = /home/bane/Pictures/Wallpapers/1244919.jpg
+          path = /home/bane/Pictures/Wallpapers/1251766.jpg
           blur_passes = 3
           contrast = 0.8916
           brightness = 0.8172
