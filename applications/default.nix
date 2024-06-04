@@ -3,6 +3,7 @@
     ./tofi.nix
     ./fish.nix
     ./aria2.nix
+    ./kitty.nix
     ./yt-dlp.nix
     ./wezterm.nix
     ./ags/ags.nix

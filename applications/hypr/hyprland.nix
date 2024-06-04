@@ -119,7 +119,7 @@
         $mainMod = SUPER
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        bind = $mainMod, RETURN, exec, wezterm
+        bind = $mainMod, RETURN, exec, kitty 
         bind = $mainMod, Q, killactive,
         bind = $mainMod, W, exec, firefox --new-window
         bind = $mainMod, E, exec, nautilus -w

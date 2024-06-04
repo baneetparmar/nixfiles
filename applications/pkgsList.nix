@@ -1,10 +1,15 @@
-{ config, pkgs, pkgs-unstable, ... }: {
+{ config, pkgs, pkgs-unstable, ... }:
+let fonts = pkgs.nerdfonts.override { fonts = [ "Hack" "Iosevka" "IosevkaTerm" "JetBrainsMono" "SpaceMono" "UbuntuSans" ]; };
+in
+{
   home.packages = (with pkgs; [
     # =====  Dev tools & s/w ===== #
     gh
     git
 
     nurl
+    cachix
+    nixpkgs-fmt
     nix-prefetch-scripts
 
     gcc
@@ -26,9 +31,8 @@
     nodejs_22
     nodePackages.ijavascript
 
+    just
     tokei
-    cachix
-    nixpkgs-fmt
     pinentry-curses
 
     # ===== Utils ===== #
@@ -124,6 +128,10 @@
     stremio
     obsidian
     localsend
+  ])
+
+  ++ ([
+    fonts
   ]);
 
 }
