@@ -14,6 +14,6 @@ commit message="update":
   git commit -m "{{message}}"
 
 push message="update":
-  just commit message="{{message}}"
+  just commit "{{message}}"
   git push
 

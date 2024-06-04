@@ -131,7 +131,8 @@
         bind = $mainMod, F, fullscreen, 1
         bind = CONTROLALT, Delete, exec, ags -t powermenu
         bind = ALT, Space, exec, tofi-drun | xargs hyprctl dispatch exec --
-        bind = $mainMod,S, exec, cd ~/Pictures/Screenshots/ && wayshot
+        bind = $mainMod,S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+        bind = SUPERSHIFT, S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png -s $(slurp)
 
         # Move focus with mainMod + arrow keys
         bind = $mainMod, left, movefocus, l
