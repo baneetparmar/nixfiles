@@ -1,15 +1,17 @@
 { pkgs, lib, spicetify-nix, ... }:
-let spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
-    hazy  = pkgs.fetchgit {
-      url = "https://github.com/Astromations/Hazy.git";
-      rev = "0d45831a31b0c72e1d3ab8be501479e196a709d7";
-      sha256 = "03y25wv0pi7h88iw5d3i61nmmi4p1hw4z9xgy24zqzjik3dzzpnj";
-      leaveDotGit = false;
-      deepClone = false;
-      fetchSubmodules = false;
-    };
+let
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  hazy = pkgs.fetchgit {
+    url = "https://github.com/Astromations/Hazy.git";
+    rev = "0d45831a31b0c72e1d3ab8be501479e196a709d7";
+    sha256 = "03y25wv0pi7h88iw5d3i61nmmi4p1hw4z9xgy24zqzjik3dzzpnj";
+    leaveDotGit = false;
+    deepClone = false;
+    fetchSubmodules = false;
+  };
 
-in {
+in
+{
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "spotify" ];
 
@@ -30,7 +32,7 @@ in {
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
-      sidebarConfig= true;
+      sidebarConfig = true;
     };
 
     enabledExtensions = with spicePkgs.extensions; [ hidePodcasts adblock ];
