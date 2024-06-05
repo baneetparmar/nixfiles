@@ -6,9 +6,9 @@
         monitor=,highrr,0x0,1
 
         # Execute your favorite apps at launch
-        exec-once = ags -q && ags &
-        exec-once = hyprpaper &
-        exec-once = bluetoothctl connect FC:58:FA:41:8F:73 &
+        exec-once = ags -q && ags &  
+        exec-once = swww-daemon &
+        exec-once = swww img /home/bane/Pictures/Wallpapers/Suzume.gif
         exec-once = waydroid session start
         exec-once = varia &
 
@@ -111,8 +111,9 @@
             disable_hyprland_logo = true
         }
 
-        windowrulev2 = opaque, title:(.*)(- mpv)$
-        windowrulev2 = opaque, class:(com.stremio.stremio)$
+        windowrulev2 = opaque, title: (.*)(- mpv)$
+        windowrulev2 = opaque, class: (com.stremio.stremio)$
+        windowrulev2 = opaque, class: (.*)(steam)(.*)
 
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 

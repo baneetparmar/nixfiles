@@ -61,19 +61,18 @@ in
 
     # Ricing & hyprland stuff 
     tofi
+    swww
     slurp
     sassc
     swappy
     du-dust
     dart-sass
-    maple-mono
     hyprpicker
     wf-recorder
     google-fonts
     wl-clipboard
     inotify-tools
     brightnessctl
-    maple-mono-NF
 
     # ===== Gnome pkgs ===== #
     gtk3
@@ -134,4 +133,26 @@ in
     fonts
   ]);
 
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableBashIntegration = true;
+  };
+
+  programs.gpg.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
+  programs.mpv = {
+    enable = true;
+    scripts = with pkgs.mpvScripts; [ autoload ];
+  };
 }
