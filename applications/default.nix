@@ -8,6 +8,7 @@
     ./yt-dlp.nix
     ./wezterm.nix
     ./ags/ags.nix
+    ./programs.nix
     ./pkgsList.nix
     ./spicetify.nix
     ./hyprcursor-phinger.nix

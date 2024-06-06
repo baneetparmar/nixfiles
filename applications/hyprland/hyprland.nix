@@ -112,14 +112,8 @@
       windowrulev2 = opaque, class: (com.stremio.stremio)$
       windowrulev2 = opaque, class: (.*)(steam)(.*)
 
-      layerrule = unset, namespace: launcher
-      layerrule = blur , namespace: launcher
-      layerrule = ignorezero, namespace: launcher
-      # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
       $mainMod = SUPER
-
-      # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod, RETURN, exec, kitty 
       bind = $mainMod, Q, killactive,
       bind = $mainMod, W, exec, firefox --new-window

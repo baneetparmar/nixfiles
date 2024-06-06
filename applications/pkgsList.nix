@@ -140,27 +140,4 @@ in
   ])
 
   ++ ([ fonts ]);
-
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-    enableBashIntegration = true;
-  };
-
-  programs.gpg.enable = true;
-  services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
-    pinentryPackage = pkgs.pinentry-curses;
-  };
-
-  programs.mpv = {
-    enable = true;
-    scripts = with pkgs.mpvScripts; [ autoload ];
-  };
 }
