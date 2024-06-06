@@ -1,4 +1,4 @@
-{ pkgs, lib, spicetify-nix, ... }:
+{ pkgs, pkgs-unstable, lib, spicetify-nix, ... }:
 let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
   hazy = pkgs.fetchgit {
@@ -12,22 +12,18 @@ let
 
 in
 {
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "spotify" ];
-
   imports = [ spicetify-nix.homeManagerModule ];
 
   programs.spicetify = {
     enable = true;
+    spotifyPackage = pkgs-unstable.spotify;
     theme = {
       name = "Hazy";
       src = hazy;
-      requiredExtensions = [
-        {
-          filename = "hazy.js";
-          src = hazy;
-        }
-      ];
+      requiredExtensions = [{
+        filename = "hazy.js";
+        src = hazy;
+      }];
       appendName = false;
       injectCss = true;
       replaceColors = true;

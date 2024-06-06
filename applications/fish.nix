@@ -2,10 +2,9 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      eh = "home-manager edit";
-      hup =
-        "cd ~/.nixfiles && nix flake update && home-manager switch --flake ~/.nixfiles/ && cd ~";
-      hupb = "cd ~/.nixfiles && nix flake update && home-manager switch --flake ~/nixfiles/ -b backup && cd ~";
+      dup = "just -d ~/.nixfiles --justfile ~/.nixfiles/justfile dup";
+      dupb = "just -d ~/.nixfiles --justfile ~/.nixfiles/justfile dupb";
+      jtm = "just -d ~/.nixfiles --justfile ~/.nixfiles/justfile ";
       lv = "lvim";
       ls = "lsd";
       cat = "bat";

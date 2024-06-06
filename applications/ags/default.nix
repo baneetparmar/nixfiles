@@ -49,7 +49,8 @@ let
     gtk3
   ];
 
-  addBins = list: builtins.concatStringsSep ":" (builtins.map (p: "${p}/bin") list);
+  addBins = list:
+    builtins.concatStringsSep ":" (builtins.map (p: "${p}/bin") list);
 
   greeter = writeShellScript "greeter" ''
     export PATH=$PATH:${addBins dependencies}

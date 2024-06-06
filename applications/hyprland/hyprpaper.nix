@@ -1,14 +1,11 @@
 { builtins, ... }:
 let wall = "~/Pictures/Wallpapers/1251766.jpg";
-in
-{
+in {
   services.hyprpaper = {
     enable = true;
     settings = {
       preload = wall;
-      wallpaper = [
-        "DP-2,${wall}"
-      ];
+      wallpaper = [ "DP-2,${wall}" ];
     };
   };
 }

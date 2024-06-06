@@ -11,9 +11,7 @@
       enableFishIntegration = true;
       enableBashIntegration = true;
     };
-    environment = {
-      "LS_COLORS" = "1";
-    };
+    environment = { "LS_COLORS" = "1"; };
     settings = {
       scrollback_lines = 10000;
       disable_ligatures = "never";

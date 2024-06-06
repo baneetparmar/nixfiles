@@ -25,7 +25,11 @@
       size = 24;
     };
     theme = {
-      package = pkgs.whitesur-gtk-theme.override { colorVariants = [ "Dark" ]; panelSize = "smaller"; nautilusStyle = "glassy"; };
+      package = pkgs.whitesur-gtk-theme.override {
+        colorVariants = [ "Dark" ];
+        panelSize = "smaller";
+        nautilusStyle = "glassy";
+      };
       name = "WhiteSur-Dark";
     };
     iconTheme = {

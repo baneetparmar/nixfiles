@@ -1,5 +1,15 @@
 { config, pkgs, pkgs-unstable, ... }:
-let fonts = pkgs.nerdfonts.override { fonts = [ "Hack" "Iosevka" "IosevkaTerm" "JetBrainsMono" "SpaceMono" "UbuntuSans" ]; };
+let
+  fonts = pkgs.nerdfonts.override {
+    fonts = [
+      "Hack"
+      "Iosevka"
+      "IosevkaTerm"
+      "JetBrainsMono"
+      "SpaceMono"
+      "UbuntuSans"
+    ];
+  };
 in
 {
   home.packages = (with pkgs; [
@@ -61,11 +71,11 @@ in
 
     # Ricing & hyprland stuff 
     tofi
-    swww
     slurp
     sassc
     swappy
     du-dust
+    mpvpaper
     dart-sass
     hyprpicker
     wf-recorder
@@ -129,9 +139,7 @@ in
     localsend
   ])
 
-  ++ ([
-    fonts
-  ]);
+  ++ ([ fonts ]);
 
   programs.starship = {
     enable = true;
