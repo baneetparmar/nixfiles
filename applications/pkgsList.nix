@@ -47,23 +47,10 @@ in
 
     # ===== Utils ===== #
     sd
-    fd
-    lf
-    feh
-    lsd
-    fzf
-    bat
+    btop
     wget
     ncdu
     grex
-    procs
-    zoxide
-    neovim
-    zfxtop
-    ripgrep
-    lazygit
-    tealdeer
-    fastfetch
     bandwhich
     hyperfine
     tre-command
@@ -109,6 +96,7 @@ in
 
     # ====== misc ========= #
     krabby
+    leetcode-cli
 
   ])
 
@@ -123,7 +111,6 @@ in
     lunarvim
 
     #====== Ricing & Hyprland Stuff
-    wezterm
     nwg-look
     hyprcursor
 
@@ -133,7 +120,6 @@ in
     # ==== s-w ===== #
     miru
     varia
-    gparted
     stremio
     obsidian
     localsend

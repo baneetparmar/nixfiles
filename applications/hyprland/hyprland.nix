@@ -6,7 +6,7 @@
 
       # Execute your favorite apps at launch
       exec-once = ags -q && ags &  
-      exec-once = mpvpaper -o "loop" DP-2 ~/Pictures/Wallpapers/Suzume.mp4 & 
+      exec-once = mpvpaper -o "loop" DP-2 ~/Pictures/Wallpapers/dualDaggers.mp4 & 
       exec-once = varia &
 
       # Some default env vars.
@@ -36,13 +36,13 @@
       general {
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
           gaps_in = 5
-          gaps_out = 7
+          gaps_out = 5
           border_size = 0
 
           layout = dwindle
 
           # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-          allow_tearing = false
+          allow_tearing = true 
       }
 
       decoration {
@@ -62,7 +62,6 @@
               popups = true
               new_optimizations = on
               ignore_opacity = yes
-              xray = yes
           }
 
           drop_shadow = yes

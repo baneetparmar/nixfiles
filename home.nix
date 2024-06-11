@@ -16,6 +16,7 @@ in {
   #  /etc/profiles/per-user/bane/etc/profile.d/hm-session-vars.sh
   home.sessionVariables = { EDITOR = "lvim"; };
 
+
   programs.home-manager.enable = true;
 }
 

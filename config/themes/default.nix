@@ -5,8 +5,8 @@
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
-    style.name = "kvantum";
+    platformTheme.name = "qtct";
+    # style.name = "kvantum";
     style.package = pkgs.whitesur-kde;
   };
   xdg.configFile = {
@@ -29,6 +29,7 @@
         colorVariants = [ "Dark" ];
         panelSize = "smaller";
         nautilusStyle = "glassy";
+        panelOpacity = "75";
       };
       name = "WhiteSur-Dark";
     };

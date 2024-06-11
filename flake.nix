@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ags.url = "github:Aylur/ags";
+    nixvim.url = "github:nix-community/nixvim";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
   };
@@ -42,6 +43,7 @@
 
         extraSpecialArgs = {
           inherit ags;
+          inherit inputs;
           inherit pkgs-unstable;
           inherit spicetify-nix;
           inherit hyprcursor-phinger;

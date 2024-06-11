@@ -22,7 +22,7 @@ $button-radius: $radius;
 }
 
 .bar {
-  background-color: transparentize($bg, 0.1);
+  background-color: transparent;
 
   .panel-button {
     @include panel-button;
