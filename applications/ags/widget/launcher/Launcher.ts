@@ -131,6 +131,6 @@ function Launcher() {
 export default () =>
   PopupWindow({
     name: "launcher",
-    layout: "center",
+    layout: "top",
     child: Launcher(),
   });

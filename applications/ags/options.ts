@@ -64,26 +64,28 @@ const options = mkOptions(OPTIONS, {
 
   bar: {
     flatButtons: opt(true),
-    position: opt<"top" | "bottom">("top"),
+    position: opt<"bottom" | "top">("top"),
     corners: opt(true),
     layout: {
       start: opt<Array<import("widget/bar/Bar").BarWidget>>([
-        "launcher",
+        // "launcher",
+        "powermenu",
+        "expander",
+      ]),
+      center: opt<Array<import("widget/bar/Bar").BarWidget>>([
+        "media",
         "workspaces",
         "taskbar",
-        "expander",
-        "messages",
       ]),
-      center: opt<Array<import("widget/bar/Bar").BarWidget>>(["date"]),
       end: opt<Array<import("widget/bar/Bar").BarWidget>>([
-        "media",
         "expander",
         "systray",
-        "colorpicker",
+        // "colorpicker",
         "screenrecord",
         "system",
-        "battery",
-        "powermenu",
+        // "battery",
+        "date",
+        "messages",
       ]),
     },
     launcher: {
@@ -121,7 +123,7 @@ const options = mkOptions(OPTIONS, {
       action: opt(() => App.toggleWindow("datemenu")),
     },
     systray: {
-      ignore: opt(["KDE Connect Indicator", "spotify-client"]),
+      ignore: opt([""]),
     },
     media: {
       monochrome: opt(true),
@@ -192,7 +194,7 @@ const options = mkOptions(OPTIONS, {
   },
 
   datemenu: {
-    position: opt<"left" | "center" | "right">("center"),
+    position: opt<"left" | "center" | "right">("right"),
     weather: {
       interval: opt(60_000),
       unit: opt<"metric" | "imperial" | "standard">("metric"),
