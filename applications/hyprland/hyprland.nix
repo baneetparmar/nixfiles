@@ -7,7 +7,7 @@
       # Execute your favorite apps at launch
       exec-once = ags -q && ags &  
       exec-once = mpvpaper -o "loop" DP-2 ~/Pictures/Wallpapers/dualDaggers.mp4 & 
-      exec-once = varia &
+      exec-once = kdeconnect-cli --refresh && kdeconnect-indicator &
 
       # Some default env vars.
       env = XCURSOR_SIZE,24

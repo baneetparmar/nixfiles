@@ -10,7 +10,7 @@
     ./kitty.nix
     ./yt-dlp.nix
     ./wezterm.nix
-    ./ags/ags.nix
+    ./ags.nix
     ./programs.nix
     ./pkgsList.nix
     ./spicetify.nix

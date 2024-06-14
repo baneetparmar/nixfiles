@@ -23,7 +23,7 @@ dupb:
 format:
   @echo "Formatting files...."
   nixpkgs-fmt ~/.nixfiles
-  npx prettier --ignore-unknown --log-level warn --write "/home/bane/.nixfiles/**/*.{css,js,ts,json,yaml,toml}"
+  npx prettier --ignore-unknown  --no-error-on-unmatched-pattern --log-level silent --write "/home/bane/.nixfiles/**/*.{css,js,ts,json,yaml,toml}"
   @echo "Done!...."
 
 commit message="update":
