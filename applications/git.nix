@@ -1,4 +1,4 @@
-{ pkgs, config, flake, ... }: {
+{ pkgs, config, ... }: {
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -9,6 +9,13 @@
       core.editor = "lvim";
       commit.gpgsign = true;
       user.signingkey = "D5EA058BA8C6C7A9";
+    };
+  };
+  programs.gh = {
+    enable = true;
+    extensions = with pkgs; [ gh-markdown-preview ];
+    settings = {
+      git_protocol = "ssh";
     };
   };
 }

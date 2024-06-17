@@ -6,7 +6,7 @@
 
       # Execute your favorite apps at launch
       exec-once = ags -q && ags &  
-      exec-once = mpvpaper -o "loop" DP-2 ~/Pictures/Wallpapers/dualDaggers.mp4 & 
+      exec-once = mpvpaper -o "no-audio loop" DP-2 ~/Pictures/Wallpapers/live/blackhole-purple.mp4 & 
       exec-once = kdeconnect-cli --refresh && kdeconnect-indicator &
 
       # Some default env vars.
@@ -37,7 +37,8 @@
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
           gaps_in = 5
           gaps_out = 5
-          border_size = 0
+          border_size = 2
+          col.active_border = rgba(19014101) rgba(5b448aff) 90deg
 
           layout = dwindle
 
@@ -62,6 +63,7 @@
               popups = true
               new_optimizations = on
               ignore_opacity = yes
+              xray = true
           }
 
           drop_shadow = yes
@@ -110,7 +112,7 @@
       windowrulev2 = opaque, title: (.*)(- mpv)$
       windowrulev2 = opaque, class: (com.stremio.stremio)$
       windowrulev2 = opaque, class: (.*)(steam)(.*)
-
+      
 
       $mainMod = SUPER
       bind = $mainMod, RETURN, exec, kitty 
@@ -169,6 +171,11 @@
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
+
+      # Volume control
+      bind =  , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
     '';
   };
 }

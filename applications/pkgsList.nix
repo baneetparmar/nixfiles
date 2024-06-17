@@ -13,10 +13,6 @@ let
 in
 {
   home.packages = (with pkgs; [
-    # =====  Dev tools & s/w ===== #
-    gh
-    git
-
     nurl
     cachix
     nixpkgs-fmt
@@ -30,11 +26,10 @@ in
     bacon
     rustup
 
+    pipx
     poetry
-    python311
-    python311Packages.pip
-    python311Packages.jupyter
-    python311Packages.pipx
+    python312
+    python312Packages.pip
 
     bun
     yarn

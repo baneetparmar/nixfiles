@@ -5,9 +5,9 @@
       # BACKGROUND
       background {
           monitor =
-          path = /home/bane/Pictures/Wallpapers/1251766.jpg
-          blur_size = 4
-          blur_passes = 3
+          path = /home/bane/Pictures/Wallpapers/static/Suzume.png
+          blur_size = 0
+          blur_passes = 1
           noise = 0.0117
           contrast = 1.300
           brightness = 0.800

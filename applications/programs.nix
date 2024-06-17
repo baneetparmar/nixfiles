@@ -2,11 +2,6 @@
 
 {
   programs = {
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -18,6 +13,9 @@
     mpv = {
       enable = true;
       scripts = with pkgs.mpvScripts; [ autoload ];
+      config = {
+        sub-file-paths = "~/Videos/.subtitles/";
+      };
     };
 
     fd.enable = true;
