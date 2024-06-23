@@ -14,8 +14,8 @@ in
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./ags.nix
-    ./pkgsList.nix
+    ./pkgs
+    ./configs
   ];
 
   home.stateVersion = "24.05";

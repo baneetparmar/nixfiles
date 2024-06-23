@@ -21,7 +21,7 @@ in
     (with pkgs; [
       nurl
       cachix
-      nixpkgs-fmt
+      nixfmt-rfc-style
       nix-prefetch-scripts
 
       gcc
@@ -54,11 +54,9 @@ in
       grex
       bandwhich
       hyperfine
-      tre-command
       pavucontrol
 
       # Ricing & hyprland stuff
-      tofi
       slurp
       sassc
       swappy
@@ -70,7 +68,6 @@ in
       google-fonts
       wl-clipboard
       inotify-tools
-      brightnessctl
 
       # ===== Gnome pkgs ===== #
       gtk3
@@ -82,6 +79,7 @@ in
 
       # ====== kde pkgs ======= #
       qt6.qtwayland
+      libsForQt5.qt5.qtwayland
       libsForQt5.qtstyleplugin-kvantum
       kdePackages.qtstyleplugin-kvantum
 
@@ -98,7 +96,6 @@ in
 
       # ====== misc ========= #
       krabby
-      leetcode-cli
     ])
     ++ (with pkgs-unstable; [
       # =====  Dev tools & s/w ===== #
