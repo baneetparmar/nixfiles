@@ -20,14 +20,15 @@
   programs.hyprland.enable = true;
   services.displayManager.defaultSession = "hyprland";
 
-
+  services.xserver.desktopManager.gnome.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = lib.mkForce [
-      # pkgs.xdg-desktop-portal-gtk # For both
+      pkgs.xdg-desktop-portal-gtk # For both
       pkgs.xdg-desktop-portal-hyprland # For Hyprland
-      # pkgs.xdg-desktop-portal-gnome # For GNOME
+      pkgs.xdg-desktop-portal-gnome # For GNOME
       pkgs.libsForQt5.xdg-desktop-portal-kde # for KDE
+      pkgs.kdePackages.xdg-desktop-portal-kde
     ];
   };
 
@@ -45,7 +46,6 @@
   security.rtkit.enable = true;
 
   programs.fish.enable = true;
-
 
   programs.steam = {
     enable = true;
