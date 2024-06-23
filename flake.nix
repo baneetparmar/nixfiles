@@ -21,14 +21,13 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      sops-nix,
-      disko,
-      ...
+    { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , sops-nix
+    , disko
+    , ...
     }@inputs:
     let
       inherit (self) outputs;

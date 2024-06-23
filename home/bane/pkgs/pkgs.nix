@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  pkgs-unstable,
-  ...
+{ config
+, pkgs
+, pkgs-unstable
+, ...
 }:
 let
   fonts = pkgs.nerdfonts.override {

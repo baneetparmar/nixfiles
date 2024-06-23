@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ pkgs
+, lib
+, inputs
+, ...
 }:
 {
   imports = [ inputs.hyprcursor-phinger.homeManagerModules.default ];

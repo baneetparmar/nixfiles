@@ -1,9 +1,8 @@
-{
-  nixpkgs,
-  nixpkgs-unstable,
-  libs,
-  config,
-  ...
+{ nixpkgs
+, nixpkgs-unstable
+, libs
+, config
+, ...
 }:
 let
   system = "x86_64-linux";
