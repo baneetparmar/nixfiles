@@ -126,7 +126,7 @@
       bind = SUPERSHIFT, F, fullscreen, 0
       bind = $mainMod, F, fullscreen, 1
       bind = CONTROLALT, Delete, exec, ags -t powermenu
-      bind = ALT, Space, exec, rofi -show drun 
+      bind = ALT, Space, exec, rofi -show drun
       bind = $mainMod,S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
       bind = SUPERSHIFT, S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png -s $(slurp)
       bind = $mainMod, N, exec, appimage-run ~/Applications/Notion.AppImage
