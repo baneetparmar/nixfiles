@@ -15,16 +15,18 @@
     enable = true;
     wayland = true;
   };
+  services.xserver.desktopManager.gnome.enable = true;
 
+  programs.hyprland.enable = true;
   services.displayManager.defaultSession = "hyprland";
 
-  services.xserver.desktopManager.gnome.enable = true;
+
   xdg.portal = {
     enable = true;
     extraPortals = lib.mkForce [
-      pkgs.xdg-desktop-portal-gtk # For both
+      # pkgs.xdg-desktop-portal-gtk # For both
       pkgs.xdg-desktop-portal-hyprland # For Hyprland
-      pkgs.xdg-desktop-portal-gnome # For GNOME
+      # pkgs.xdg-desktop-portal-gnome # For GNOME
       pkgs.libsForQt5.xdg-desktop-portal-kde # for KDE
     ];
   };
@@ -42,11 +44,8 @@
 
   security.rtkit.enable = true;
 
-  security.sudo.wheelNeedsPassword = false;
-
   programs.fish.enable = true;
 
-  programs.hyprland.enable = true;
 
   programs.steam = {
     enable = true;
@@ -61,6 +60,13 @@
   programs.firefox.enable = true;
 
   programs.kdeconnect.enable = true;
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 30d --keep 3";
+    flake = "/home/bane/.nixfiles";
+  };
 
   nixpkgs.config.allowUnfree = true;
 
