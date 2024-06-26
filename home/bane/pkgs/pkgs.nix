@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  pkgs-unstable,
-  ...
-}:
+{ pkgs, pkgs-unstable, ... }:
 let
   fonts = pkgs.nerdfonts.override {
     fonts = [
@@ -79,12 +74,8 @@ in
       gnome.libgnome-keyring
 
       # ====== kde pkgs ======= #
-      qt6.qtwayland
-      libsForQt5.qtstyleplugin-kvantum
-      kdePackages.qtstyleplugin-kvantum
 
       # <<<=== s-w === >>> #
-      miru
       brave
       wayshot
       vesktop
@@ -106,14 +97,12 @@ in
       fira-code-nerdfont
 
       # ======= utils ===== #
-      lunarvim
 
       #====== Ricing & Hyprland Stuff
       nwg-look
       hyprcursor
 
       # ====== kde pkgs ======= #
-      libsForQt5.qt5.qtwayland
 
       # ==== s-w ===== #
       varia

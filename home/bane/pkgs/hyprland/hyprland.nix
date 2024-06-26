@@ -15,6 +15,7 @@
       env = XCURSOR_THEME,phinger-cursors-dark
       env = HYPRCURSOR_SIZE,24
       env = HYPRCURSOR_THEME,phinger-cursors-dark
+      env = NIXOS_OZONE_WL,1
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
@@ -114,6 +115,8 @@
       windowrulev2 = opaque, class: (com.stremio.stremio)$
       windowrulev2 = opaque, class: (.*)(steam)(.*)
 
+      layerrule = blur,namespace:(rofi)
+
       $mainMod = SUPER
       bind = $mainMod, RETURN, exec, kitty
       bind = $mainMod, Q, killactive,
@@ -122,12 +125,13 @@
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, J, togglesplit, # dwindle
-      bind = $mainMod, L, exec, hyprlock
+      bind = $mainMod, L, exec, pidof hyprlock || hyprlock
       bind = SUPERSHIFT, F, fullscreen, 0
       bind = $mainMod, F, fullscreen, 1
       bind = CONTROLALT, Delete, exec, ags -t powermenu
       bind = ALT, Space, exec, rofi -show drun 
-      bind = $mainMod,S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+      bind = $mainMod, O, exec, rofi -show recursivebrowser
+      bind = $mainMod, S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
       bind = SUPERSHIFT, S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png -s $(slurp)
       bind = $mainMod, N, exec, appimage-run ~/Applications/Notion.AppImage
 

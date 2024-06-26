@@ -28,5 +28,13 @@ in
       icon = setIcon "Notion.png";
       terminal = false;
     };
+
+    miru-desktop = {
+      name = "Miru";
+      genericName = "Web Application; Anime";
+      exec = execApp "Miru.AppImage";
+      icon = setIcon "Miru.png";
+      terminal = false;
+    };
   };
 }

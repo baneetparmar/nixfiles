@@ -21,7 +21,6 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  # boot.kernel.sysctl = {"vm.swappiness" = 180;};
   boot.kernelModules = [
     "kvm-intel"
     "amdgpu"
@@ -43,9 +42,6 @@
   };
 
   swapDevices = [ ];
-
-  zramSwap.enable = true;
-  zramSwap.memoryPercent = 200;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

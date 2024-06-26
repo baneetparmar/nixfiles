@@ -1,19 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
+
+  sops.secrets.passwd.neededForUsers = true;
+
   users.users.bane = {
     isNormalUser = true;
-    password = "IamBatman";
+    hashedPassword = config.sops.secrets.passwd.path;
     description = "Baneet Parmar";
     extraGroups = [
       "wheel"
       "video"
       "audio"
       "networkmanager"
+      "libvirtd"
     ];
 
     shell = pkgs.fish;
   };
-
-  # TODO: enable sops
-  # users.mutableUsers = false;
 }

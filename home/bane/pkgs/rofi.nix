@@ -6,9 +6,13 @@
 
   programs.rofi = {
     location = "center";
-    terminal = "\${pkgs.kitty}/bin/kitty";
+    terminal = "${pkgs.kitty}/bin/kitty";
     font = "open sans 14";
     plugins = [ pkgs.rofi-rbw-wayland ];
+  };
+
+  programs.rofi.extraConfig = {
+    show-icons = true;
   };
 
   programs.rofi.theme =
@@ -77,9 +81,11 @@
       };
 
       "listview" = {
-        lines = 10;
+        lines = 7;
         columns = 1;
-        fixed-height = false;
+        fixed-height = true;
+        fixed-column = true;
+        layout = mkLiteral "vertical";
         border = mkLiteral "1px 0 0";
         border-color = mkLiteral "@bg1";
       };

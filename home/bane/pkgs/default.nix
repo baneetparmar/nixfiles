@@ -1,7 +1,7 @@
 { pkgs, pkgs-unstable, ... }:
 {
   imports = [
-    ./neovim
+    ./nixvim
     ./hyprland
 
     ./git.nix

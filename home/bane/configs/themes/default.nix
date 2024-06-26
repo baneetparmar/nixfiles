@@ -28,7 +28,7 @@
         colorVariants = [ "Dark" ];
         panelSize = "smaller";
         nautilusStyle = "glassy";
-        panelOpacity = "75";
+        panelOpacity = "30";
       };
       name = "WhiteSur-Dark";
     };

@@ -4,6 +4,7 @@
     ../common/core
     ../common/users/bane
     ./hardware-configuration.nix
+    ./sops.nix
     # ./disko.nix
   ];
 
@@ -11,23 +12,27 @@
 
   services.xserver.enable = true;
 
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
-  programs.hyprland.enable = true;
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "kvantum";
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   services.displayManager.defaultSession = "hyprland";
 
   xdg.portal = {
     enable = true;
     extraPortals = lib.mkForce [
-      pkgs.xdg-desktop-portal-gtk # For both
-      pkgs.xdg-desktop-portal-hyprland # For Hyprland
-      pkgs.xdg-desktop-portal-gnome # For GNOME
-      pkgs.libsForQt5.xdg-desktop-portal-kde # for KDE
-      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-gtk
     ];
   };
 
@@ -44,6 +49,14 @@
 
   security.rtkit.enable = true;
   security.sudo.wheelNeedsPassword = false;
+  security.polkit = {
+    enable = true;
+    extraConfig = ''
+      polkit.addRule(function(action, subject) {
+      if (subject.local) return "yes";
+      });
+    '';
+  };
 
   programs.fish.enable = true;
 
@@ -73,9 +86,17 @@
   environment.systemPackages = with pkgs; [
     git
     lunarvim
+    gnome.nautilus
+    gnome.file-roller
+    qt6.qtwayland
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qt5.qtwayland
   ];
 
   virtualisation.waydroid.enable = true;
+
+  programs.dconf.enable = true;
 
   system.stateVersion = "24.05";
 }
