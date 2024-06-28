@@ -23,7 +23,7 @@ in
   home.file = { };
 
   home.sessionVariables = {
-    EDITOR = "lvim";
+    EDITOR = "nvim";
   };
 
   programs.home-manager.enable = true;

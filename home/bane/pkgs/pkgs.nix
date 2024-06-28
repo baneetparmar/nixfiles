@@ -1,16 +1,4 @@
 { pkgs, pkgs-unstable, ... }:
-let
-  fonts = pkgs.nerdfonts.override {
-    fonts = [
-      "Hack"
-      "Iosevka"
-      "IosevkaTerm"
-      "JetBrainsMono"
-      "SpaceMono"
-      "UbuntuSans"
-    ];
-  };
-in
 {
   home.packages =
     (with pkgs; [
@@ -60,7 +48,6 @@ in
       dart-sass
       hyprpicker
       wf-recorder
-      google-fonts
       wl-clipboard
       inotify-tools
       brightnessctl
@@ -93,9 +80,6 @@ in
       # =====  Dev tools & s/w ===== #
       vscode
 
-      #====== fonts ======== #
-      fira-code-nerdfont
-
       # ======= utils ===== #
 
       #====== Ricing & Hyprland Stuff
@@ -108,6 +92,5 @@ in
       varia
       stremio
       localsend
-    ])
-    ++ [ fonts ];
+    ]);
 }

@@ -1,19 +1,36 @@
 { pkgs, ... }:
 {
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      sansSerif = [ "Noto Sans" ];
+      serif = [ "Noto Sans" ];
+      monospace = [ "Fanstasque Sans Mono" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
+
+  home.packages = with pkgs; [
+    qt6.qtwayland
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qt5.qtwayland
+
+    phinger-cursors
+    graphite-gtk-theme
+    graphite-kde-theme
+
+    google-fonts
+    fira-code-nerdfont
+    fantasque-sans-mono
+    noto-fonts-color-emoji
+  ];
 
   qt = {
     enable = true;
     platformTheme = "qtct";
     style.name = "kvantum";
-    style.package = pkgs.whitesur-kde;
-  };
-  xdg.configFile = {
-    "Kvantum/WhiteSur".source = "${pkgs.whitesur-kde}/Kvantum/WhiteSur";
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=WhiteSurDark
-    '';
+    style.package = pkgs.graphite-kde-theme;
   };
 
   gtk = {
@@ -24,21 +41,21 @@
       size = 24;
     };
     theme = {
-      package = pkgs.whitesur-gtk-theme.override {
-        colorVariants = [ "Dark" ];
-        panelSize = "smaller";
-        nautilusStyle = "glassy";
-        panelOpacity = "30";
+      package = pkgs.graphite-gtk-theme.override {
+        themeVariants = [ "purple" ];
+        colorVariants = [ "dark" ];
+        sizeVariants = [ "compact" ];
+        tweaks = [
+          "normal"
+          "rimless"
+        ];
+        withGrub = true;
       };
-      name = "WhiteSur-Dark";
+      name = "Graphite-purple-Dark-compact";
     };
     iconTheme = {
-      package = pkgs.whitesur-icon-theme;
-      name = "WhiteSur-dark";
-    };
-    font = {
-      name = "Open Sans Regular";
-      size = 10;
+      package = pkgs.kora-icon-theme;
+      name = "kora";
     };
   };
 }

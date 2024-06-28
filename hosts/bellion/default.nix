@@ -88,10 +88,6 @@
     lunarvim
     gnome.nautilus
     gnome.file-roller
-    qt6.qtwayland
-    libsForQt5.qtstyleplugin-kvantum
-    kdePackages.qtstyleplugin-kvantum
-    libsForQt5.qt5.qtwayland
   ];
 
   virtualisation.waydroid.enable = true;
