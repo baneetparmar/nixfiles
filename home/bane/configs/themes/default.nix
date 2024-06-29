@@ -20,7 +20,16 @@
     graphite-gtk-theme
     graphite-kde-theme
 
-    google-fonts
+    (google-fonts.override {
+      fonts = [
+        "Noto Sans"
+        "Noto Serif"
+        "Open Sans"
+        "Jetbrains Mono"
+        "Fira Sans"
+      ];
+    })
+    font-awesome
     fira-code-nerdfont
     fantasque-sans-mono
     noto-fonts-color-emoji

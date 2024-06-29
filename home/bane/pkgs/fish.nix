@@ -4,7 +4,7 @@
     enable = true;
     shellAliases = {
       up = "nh os switch -n";
-      dup = "nix flake update $FLAKE && nh os switch -n";
+      dup = "nh os switch -u -n";
       lv = "lvim";
       ls = "lsd";
       cat = "bat";

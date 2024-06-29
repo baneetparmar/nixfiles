@@ -1,12 +1,12 @@
 { pkgs, pkgs-unstable, ... }:
 {
   imports = [
+    ./rofi
     ./nixvim
     ./hyprland
 
     ./git.nix
     ./ags.nix
-    ./rofi.nix
     ./pkgs.nix
     ./fish.nix
     ./aria2.nix
