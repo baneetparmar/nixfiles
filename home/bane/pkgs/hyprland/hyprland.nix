@@ -110,7 +110,7 @@
       windowrulev2 = opaque, class: (com.stremio.stremio)$
       windowrulev2 = opaque, class: (.*)(steam)(.*)
 
-      layerrule = blur,namespace:(rofi)
+      layerrule = blur,namespace: ^(rofi)$
 
       $mainMod = SUPER
       bind = $mainMod, RETURN, exec, kitty
@@ -128,7 +128,6 @@
       bind = $mainMod, O, exec, rofi -show recursivebrowser
       bind = $mainMod, S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
       bind = SUPERSHIFT, S, exec, wayshot -f ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png -s $(slurp)
-      bind = $mainMod, N, exec, appimage-run ~/Applications/Notion.AppImage
 
       # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l

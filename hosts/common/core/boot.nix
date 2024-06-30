@@ -2,8 +2,21 @@
 {
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        useOSProber = true;
+
+        darkmatter-theme = {
+          enable = true;
+          style = "nixos";
+          icon = "color";
+          resolution = "1080p";
+        };
+      };
       efi.canTouchEfiVariables = true;
+      systemd-boot.enable = false;
     };
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
@@ -13,9 +26,9 @@
       "quiet"
       "splash"
       "udev.log_level=0"
-      "amdgpu"
     ];
   };
+
   boot.plymouth = {
     enable = true;
     theme = "bgrt";
@@ -24,6 +37,7 @@
 
   boot.initrd = {
     verbose = false;
+    kernelModules = [ "amdgpu" ];
   };
 
   boot.kernel.sysctl = {

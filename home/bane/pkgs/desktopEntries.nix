@@ -2,6 +2,7 @@
 let
   execApp = pname: "${pkgs.appimage-run}/bin/appimage-run /home/bane/Applications/" + "${pname}";
   setIcon = pname: "/home/bane/Applications/.icons/${pname}";
+  forceWayland = "--enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto";
 in
 {
   xdg.desktopEntries = {
@@ -24,7 +25,7 @@ in
     notion-desktop = {
       name = "Notion";
       genericName = "Notes; Web Application";
-      exec = execApp "Notion.AppImage";
+      exec = execApp "Notion.AppImage ${forceWayland}";
       icon = setIcon "Notion.png";
       terminal = false;
     };

@@ -18,6 +18,7 @@
     nixvim.url = "github:nix-community/nixvim";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
+    darkmatter-grub-theme.url = "gitlab:VandalByte/darkmatter-grub-theme";
   };
 
   outputs =
@@ -26,8 +27,8 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
-      sops-nix,
       disko,
+      darkmatter-grub-theme,
       ...
     }@inputs:
     let
@@ -58,6 +59,7 @@
             ./hosts/bellion
 
             disko.nixosModules.disko
+            darkmatter-grub-theme.nixosModule
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
