@@ -15,8 +15,8 @@
     };
 
     ags.url = "github:Aylur/ags";
-    nixvim.url = "github:nix-community/nixvim";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    nixvim.url = "github:nix-community/nixvim/nixos-24.05";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
   };
 
