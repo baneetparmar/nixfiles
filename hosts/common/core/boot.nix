@@ -2,7 +2,7 @@
 let
   cyberre-grub-theme =
 
-    pkgs.stdenvNoCC.mkDerivation  {
+    pkgs.stdenvNoCC.mkDerivation {
       pname = "cyberre-grub-theme";
       version = "1.0.0";
 
