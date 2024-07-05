@@ -21,8 +21,6 @@
 
     lf.enable = true;
 
-    feh.enable = true;
-
     lsd.enable = true;
 
     fzf = {

@@ -55,6 +55,7 @@
       # ===== Gnome pkgs ===== #
       gtk3
       amberol
+      foliate
       libadwaita
       accountsservice
       gnome.gnome-tweaks
@@ -74,6 +75,8 @@
       telegram-desktop
 
       # ====== misc ========= #
+      qview
+      sioyek
       krabby
     ])
     ++ (with pkgs-unstable; [

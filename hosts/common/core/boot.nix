@@ -1,4 +1,26 @@
 { pkgs, ... }:
+let
+  cyberre-grub-theme =
+
+    pkgs.stdenvNoCC.mkDerivation  {
+      pname = "cyberre-grub-theme";
+      version = "1.0.0";
+
+      src = pkgs.fetchzip {
+        url = "https://tinyurl.com/cyberre-grub-theme";
+        hash = "sha256-RWEQHqWjSZtDlFjJlsQBig/bBaZL/srfez1qTzE+Qrw=";
+        recursiveHash = true;
+        extension = "tar.gz";
+      };
+
+      installPhase = ''
+        runHook preInstall
+
+        mkdir $out
+        cp -r $src/CyberRe/* $out/
+      '';
+    };
+in
 {
   boot = {
     loader = {
@@ -7,13 +29,7 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-
-        darkmatter-theme = {
-          enable = true;
-          style = "nixos";
-          icon = "color";
-          resolution = "1080p";
-        };
+        theme = cyberre-grub-theme;
       };
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = false;
