@@ -1,10 +1,4 @@
-{
-  pkgs,
-  pkgs-unstable,
-  lib,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 let
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
   hazy = pkgs.fetchgit {
@@ -21,7 +15,7 @@ in
 
   programs.spicetify = {
     enable = true;
-    spotifyPackage = pkgs-unstable.spotify;
+    spotifyPackage = pkgs.spotify;
     theme = {
       name = "Hazy";
       src = hazy;

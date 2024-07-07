@@ -1,8 +1,7 @@
-{ pkgs, pkgs-unstable, ... }:
+{ ... }:
 {
   imports = [
     ./rofi
-    ./nixvim
     ./hyprland
 
     ./git.nix

@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ../common/core
@@ -85,11 +90,15 @@
 
   environment.systemPackages = with pkgs; [
     git
-    lunarvim
     hyprnome
     gnome.nautilus
     gnome.file-roller
+    inputs.nx.packages.${system}.default
   ];
+
+  environment.shellAliases = {
+    nx = "nvim";
+  };
 
   virtualisation.waydroid.enable = true;
 

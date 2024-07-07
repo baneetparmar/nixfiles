@@ -1,101 +1,89 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
-  home.packages =
-    (with pkgs; [
-      nurl
-      cachix
-      nixfmt-rfc-style
-      nix-prefetch-scripts
+  home.packages = with pkgs; [
+    # =====  Dev tools & s/w ===== #
+    vscode
 
-      gcc
-      glibc
-      gnumake
-      lldb_16
+    nurl
+    cachix
+    nixfmt-rfc-style
+    nix-prefetch-scripts
 
-      bacon
-      rustup
+    gcc
+    glibc
+    gnumake
+    lldb_16
 
-      pipx
-      poetry
-      python312
-      python312Packages.pip
+    bacon
+    rustup
 
-      bun
-      yarn
-      nodejs_22
-      nodePackages.ijavascript
+    pipx
+    poetry
+    python312
+    python312Packages.pip
 
-      just
-      tokei
-      pinentry-curses
+    bun
+    yarn
+    nodejs_22
+    nodePackages.ijavascript
 
-      # ===== Utils ===== #
-      sd
-      btop
-      wget
-      ncdu
-      grex
-      bandwhich
-      hyperfine
-      pavucontrol
+    just
+    tokei
+    pinentry-curses
 
-      # Ricing & hyprland stuff
-      slurp
-      sassc
-      swappy
-      du-dust
-      mpvpaper
-      dart-sass
-      hyprpicker
-      wf-recorder
-      wl-clipboard
-      inotify-tools
-      brightnessctl
+    # ===== Utils ===== #
+    sd
+    btop
+    wget
+    ncdu
+    grex
+    bandwhich
+    hyperfine
+    pavucontrol
 
-      # ===== Gnome pkgs ===== #
-      gtk3
-      amberol
-      foliate
-      libadwaita
-      accountsservice
-      gnome.gnome-tweaks
-      gnome.libgnome-keyring
+    # Ricing & hyprland stuff
+    slurp
+    sassc
+    swappy
+    du-dust
+    mpvpaper
+    dart-sass
+    hyprcursor
+    hyprpicker
+    wf-recorder
+    wl-clipboard
+    inotify-tools
+    brightnessctl
 
-      # ====== kde pkgs ======= #
+    # ===== Gnome pkgs ===== #
+    gtk3
+    amberol
+    foliate
+    nwg-look
+    libadwaita
+    accountsservice
+    gnome.gnome-tweaks
+    gnome.libgnome-keyring
 
-      # <<<=== s-w === >>> #
-      brave
-      wayshot
-      vesktop
-      alsa-oss
-      libsecret
-      qbittorrent
-      appimage-run
-      google-chrome
-      telegram-desktop
+    # ====== kde pkgs ======= #
+    qview
+    qbittorrent
 
-      # ====== misc ========= #
-      glow
-      qview
-      sioyek
-      krabby
-      clipse
-    ])
-    ++ (with pkgs-unstable; [
-      # =====  Dev tools & s/w ===== #
-      vscode
-
-      # ======= utils ===== #
-
-      #====== Ricing & Hyprland Stuff
-      nwg-look
-      hyprcursor
-
-      # ====== kde pkgs ======= #
-
-      # ==== s-w ===== #
-      varia
-      stremio
-      localsend
-    ]);
+    # <<<=== s-w === >>> #
+    glow
+    brave
+    varia
+    sioyek
+    krabby
+    clipse
+    stremio
+    wayshot
+    vesktop
+    alsa-oss
+    libsecret
+    localsend
+    appimage-run
+    google-chrome
+    telegram-desktop
+  ];
 }

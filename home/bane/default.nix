@@ -1,18 +1,8 @@
-{
-  nixpkgs,
-  nixpkgs-unstable,
-  libs,
-  config,
-  ...
-}:
-let
-  system = "x86_64-linux";
-in
+{ ... }:
 {
   home.username = "bane";
   home.homeDirectory = "/home/bane";
   nixpkgs.config.allowUnfree = true;
-
   imports = [
     ./pkgs
     ./configs
