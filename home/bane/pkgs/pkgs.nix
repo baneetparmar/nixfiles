@@ -75,9 +75,11 @@
       telegram-desktop
 
       # ====== misc ========= #
+      glow
       qview
       sioyek
       krabby
+      clipse
     ])
     ++ (with pkgs-unstable; [
       # =====  Dev tools & s/w ===== #

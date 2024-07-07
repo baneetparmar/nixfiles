@@ -86,6 +86,7 @@
   environment.systemPackages = with pkgs; [
     git
     lunarvim
+    hyprnome
     gnome.nautilus
     gnome.file-roller
   ];
