@@ -32,8 +32,7 @@
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
 
       inherit (nixpkgs) lib;
-      configLib = import ./lib { inherit lib; };
-      specialArgs = { inherit inputs outputs configLib nixpkgs username host; };
+      specialArgs = { inherit inputs outputs nixpkgs username host; };
 
     in {
       nixosModules = import ./modules/nixos;
