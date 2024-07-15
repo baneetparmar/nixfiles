@@ -1,21 +1,25 @@
 { pkgs, config, ... }:
+  let ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+  in
 {
 
   sops.secrets.passwd.neededForUsers = true;
 
   users.users.bane = {
     isNormalUser = true;
-    description = "Baneet Parmar";
     extraGroups = [
-      "wheel"
+      "wheel"] ++ ifTheyExist [
       "video"
       "audio"
+      "docker"
       "networkmanager"
       "libvirtd"
     ];
     
-    initialHashedPassword = "$y$j9T$TdmhtW12jXfBFKh1DECXY0$kEjsYCp0KeLZvbnXUCPhft/cMOp/IyxRAK2pGagH.E7";
     shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
+  programs.git.enable = true;
 }
 
