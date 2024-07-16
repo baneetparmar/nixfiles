@@ -15,5 +15,13 @@
       libadwaita
     ];
   };
-  home.packages = with pkgs; [swappy sassc dart-sass inotify-tools brightnessctl pavucontrol libadwaita];
+  home.packages = with pkgs; [
+    swappy
+    sassc
+    dart-sass
+    inotify-tools
+    brightnessctl
+    pavucontrol
+    libadwaita
+  ];
 }
