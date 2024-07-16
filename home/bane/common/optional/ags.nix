@@ -13,12 +13,7 @@
       accountsservice
       libappindicator
       libadwaita
-      sassc
-      dart-sass
-      swappy
-      inotify-tools
-      brightnessctl
-      pavucontrol
     ];
   };
+  home.packages = with pkgs; [swappy sassc dart-sass inotify-tools brightnessctl pavucontrol libadwaita];
 }
