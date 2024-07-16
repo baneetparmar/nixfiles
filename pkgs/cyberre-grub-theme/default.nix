@@ -17,4 +17,13 @@ stdenvNoCC.mkDerivation {
     mkdir $out
     cp -r $src/CyberRe/* $out/
   '';
+
+  meta = {
+    description = "Cyber-re Grub Theme";
+    homepage = "https://www.gnome-look.org/p/1420727";
+    platforms = [
+      "x86_64-linux"
+      "i686-linux"
+    ];
+  };
 }

@@ -18,7 +18,7 @@
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
   };
-  
+
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";

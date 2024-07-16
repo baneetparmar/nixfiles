@@ -17,7 +17,7 @@
     ../common/users/${username}
     ./hardware-configuration.nix
     # ./disko.nix
-    
+
     # host specific config 
     ../common/optional/steam.nix
     ../common/optional/hyprland.nix
@@ -31,7 +31,6 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-
 
   services.printing.enable = true;
 
@@ -49,7 +48,7 @@
   environment.systemPackages = with pkgs; [
     gnome.nautilus
     gnome.file-roller
-    inputs.nx.packages.${system}.default
+    inputs.nixvim.packages.${system}.default
   ];
 
   system.stateVersion = "24.05";

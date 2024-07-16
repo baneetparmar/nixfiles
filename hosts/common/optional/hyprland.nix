@@ -1,4 +1,5 @@
-{pkgs,lib,  ...}:{
+{ pkgs, lib, ... }:
+{
 
   programs.hyprland = {
     enable = true;
@@ -15,7 +16,5 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-  environment.systemPackages = with pkgs; [
-    hyprnome
-    ];
-  }
+  environment.systemPackages = with pkgs; [ hyprnome ];
+}

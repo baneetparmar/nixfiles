@@ -16,6 +16,7 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
 
     ags.url = "github:Aylur/ags";
     nixvim.url = "github:baneetparmar/nixvim";
@@ -23,7 +24,16 @@
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
   };
 
-  outputs = { self, disko, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      disko,
+      nixpkgs,
+      home-manager,
+      treefmt-nix,
+      systems,
+      ...
+    }@inputs:
     let
       username = "bane";
       host = "bellion";
@@ -31,25 +41,44 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
 
-      inherit (nixpkgs) lib;
-      specialArgs = { inherit inputs outputs nixpkgs username host; };
+      # required for treefmt-nix 
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+      treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
 
-    in {
+      inherit (nixpkgs) lib;
+      specialArgs = {
+        inherit
+          inputs
+          outputs
+          nixpkgs
+          username
+          host
+          ;
+      };
+    in
+    {
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
       overlays = import ./overlays { inherit inputs outputs; };
 
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; });
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./pkgs { inherit pkgs; }
+      );
 
-      formatter = forAllSystems
-        (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper); # set treefmt as default formatter
 
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; });
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./shell.nix { inherit pkgs; }
+      );
 
       nixosConfigurations = {
         ${host} = lib.nixosSystem {
@@ -58,7 +87,7 @@
             ./hosts/${host}
             home-manager.nixosModules.home-manager
             {
-              home-manager.users.${username} = import ./home/${username};
+              home-manager.users.${username} = import ./home/${username}/${host}.nix;
               home-manager.extraSpecialArgs = specialArgs;
 
               home-manager.useGlobalPkgs = true;
