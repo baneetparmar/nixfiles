@@ -9,7 +9,7 @@ in
     enable = true;
     spotifyPackage = pkgs.spotify;
     theme = {
-      name = "Galaxy";
+      name = "spicetify-galaxy";
       src = pkgs.spicetify-galaxy;
       requiredExtensions = [
         {
@@ -17,7 +17,7 @@ in
           src = pkgs.spicetify-galaxy;
         }
       ];
-      appendName = false;
+      appendName = true;
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;

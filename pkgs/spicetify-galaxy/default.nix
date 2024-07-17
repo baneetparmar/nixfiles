@@ -1,6 +1,6 @@
 { stdenvNoCC, fetchgit, ... }:
 
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation rec {
   pname = "spicetify-galaxy";
   version = "1.0.0";
 
@@ -17,7 +17,7 @@ stdenvNoCC.mkDerivation {
     runHook preInstall
 
     mkdir $out
-    cp -r $src/ $out/
+    cp -r $src/ $out/${pname}
   '';
 
   meta = {
