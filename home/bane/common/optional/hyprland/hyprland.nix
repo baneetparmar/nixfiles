@@ -3,7 +3,7 @@ let
   mainMod = "SUPER";
   wallpaper = "/home/bane/Pictures/Wallpapers/live/blackhole-purple.mp4";
   screenshotDir = "/home/bane/Pictures/Screenshots";
-  screenshotFileName = "$(date +%Y-%m-%d_%H-%M-%S).png";
+  screenshotFileName = "$(date +%s).png";
 in
 {
   wayland.windowManager.hyprland.enable = true;

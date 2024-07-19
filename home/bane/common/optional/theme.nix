@@ -62,8 +62,8 @@
       name = "Graphite-purple-Dark-compact";
     };
     iconTheme = {
-      package = pkgs.kora-icon-theme;
-      name = "kora";
+      package = pkgs.oneui4-icons-theme;
+      name = "OneUI-dark";
     };
   };
 }

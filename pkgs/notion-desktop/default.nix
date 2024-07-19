@@ -1,7 +1,4 @@
-{
-  appimageTools,
-  fetchurl,
-}:
+{ appimageTools, fetchurl }:
 let
   pname = "notion";
   version = "2.3.2";
