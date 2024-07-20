@@ -19,6 +19,8 @@
     # ./disko.nix
 
     # host specific config 
+    ../common/optional/boot
+
     ../common/optional/steam.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix
