@@ -8,7 +8,7 @@
   boot = {
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     consoleLogLevel = 0;
     kernelParams = [
       "quiet"

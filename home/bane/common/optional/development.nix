@@ -20,5 +20,7 @@
     yarn
     nodejs_22
     nodePackages.ijavascript
+
+    devenv
   ];
 }
