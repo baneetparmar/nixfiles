@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   pkgs,
   username,
   modulesPath,
@@ -8,7 +9,8 @@
 {
   imports = [
     inputs.nixos-wsl.nixosModules.default
-    "${modulesPath}/profiles/minimal.nix"
+    ../common/core/locale.nix
+    ../common/core/nixconf.nix
 
     #optional
     ../common/optional/nixhelper.nix
@@ -21,7 +23,23 @@
     wslConf.network.hostname = "kamish";
   };
 
-  hardware.opengl.enable = true;
+  nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays;
+    config = {
+      allowUnfree = true;
+    };
+    hostPlatform = "x86_64-linux";
+  };
+
+  nix = {
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "repl-flake"
+      ];
+    };
+  };
 
   programs.nix-ld = {
     enable = true;

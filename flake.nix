@@ -38,7 +38,7 @@
     }@inputs:
     let
       username = "bane";
-      host = "bellion";
+      host = "kamish";
 
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
@@ -86,23 +86,6 @@
         ${host} = lib.nixosSystem {
           inherit specialArgs;
           modules = [
-            ./hosts/${host}
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.users.${username} = import ./home/${username}/${host}.nix;
-              home-manager.extraSpecialArgs = specialArgs;
-
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-            }
-          ];
-        };
-
-        kamish = lib.nixosSystem {
-          inherit specialArgs;
-          modules = [
-            inputs.nixos-wsl.nixosModules.default
             ./hosts/${host}
             home-manager.nixosModules.home-manager
             {
