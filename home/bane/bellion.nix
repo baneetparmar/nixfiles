@@ -38,6 +38,7 @@
       localsend
       google-chrome
       notion-desktop
+      wora-music-player
     ])
     ++ (with pkgs.unstable; [
       beeper
