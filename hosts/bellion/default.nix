@@ -8,6 +8,7 @@
 {
   inputs,
   pkgs,
+  lib,
   username,
   ...
 }:
@@ -30,6 +31,8 @@
   ];
 
   networking.hostName = "bellion";
+
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_9;
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
