@@ -20,7 +20,7 @@
 
     ags.url = "github:Aylur/ags";
     nixvim.url = "github:baneetparmar/nixvim";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";

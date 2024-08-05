@@ -1,32 +1,32 @@
-{ pkgs, inputs, ... }:
-let
-  spicetifyPkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
-in
+{ inputs, pkgs, ... }:
 {
-  imports = [ inputs.spicetify-nix.homeManagerModule ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
-  programs.spicetify = {
-    enable = true;
-    spotifyPackage = pkgs.spotify;
-    theme = {
-      name = "spicetify-galaxy";
-      src = pkgs.spicetify-galaxy;
-      requiredExtensions = [
-        {
-          filename = "theme.js";
-          src = pkgs.spicetify-galaxy;
-        }
+  programs.spicetify =
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    in
+    {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        hidePodcasts
       ];
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = true;
-      sidebarConfig = true;
+      theme = {
+        name = "spicetify-galaxy";
+        src = pkgs.fetchFromGitHub {
+          owner = "harbassan";
+          repo = "spicetify-galaxy";
+          rev = "2b2e33c02c5adffd6737e4a93c261e961fad8eca";
+          hash = "sha256-cerdcfmPuKMnFCJg+wmOZ7bwesheWWWVckVxWrCn+48=";
+        };
+        injectCss = true;
+        injectThemeJs = true;
+        replaceColors = true;
+        sidebarConfig = true;
+        homeConfig = true;
+        overwriteAssets = false;
+        additonalCss = "";
+      };
     };
-
-    enabledExtensions = with spicetifyPkgs.extensions; [
-      hidePodcasts
-      adblock
-    ];
-  };
 }

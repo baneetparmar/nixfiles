@@ -39,6 +39,7 @@
       google-chrome
       notion-desktop
       wora-music-player
+      google-play-books
     ])
     ++ (with pkgs.unstable; [
       beeper
