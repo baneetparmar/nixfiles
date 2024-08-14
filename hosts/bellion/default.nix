@@ -32,7 +32,7 @@
 
   networking.hostName = "bellion";
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_9;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
@@ -60,6 +60,8 @@
   ];
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+
+  programs.gamemode.enable = true;
 
   system.stateVersion = "24.05";
 }

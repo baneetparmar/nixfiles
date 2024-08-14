@@ -18,8 +18,6 @@
   home.packages =
     (with pkgs; [
 
-      cz-cli
-
       gtk3
       amberol
       foliate
@@ -42,10 +40,12 @@
       google-play-books
     ])
     ++ (with pkgs.unstable; [
-      beeper
       miru
+      beeper
       stremio
-      qbittorrent
       zed-editor
+      gitmoji-cli
+      qbittorrent
+      path-of-building
     ]);
 }

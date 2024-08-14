@@ -14,6 +14,7 @@ in
         "docker"
         "networkmanager"
         "libvirtd"
+        "gamemode"
       ];
 
     shell = pkgs.fish;
