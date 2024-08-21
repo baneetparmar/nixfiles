@@ -10,6 +10,7 @@
     ./common/optional/hyprland
     ./common/optional/theme.nix
     ./common/optional/obs-studio.nix
+    ./common/optional/qutebrowser.nix
     ./common/optional/development.nix
     ./common/optional/spicetify-nix.nix
     ./common/optional/hyprcursor-phinger.nix

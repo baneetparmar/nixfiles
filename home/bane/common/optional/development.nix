@@ -30,6 +30,7 @@
     ++ (with pkgs.unstable; [
       nil
       ccls
+      ruff
       sqls
       gopls
       jq-lsp
