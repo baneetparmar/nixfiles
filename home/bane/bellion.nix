@@ -21,7 +21,6 @@
 
       gtk3
       amberol
-      foliate
       nwg-look
       libadwaita
       accountsservice
@@ -30,7 +29,6 @@
 
       qview
 
-      brave
       varia
       vesktop
       alsa-oss

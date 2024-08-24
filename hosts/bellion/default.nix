@@ -32,7 +32,7 @@
 
   networking.hostName = "bellion";
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+  #  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
