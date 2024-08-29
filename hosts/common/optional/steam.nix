@@ -5,9 +5,24 @@
     gamescopeSession.enable = true;
     extest.enable = true;
     extraPackages = with pkgs; [
-      gamescope
       steamcmd
       steam-tui
     ];
+    package = pkgs.steam.override {
+      extraPkgs =
+        pkgs: with pkgs; [
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib
+          libkrb5
+          keyutils
+        ];
+    };
   };
+  programs.gamescope.enable = true;
 }
