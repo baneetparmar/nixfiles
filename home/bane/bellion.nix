@@ -30,7 +30,6 @@
       qview
 
       varia
-      vesktop
       alsa-oss
       localsend
       google-chrome
@@ -41,7 +40,9 @@
     ++ (with pkgs.unstable; [
       miru
       beeper
+      lutris
       stremio
+      vesktop
       zed-editor
       gitmoji-cli
       qbittorrent

@@ -61,7 +61,5 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  programs.gamemode.enable = true;
-
   system.stateVersion = "24.05";
 }
