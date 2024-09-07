@@ -23,6 +23,7 @@
     ../common/optional/boot
 
     ../common/optional/steam.nix
+    ../common/optional/services.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix
     ../common/optional/waydroid.nix
