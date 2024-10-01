@@ -30,6 +30,7 @@
       qview
 
       varia
+      stremio
       alsa-oss
       localsend
       google-chrome
@@ -41,11 +42,9 @@
       miru
       beeper
       lutris
-      stremio
       vesktop
       zed-editor
       gitmoji-cli
       qbittorrent
-      path-of-building
     ]);
 }

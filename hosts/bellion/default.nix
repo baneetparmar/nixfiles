@@ -29,6 +29,8 @@
     ../common/optional/waydroid.nix
     ../common/optional/nixhelper.nix
     ../common/optional/kdeconnect.nix
+
+    inputs.nixos-cosmic.nixosModules.default
   ];
 
   networking.hostName = "bellion";
@@ -36,7 +38,7 @@
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
 
   services.printing.enable = true;
 
@@ -58,6 +60,7 @@
     gnome.nautilus
     gnome.file-roller
     inputs.nixvim.packages.${system}.default
+    openrgb-with-all-plugins
   ];
   services.gvfs.enable = true;
   services.udisks2.enable = true;

@@ -1,4 +1,4 @@
-{ username, ... }:
+{ ... }:
 {
   nix = {
     settings = {
@@ -16,8 +16,14 @@
 
       trusted-users = [ "@wheel" ];
 
-      trusted-substituters = [ "https://devenv.cachix.org" ];
-      trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
+      trusted-substituters = [
+        "https://devenv.cachix.org"
+        "https://cosmic.cachix.org/"
+      ];
+      trusted-public-keys = [
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+        "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+      ];
     };
 
   };

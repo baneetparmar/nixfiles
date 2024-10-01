@@ -22,6 +22,11 @@
     nixvim.url = "github:baneetparmar/nixvim";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
+    ags-config.url = "github:JayRovacsek/ags-config";
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };

@@ -7,13 +7,16 @@
   ];
 
   home.packages = with pkgs; [
-    wayshot
+    sassc
     slurp
+    wayshot
     mpvpaper
     hyprcursor
     hyprpicker
     wf-recorder
     wl-clipboard
     inotify-tools
+    gtk-session-lock
+    python312Packages.gpustat
   ];
 }

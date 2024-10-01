@@ -1,12 +1,13 @@
 { pkgs, ... }:
 let
   mainMod = "SUPER";
-  wallpaper = "/home/bane/Pictures/Wallpapers/live/blackhole-purple.mp4";
+  wallpaper = "/home/bane/Pictures/Wallpapers/live/pain-naruto.mp4";
   screenshotDir = "/home/bane/Pictures/Screenshots";
   screenshotFileName = "$(date +%s).png";
 in
 {
   wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland.plugins = with pkgs.unstable.hyprlandPlugins; [ hyprfocus ];
   wayland.windowManager.hyprland.settings = {
 
     monitor = ",highrr,0x0,1";
@@ -20,10 +21,11 @@ in
     ];
 
     exec-once = [
-      "ags -q && ags"
+      "ags"
       "clipse -listen"
       "mpvpaper -o 'no-audio loop' DP-2 ${wallpaper}"
       "kdeconnect-indicator"
+      "openrgb --autostart-enable --startminimized -p default"
     ];
 
     input = {
