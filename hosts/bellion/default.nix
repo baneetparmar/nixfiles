@@ -17,7 +17,7 @@
     ../common/core
     ../common/users/${username}
     ./hardware-configuration.nix
-    # ./disko.nix
+    ./disko.nix
 
     # host specific config 
     ../common/optional/boot
@@ -26,7 +26,6 @@
     ../common/optional/services.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix
-    ../common/optional/waydroid.nix
     ../common/optional/nixhelper.nix
     ../common/optional/kdeconnect.nix
 

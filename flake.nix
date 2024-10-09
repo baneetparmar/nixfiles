@@ -42,7 +42,7 @@
       ...
     }@inputs:
     let
-      username = "bane";
+      username = "shadow";
       host = "bellion";
 
       inherit (self) outputs;
@@ -92,6 +92,7 @@
           inherit specialArgs;
           modules = [
             ./hosts/${host}
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             {
               home-manager.users.${username} = import ./home/${username}/${host}.nix;

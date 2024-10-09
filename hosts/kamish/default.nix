@@ -16,7 +16,7 @@
     ../common/optional/nixhelper.nix
 
     #user
-    ../common/users/bane
+    "../common/users/${username}"
   ];
 
   wsl = {
