@@ -7,7 +7,7 @@
       "github.com" = {
         host = "github.com";
         user = "git";
-        identityFile = [ "~/.ssh/github" ];
+        identityFile = [ "~/.ssh/github_personal" ];
       };
     };
   };

@@ -9,7 +9,7 @@
       init.defaultBranch = "main";
       core.editor = "vim";
       commit.gpgsign = true;
-      user.signingkey = "D5EA058BA8C6C7A9";
+      user.signingkey = "595FF4E242BD61CE";
     };
   };
   programs.gh = {

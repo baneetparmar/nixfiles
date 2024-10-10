@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./common/core
@@ -37,6 +37,7 @@
       notion-desktop
       wora-music-player
       google-play-books
+      inputs.ignis.packages.${system}.ignis
     ])
     ++ (with pkgs.unstable; [
       miru

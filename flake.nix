@@ -19,6 +19,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
     ags.url = "github:Aylur/ags";
+    ignis.url = "github:linkfrg/ignis";
     nixvim.url = "github:baneetparmar/nixvim";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
@@ -100,7 +101,7 @@
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
+              home-manager.backupFileExtension = "old";
             }
           ];
         };
