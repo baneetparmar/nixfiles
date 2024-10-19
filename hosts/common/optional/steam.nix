@@ -1,5 +1,11 @@
-{ pkgs, username, ... }:
 {
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
+{
+  imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
@@ -24,6 +30,7 @@
         ];
     };
   };
+  programs.steam.platformOptimizations.enable = true;
   programs.gamescope.enable = true;
   programs.gamemode.enable = true;
 

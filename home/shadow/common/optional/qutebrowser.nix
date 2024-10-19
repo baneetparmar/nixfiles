@@ -10,6 +10,18 @@
       rw = "https://{}";
       ur = "http://{}";
     };
+    settings = {
+      colors = {
+        webpage = {
+          darkmode.enabled = true;
+          preferred_color_scheme = "dark";
+        };
+      };
+      url = {
+        default_page = "https://google.co.in";
+        start_pages = "https://google.co.in";
+      };
+    };
 
   };
 }

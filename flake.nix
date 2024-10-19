@@ -17,17 +17,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
     ags.url = "github:Aylur/ags";
     ignis.url = "github:linkfrg/ignis";
     nixvim.url = "github:baneetparmar/nixvim";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
-    ags-config.url = "github:JayRovacsek/ags-config";
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
@@ -101,7 +97,7 @@
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "old";
+              home-manager.backupFileExtension = "bkp";
             }
           ];
         };

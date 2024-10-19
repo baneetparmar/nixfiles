@@ -1,7 +1,7 @@
 { pkgs, username, ... }:
 let
   mainMod = "SUPER";
-  wallpaper = "$FLAKE/wallpaper/live/dark.mp4";
+  wallpaper = "/home/${username}/.nixfiles/wallpaper/live/dark.mp4";
   screenshotDir = "/home/${username}/Pictures/Screenshots";
   screenshotFileName = "$(date +%s).png";
 in
@@ -21,7 +21,7 @@ in
     ];
 
     exec-once = [
-      "ags"
+      "ags -q & ags"
       "clipse -listen"
       "mpvpaper -o 'no-audio loop' DP-2 ${wallpaper}"
       "kdeconnect-indicator"

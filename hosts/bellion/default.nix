@@ -14,10 +14,11 @@
 }:
 {
   imports = [
+    ./disko.nix
     ../common/core
     ../common/users/${username}
     ./hardware-configuration.nix
-    ./disko.nix
+    ../common/optional/displayManager.nix
 
     # host specific config 
     ../common/optional/boot
@@ -26,18 +27,17 @@
     ../common/optional/services.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix
+    ../common/optional/awesomewm.nix
     ../common/optional/nixhelper.nix
     ../common/optional/kdeconnect.nix
 
-    inputs.nixos-cosmic.nixosModules.default
   ];
 
   networking.hostName = "bellion";
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
 
   services.xserver.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
 
   services.printing.enable = true;
 
@@ -61,6 +61,7 @@
     inputs.nixvim.packages.${system}.default
     openrgb-with-all-plugins
   ];
+
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
