@@ -23,7 +23,9 @@
       amberol
       nwg-look
       libadwaita
+      gnome.nautilus
       accountsservice
+      gnome.file-roller
       gnome.gnome-tweaks
       gnome.libgnome-keyring
 
@@ -37,7 +39,7 @@
       notion-desktop
       wora-music-player
       google-play-books
-      inputs.ignis.packages.${system}.ignis
+      # inputs.ignis.packages.${system}.ignis
     ])
     ++ (with pkgs.unstable; [
       miru

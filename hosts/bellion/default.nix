@@ -17,17 +17,20 @@
     ./disko.nix
     ../common/core
     ../common/users/${username}
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ../common/optional/displayManager.nix
 
     # host specific config 
+    ./stylix.nix
     ../common/optional/boot
 
-    ../common/optional/steam.nix
+    ../common/optional/gaming.nix
     ../common/optional/services.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix
-    ../common/optional/awesomewm.nix
     ../common/optional/nixhelper.nix
     ../common/optional/kdeconnect.nix
 
@@ -37,7 +40,10 @@
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
 
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   services.xserver.enable = true;
+  services.xserver.desktopManager.budgie.enable = true;
 
   services.printing.enable = true;
 
@@ -53,13 +59,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    usbutils
-    udiskie
     udisks
-    gnome.nautilus
-    gnome.file-roller
-    inputs.nixvim.packages.${system}.default
+    udiskie
+    usbutils
     openrgb-with-all-plugins
+    inputs.nixvim.packages.${system}.default
   ];
 
   services.gvfs.enable = true;

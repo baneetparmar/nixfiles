@@ -16,15 +16,17 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    treefmt-nix.url = "github:numtide/treefmt-nix";
     nix-gaming.url = "github:fufexan/nix-gaming";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     ags.url = "github:Aylur/ags";
     ignis.url = "github:linkfrg/ignis";
+    stylix.url = "github:danth/stylix/release-24.05";
     nixvim.url = "github:baneetparmar/nixvim";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 

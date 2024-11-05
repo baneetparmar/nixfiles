@@ -74,10 +74,10 @@ in
       enabled = true;
       first_launch_animation = true;
 
-      bezier = "easeInOutBounce,0.175,0.885,0.32,1.275";
+      bezier = "overshot,0.05,0.9,0.1,1.1";
 
       animation = [
-        "windows, 1, 7,easeInOutBounce"
+        "windows, 1, 7,overshot"
         "windowsOut, 1, 7, default, popin 80%"
         "border, 1, 10, default"
         "borderangle, 1, 8, default"

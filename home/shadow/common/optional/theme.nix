@@ -1,15 +1,5 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      sansSerif = [ "Noto Sans" ];
-      serif = [ "Noto Sans" ];
-      monospace = [ "Fanstasque Sans Mono" ];
-      emoji = [ "Noto Color Emoji" ];
-    };
-  };
-
   home.packages = with pkgs; [
     qt6.qtwayland
     libsForQt5.qtstyleplugin-kvantum
@@ -33,22 +23,19 @@
     fira-code-nerdfont
     fantasque-sans-mono
     noto-fonts-color-emoji
+    inputs.apple-fonts.packages.${pkgs.system}.sf-pro
+    inputs.apple-fonts.packages.${pkgs.system}.sf-mono
   ];
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
     style.name = "kvantum";
     style.package = pkgs.graphite-kde-theme;
   };
 
   gtk = {
     enable = true;
-    cursorTheme = {
-      package = pkgs.phinger-cursors;
-      name = "phinger-cursors-dark";
-      size = 24;
-    };
     theme = {
       package = pkgs.graphite-gtk-theme.override {
         themeVariants = [ "purple" ];
@@ -62,8 +49,8 @@
       name = "Graphite-purple-Dark-compact";
     };
     iconTheme = {
-      package = pkgs.oneui4-icons-theme;
-      name = "OneUI-dark";
+      package = pkgs.kora-icon-theme;
+      name = "kora";
     };
   };
 }
