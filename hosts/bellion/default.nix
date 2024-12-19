@@ -17,13 +17,13 @@
     ./disko.nix
     ../common/core
     ../common/users/${username}
+    ./hardware-configuration.nix
+    ../common/optional/displayManager.nix
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-pc-ssd
-    ./hardware-configuration.nix
-    ../common/optional/displayManager.nix
 
-    # host specific config 
+    # host specific config
     ./stylix.nix
     ../common/optional/boot
 
@@ -31,6 +31,7 @@
     ../common/optional/services.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix
+    ../common/optional/pantheon.nix
     ../common/optional/nixhelper.nix
     ../common/optional/kdeconnect.nix
 
@@ -38,12 +39,9 @@
 
   networking.hostName = "bellion";
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
   services.xserver.videoDrivers = [ "amdgpu" ];
-
-  services.xserver.enable = true;
-  services.xserver.desktopManager.budgie.enable = true;
 
   services.printing.enable = true;
 
@@ -59,15 +57,20 @@
   };
 
   environment.systemPackages = with pkgs; [
+    piper
     udisks
     udiskie
     usbutils
+    pantheon-tweaks
     openrgb-with-all-plugins
     inputs.nixvim.packages.${system}.default
   ];
 
+  services.ratbagd.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  system.stateVersion = "24.05";
+  environment.variables.EDITOR = "nvim";
+
+  system.stateVersion = "24.11";
 }

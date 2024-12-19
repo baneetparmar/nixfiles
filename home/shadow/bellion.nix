@@ -5,7 +5,7 @@
 
     # optional pkgs
     ./common/optional/rofi
-    ./common/optional/ags.nix
+    # ./common/optional/ags.nix
     ./common/optional/mpv.nix
     ./common/optional/hyprland
     ./common/optional/theme.nix
@@ -23,11 +23,11 @@
       amberol
       nwg-look
       libadwaita
-      gnome.nautilus
+      nautilus
+      file-roller
+      gnome-tweaks
       accountsservice
-      gnome.file-roller
-      gnome.gnome-tweaks
-      gnome.libgnome-keyring
+      libgnome-keyring
 
       qview
 
@@ -39,14 +39,19 @@
       notion-desktop
       wora-music-player
       google-play-books
-      # inputs.ignis.packages.${system}.ignis
+      inputs.ags.packages.${pkgs.system}.default
+
+      beeper
     ])
     ++ (with pkgs.unstable; [
       miru
-      beeper
+      cider
+      whatsie
       vesktop
       zed-editor
-      gitmoji-cli
       qbittorrent
+      gitmoji-cli
+      signal-desktop
+      element-desktop
     ]);
 }

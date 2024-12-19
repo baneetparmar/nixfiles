@@ -6,6 +6,8 @@
     enable = true;
     autoEnable = false;
 
+    polarity = "dark";
+
     cursor = {
       name = "phinger-cursors-dark";
       package = pkgs.phinger-cursors;
@@ -22,18 +24,18 @@
         package = pkgs.fantasque-sans-mono;
       };
       sansSerif = {
-        name = "SF Pro Display";
+        name = "SF Pro Regular ";
         package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro;
       };
       serif = {
-        name = "SF Pro Display";
+        name = "SF Pro Regular";
         package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro;
       };
 
       sizes = {
-        applications = 12;
-        desktop = 11;
-        popups = 10;
+        applications = 10;
+        desktop = 10;
+        popups = 9;
         terminal = 13;
       };
     };

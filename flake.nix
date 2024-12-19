@@ -2,10 +2,11 @@
   description = "NixOS configuration using flakes and home-manger";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nixpkgs-legacy.url = "github:nixos/nixpkgs?ref=nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-24.05";
+      url = "github:nix-community/home-manager?ref=release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
@@ -18,11 +19,15 @@
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:baneetparmar/ags/ags-rewrite";
     ignis.url = "github:linkfrg/ignis";
-    stylix.url = "github:danth/stylix/release-24.05";
+    stylix.url = "github:danth/stylix?ref=release-24.11";
     nixvim.url = "github:baneetparmar/nixvim";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
@@ -34,6 +39,7 @@
     {
       self,
       disko,
+      chaotic,
       nixpkgs,
       home-manager,
       treefmt-nix,
@@ -47,7 +53,7 @@
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
 
-      # required for treefmt-nix 
+      # required for treefmt-nix
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
 
@@ -92,6 +98,7 @@
           modules = [
             ./hosts/${host}
             disko.nixosModules.disko
+            chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.users.${username} = import ./home/${username}/${host}.nix;

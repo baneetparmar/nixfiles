@@ -24,7 +24,7 @@
   home = {
     username = "shadow";
     homeDirectory = "/home/${username}";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 
   home.sessionPath = [

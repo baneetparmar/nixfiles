@@ -39,7 +39,6 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "repl-flake"
       ];
     };
   };
@@ -49,5 +48,5 @@
     package = pkgs.nix-ld-rs;
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }

@@ -7,7 +7,7 @@ let
 in
 {
   wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.plugins = with pkgs.unstable.hyprlandPlugins; [ hyprfocus ];
+  wayland.windowManager.hyprland.plugins = with pkgs.unstable.hyprlandPlugins; [ ];
   wayland.windowManager.hyprland.settings = {
 
     monitor = ",highrr,0x0,1";
@@ -21,11 +21,11 @@ in
     ];
 
     exec-once = [
-      "ags -q & ags"
       "clipse -listen"
       "mpvpaper -o 'no-audio loop' DP-2 ${wallpaper}"
       "kdeconnect-indicator"
       "openrgb --autostart-enable --startminimized -p default"
+      "vesktop --start-minimized"
     ];
 
     input = {
@@ -53,10 +53,13 @@ in
       active_opacity = 0.95;
       inactive_opacity = 0.9;
 
-      drop_shadow = true;
-      shadow_range = 4;
-      shadow_render_power = 3;
-      "col.shadow" = "rgba(1a1a1aee)";
+      shadow = {
+        enabled = true;
+        range = 4;
+        render_power = 3;
+        color = "rgba(1a1a1aee)";
+      };
+
       blur = {
         enabled = true;
         size = 8;

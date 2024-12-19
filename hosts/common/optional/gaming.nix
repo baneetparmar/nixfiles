@@ -6,15 +6,16 @@
 }:
 {
   imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
+
   programs.steam = {
     enable = true;
-    gamescopeSession.enable = true;
     extest.enable = true;
-    extraPackages = with pkgs; [
+
+    extraPackages = with pkgs.legacy; [
       steamcmd
       steam-tui
     ];
-    package = pkgs.steam.override {
+    package = pkgs.legacy.steam.override {
       extraPkgs =
         pkgs: with pkgs; [
           xorg.libXcursor
@@ -29,16 +30,17 @@
           keyutils
         ];
     };
+    extraCompatPackages = with pkgs.unstable; [
+      proton-ge-bin
+    ];
   };
   programs.steam.platformOptimizations.enable = true;
-  programs.gamescope.enable = true;
+
   programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
 
   environment.systemPackages = with pkgs; [
-    protonup
     lutris
+    mangohud
   ];
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/${username}/.steam/root/compatibilitytools.d";
-  };
 }

@@ -12,14 +12,14 @@
     ./common/core/tealdeer.nix
     ./common/core/zoxide.nix
 
-    #optional 
+    #optional
     ./common/optional/development.nix
   ];
 
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 
   home.sessionPath = [
