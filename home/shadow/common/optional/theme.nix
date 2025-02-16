@@ -2,9 +2,9 @@
 {
   home.packages = with pkgs; [
     qt6.qtwayland
+    libsForQt5.qt5.qtwayland
     libsForQt5.qtstyleplugin-kvantum
     kdePackages.qtstyleplugin-kvantum
-    libsForQt5.qt5.qtwayland
 
     phinger-cursors
     graphite-gtk-theme
@@ -36,18 +36,18 @@
 
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.graphite-gtk-theme.override {
-        themeVariants = [ "purple" ];
-        colorVariants = [ "dark" ];
-        sizeVariants = [ "compact" ];
-        tweaks = [
-          "normal"
-          "rimless"
-        ];
-      };
-      name = "Graphite-purple-Dark-compact";
-    };
+    # theme = {
+    #   package = pkgs.graphite-gtk-theme.override {
+    #     themeVariants = [ "purple" ];
+    #     colorVariants = [ "dark" ];
+    #     sizeVariants = [ "compact" ];
+    #     tweaks = [
+    #       "normal"
+    #       "rimless"
+    #     ];
+    #   };
+    #   name = "Graphite-purple-Dark-compact";
+    # };
     iconTheme = {
       package = pkgs.kora-icon-theme;
       name = "kora";

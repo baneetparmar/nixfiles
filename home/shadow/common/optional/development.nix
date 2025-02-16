@@ -8,7 +8,6 @@
       gcc
       glibc
       gnumake
-      lldb_16
 
       bacon
       rustup
@@ -20,9 +19,8 @@
 
       bun
       yarn
-      nodejs_22
       tailwindcss
-      nodePackages.ijavascript
+      nodePackages.nodejs
 
       devenv
     ]

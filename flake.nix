@@ -26,12 +26,17 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     ags.url = "github:baneetparmar/ags/ags-rewrite";
-    ignis.url = "github:linkfrg/ignis";
     stylix.url = "github:danth/stylix?ref=release-24.11";
     nixvim.url = "github:baneetparmar/nixvim";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.hyprland.follows = "nixpkgs";
+    };
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
+    hypr-chroma.url = "github:alexhulbert/hyprchroma";
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 

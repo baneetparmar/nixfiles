@@ -7,7 +7,7 @@
     userEmail = "baneetparmar7@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
-      core.editor = "vim";
+      core.editor = "nvim";
       commit.gpgsign = true;
       user.signingkey = "595FF4E242BD61CE";
     };

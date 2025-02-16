@@ -42,5 +42,9 @@
   environment.systemPackages = with pkgs; [
     lutris
     mangohud
+    wine
+    wine64
+    winetricks
+    wineWowPackages.waylandFull
   ];
 }

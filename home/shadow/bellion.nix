@@ -5,14 +5,12 @@
 
     # optional pkgs
     ./common/optional/rofi
-    # ./common/optional/ags.nix
     ./common/optional/mpv.nix
     ./common/optional/hyprland
     ./common/optional/theme.nix
     ./common/optional/obs-studio.nix
     ./common/optional/qutebrowser.nix
     ./common/optional/development.nix
-    ./common/optional/spicetify-nix.nix
     ./common/optional/hyprcursor-phinger.nix
   ];
 
@@ -40,13 +38,11 @@
       wora-music-player
       google-play-books
       inputs.ags.packages.${pkgs.system}.default
-
-      beeper
     ])
     ++ (with pkgs.unstable; [
       miru
       cider
-      whatsie
+      nchat
       vesktop
       zed-editor
       qbittorrent

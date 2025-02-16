@@ -1,4 +1,9 @@
-{ pkgs, username, ... }:
+{
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
 let
   mainMod = "SUPER";
   wallpaper = "/home/${username}/.nixfiles/wallpaper/live/dark.mp4";
@@ -7,7 +12,9 @@ let
 in
 {
   wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.plugins = with pkgs.unstable.hyprlandPlugins; [ ];
+  wayland.windowManager.hyprland.plugins = with pkgs.unstable.hyprlandPlugins; [
+    inputs.hypr-chroma.packages.${pkgs.system}.Hypr-DarkWindow
+  ];
   wayland.windowManager.hyprland.settings = {
 
     monitor = ",highrr,0x0,1";
@@ -21,6 +28,7 @@ in
     ];
 
     exec-once = [
+      "ags-bar"
       "clipse -listen"
       "mpvpaper -o 'no-audio loop' DP-2 ${wallpaper}"
       "kdeconnect-indicator"
@@ -43,7 +51,7 @@ in
       gaps_in = 5;
       gaps_out = 5;
       border_size = 2;
-      "col.active_border" = "rgba(19014101) rgba(5b448aff) 90deg";
+      # "col.active_border" = "rgba(19014101) rgba(5b448aff) 90deg";
       layout = "dwindle";
       allow_tearing = true;
     };
@@ -57,7 +65,7 @@ in
         enabled = true;
         range = 4;
         render_power = 3;
-        color = "rgba(1a1a1aee)";
+        # color = "rgba(1a1a1aee)";
       };
 
       blur = {
@@ -113,7 +121,10 @@ in
       "size 800 600, class: ^(clipboardManager)$"
       "center, class: ^(clipboardManager)$"
       "stayfocused, class: ^(clipboardManager)$"
+      # required for hyprchroma
+      "plugin:chromakey,fullscreen:0"
     ];
+    chromakey_background = "7,8,17";
 
     layerrule = [ "blur,rofi" ];
 
@@ -128,7 +139,6 @@ in
       "${mainMod}, L, exec, pidof hyprlock || hyprlock"
       "${mainMod}_SHIFT, F, fullscreen, 0"
       "${mainMod}, F, fullscreen, 1"
-      "CONTROLALT, Delete, exec, ags -t powermenu"
       "ALT, Space, exec, pkill rofi || rofi -show drun"
       "${mainMod}, S, exec, wayshot -f ${screenshotDir}/${screenshotFileName}"
       "${mainMod}_SHIFT, S, exec, wayshot -f ${screenshotDir}/${screenshotFileName} -s $(slurp)"
@@ -166,6 +176,9 @@ in
 
       "${mainMod}, mouse_down, workspace, e+1"
       "${mainMod}, mouse_up, workspace, e-1"
+      "CONTROLALT, Delete, exec, hyprctl dispatch exit"
+
+      "${mainMod}, C, togglechromakey"
     ];
 
     bindl = [ ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" ];

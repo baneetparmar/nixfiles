@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
     theme = "where_is_my_sddm_theme";
-    package = pkgs.kdePackages.sddm;
+    package = lib.mkDefault pkgs.kdePackages.sddm;
     extraPackages = with pkgs; [ qt6.qt5compat ];
     settings = {
       Theme = {

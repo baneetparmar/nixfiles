@@ -4,7 +4,7 @@
 
   stylix = {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
 
     polarity = "dark";
 
@@ -39,7 +39,22 @@
         terminal = 13;
       };
     };
-    image = ../../wallpaper/static/revenant.png;
     homeManagerIntegration.followSystem = true;
+
+    image = pkgs.fetchurl {
+      url = "https://user-images.githubusercontent.com/75974100/179296440-2ac2eab4-4742-477c-9776-ff1c790f1df1.png";
+      sha256 = "0b87cdscrslh9r7ajq625s675djmlxcsfyrp26h59706qf2sfcmj";
+    };
+
   };
+
+  # disabled ttargets
+  home-manager.sharedModules = [
+    {
+      stylix.targets = {
+        rofi.enable = false;
+        hyprlock.enable = false;
+      };
+    }
+  ];
 }

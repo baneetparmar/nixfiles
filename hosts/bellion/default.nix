@@ -31,7 +31,6 @@
     ../common/optional/services.nix
     ../common/optional/hyprland.nix
     ../common/optional/pipewire.nix
-    ../common/optional/pantheon.nix
     ../common/optional/nixhelper.nix
     ../common/optional/kdeconnect.nix
 
@@ -39,7 +38,11 @@
 
   networking.hostName = "bellion";
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
+  services.scx.enable = true;
+  services.scx.scheduler = "scx_lavd";
+
+  services.xserver.enable = true;
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
@@ -61,8 +64,8 @@
     udisks
     udiskie
     usbutils
-    pantheon-tweaks
     openrgb-with-all-plugins
+    lxqt.lxqt-wayland-session
     inputs.nixvim.packages.${system}.default
   ];
 
@@ -71,6 +74,12 @@
   services.udisks2.enable = true;
 
   environment.variables.EDITOR = "nvim";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
+    MOZ_ENABLE_WAYLAND = "1"; # ensure enable wayland for Firefox
+    WLR_RENDERER_ALLOW_SOFTWARE = "1"; # enable software rendering for wlroots
+    WLR_NO_HARDWARE_CURSORS = "1"; # disable hardware cursors for wlroots
+  };
 
   system.stateVersion = "24.11";
 }

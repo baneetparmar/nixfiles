@@ -2,7 +2,7 @@
 {
   boot.plymouth = {
     enable = true;
-    theme = "bgrt";
-    themePackages = [ pkgs.nixos-bgrt-plymouth ];
+    # theme = "DcMarvel";
+    # themePackages = [ pkgs.dc-marvel-plymouth-theme ];
   };
 }
