@@ -35,8 +35,11 @@ in
   boot.extraModulePackages = [ ];
   hardware.bluetooth.enable = true;
 
-  networking.useDHCP = lib.mkDefault true;
+  # enable ZRAM for swap.
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 200;
 
+  networking.useDHCP = lib.mkDefault true;
   hardware.enableRedistributableFirmware = true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
