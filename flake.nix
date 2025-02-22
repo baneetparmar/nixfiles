@@ -81,12 +81,6 @@
         disko.nixosModules.disko
         chaotic.nixosModules.default
         home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "bkp";
-          home-manager.extraSpecialArgs = inputs.specialArgs;
-        }
       ];
 
       # Add WSL modules to host

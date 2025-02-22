@@ -25,28 +25,15 @@ in
       enable = true;
       extest.enable = true;
 
-      extraPackages = with pkgs.legacy; [
-        steamcmd
-        steam-tui
-      ];
-      package = pkgs.legacy.steam.override {
-        extraPkgs =
-          pkgs: with pkgs; [
-            xorg.libXcursor
-            xorg.libXi
-            xorg.libXinerama
-            xorg.libXScrnSaver
-            libpng
-            libpulseaudio
-            libvorbis
-            stdenv.cc.cc.lib
-            libkrb5
-            keyutils
-          ];
-      };
-      extraCompatPackages = with pkgs.unstable; [
-        proton-ge-bin
-      ];
+      # TODO: fix steam breaking
+      # extraPackages = with pkgs.legacy; [
+      #   steamcmd
+      #   steam-tui
+      # ];
+      # package = pkgs.legacy.steam;
+      # extraCompatPackages = with pkgs.unstable; [
+      #   proton-ge-bin
+      # ];
     };
     programs.steam.platformOptimizations.enable = true;
   };

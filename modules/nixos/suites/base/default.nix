@@ -26,6 +26,7 @@ in
         time = enabled;
         xkb = enabled;
         appimage = enabled;
+        fonts = enabled;
       };
       nix = enabled;
       hardware = {
@@ -33,8 +34,10 @@ in
         bluetooth = enabled;
         graphics = enabled;
       };
+      apps = {
+        neovim = enabled;
+      };
     };
-
     environment.systemPackages = with pkgs; [
 
     ];

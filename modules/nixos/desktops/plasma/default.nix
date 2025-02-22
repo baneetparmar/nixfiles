@@ -14,14 +14,15 @@ in
 {
   options.${namespace}.desktops.plasma = with types; {
     enable = mkBoolOpt false "Whether or not to enable KDE Plasma Desktop Environment.";
-    enable-sddm = mkBoolOpt false "Whether or not to enable SDDM Display Manager for Plasma.";
+    withSddm = mkBoolOpt false "Whether or not to enable SDDM Display Manager for Plasma.";
   };
 
   config = mkIf cfg.enable {
     services.xserver.enable = true;
     services.desktopManager.plasma6.enable = true;
+    services.desktopManager.plasma6.enableQt5Integration = false;
 
-    services.displayManager.sddm = mkIf cfg.enable-sddm {
+    services.displayManager.sddm = mkIf cfg.withSddm {
       enable = true;
       wayland.enable = true;
       theme = "where_is_my_sddm_theme";
@@ -33,9 +34,17 @@ in
         };
       };
     };
+    qt = {
+      enable = true;
+      style = "kvantum";
+      platformTheme = "qt5ct";
+    };
+
     environment.systemPackages = with pkgs; [
-      where-is-my-sddm-theme
+      kora-icon-theme
       phinger-cursors
+      graphite-kde-theme
+      where-is-my-sddm-theme
     ];
   };
 }

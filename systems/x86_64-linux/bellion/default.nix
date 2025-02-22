@@ -51,8 +51,6 @@ with lib.${namespace};
     udisks
     udiskie
     usbutils
-    openrgb-with-all-plugins
-    lxqt.lxqt-wayland-session
     inputs.nixvim.packages.${system}.default
   ];
 

@@ -13,22 +13,14 @@ let
 in
 {
   options.${namespace}.suites.desktop = with types; {
-    enable = mkBoolOpt false "Whether or not to enable common desktop configuration.";
+    enable = mkBoolOpt false "Whether or not to enable desktop packages and settings.";
   };
-
   config = mkIf cfg.enable {
     ${namespace} = {
-      desktops.plasma = {
-        enable = true;
-        withSddm = true;
-      };
-
-      desktops.hyprland = disabled;
-
       apps = {
-        firefox = enabled;
-        kdeconnect = enabled;
+        vesktop = enabled;
       };
+      desktops.hyprland = enabled;
     };
   };
 }
