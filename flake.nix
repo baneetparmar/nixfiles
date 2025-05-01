@@ -20,9 +20,12 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    #---- Additional flakes -----#
     nix-neovim.url = "github:baneetparmar/nix-neovim";
-    hyprpanel.url = "github:Jas-SinghFSU/Hyprpanel";
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/Hyprpanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";

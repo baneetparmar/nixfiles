@@ -18,11 +18,10 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      desktops.plasma = {
+      desktops.displayManager = {
         enable = true;
-        withSddm = true;
+        dm = "sddm";
       };
-
       desktops.hyprland = enabled;
 
       apps = {

@@ -4,6 +4,7 @@
   config,
   options,
   pkgs,
+  globals,
   ...
 }:
 with lib;
@@ -24,7 +25,7 @@ in
         "github.com" = {
           host = "github.com";
           user = "git";
-          identityFile = [ "$HOME/.ssh/github_personal" ];
+          identityFile = [ "/home/${globals.username}/.ssh/github_personal" ];
         };
       };
     };

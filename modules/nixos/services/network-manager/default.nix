@@ -19,34 +19,38 @@ in
   config = mkIf cfg.enable {
     networking = {
       nameservers = [
-        "1.1.1.1"
-        "1.0.0.1"
+        "8.8.8.8"
+        "8.8.4.4"
       ];
       networkmanager.enable = true;
       networkmanager.insertNameservers = [
-        "1.1.1.1"
-        "1.0.0.1"
+        "8.8.8.8"
+        "8.8.4.4"
       ];
       firewall = {
-        enable = true;
-        allowedTCPPorts = [
-          80
-          443
-        ];
-        allowedUDPPortRanges = [
-          {
-            from = 3000;
-            to = 3010;
-          }
-          {
-            from = 5500;
-            to = 5510;
-          }
-          {
-            from = 5000;
-            to = 5010;
-          }
-        ];
+        enable = false;
+        # allowedTCPPorts = [
+        #   80
+        #   443
+        # ];
+        # allowedUDPPortRanges = [
+        #   {
+        #     from = 3000;
+        #     to = 3010;
+        #   }
+        #   {
+        #     from = 5500;
+        #     to = 5510;
+        #   }
+        #   {
+        #     from = 5000;
+        #     to = 5010;
+        #   }
+        #   {
+        #     from = 50000;
+        #     to = 55000;
+        #   }
+        # ];
       };
     };
   };

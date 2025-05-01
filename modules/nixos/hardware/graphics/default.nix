@@ -22,10 +22,20 @@ in
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        rocmPackages.clr.icd
         amdvlk
+        intel-media-driver
+        intel-vaapi-driver
+        rocmPackages.clr.icd
       ];
-      extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+      extraPackages32 = with pkgs.driversi686Linux; [
+        amdvlk
+        intel-vaapi-driver
+      ];
+    };
+
+    environment.variables = {
+      AMD_VULKAN_ICD = "RADV";
+      LIBVA_DRIVER_NAME = "iHD";
     };
 
   };

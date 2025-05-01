@@ -22,13 +22,16 @@ in
   config = {
     wayland.windowManager.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       systemd.variables = [ "--all" ];
     };
-    ${namespace}.services = {
-      hyprlock = enabled;
-      hypridle = enabled;
+    ${namespace} = {
+      services = {
+        hyprlock = enabled;
+        hypridle = enabled;
+      };
+      misc.hyprcursor-phinger = enabled;
     };
+
     home.packages = with pkgs; [
       sassc
       slurp
@@ -52,13 +55,17 @@ in
         "XCURSOR_THEME,phinger-cursors-dark"
         "HYPRCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,phinger-cursors-dark"
+        "NIXOS_OZONE_WL, 1" # for ozone-based and electron apps to run on wayland
+        "XDG_SESSION_TYPE,wayland"
+        "WLR_NO_HARDWARE_CURSORS,1"
+        "WLR_RENDERER_ALLOW_SOFTWARE,1"
+        "QT_QPA_PLATFORM,wayland"
       ];
 
       exec-once = [
         "clipse -listen"
         "mpvpaper -o 'no-audio loop' DP-2 ${wallpaper}"
-        "kdeconnect-indicator"
-        "vesktop --start-minimized"
+        "${pkgs.rquickshare}/bin/rquickshare"
       ];
 
       input = {

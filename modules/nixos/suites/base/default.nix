@@ -30,6 +30,7 @@ in
       };
       nix = enabled;
       services = {
+        plymouth = enabled;
         network-manager = enabled;
       };
       hardware = {

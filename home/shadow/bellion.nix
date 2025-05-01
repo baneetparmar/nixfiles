@@ -34,6 +34,10 @@ with lib.${namespace};
       obs = enabled;
       rofi = enabled;
       vscode = enabled;
+      spicetify = enabled;
+    };
+    desktops = {
+      theme = enabled;
     };
     services = {
       ssh = enabled;
@@ -61,7 +65,6 @@ with lib.${namespace};
     };
     misc = {
       hyprpanel = enabled;
-      hyprcursor-phinger = enabled;
     };
   };
   home.packages = with pkgs; [
@@ -80,7 +83,6 @@ with lib.${namespace};
 
     glow # markdown reader
     krabby
-    wayshot
     zathura
 
     pinentry-curses
@@ -109,6 +111,7 @@ with lib.${namespace};
     gitmoji-cli
     signal-desktop
     element-desktop
-    google-play-books
+
+    unstable.rquickshare
   ];
 }
