@@ -48,7 +48,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
 
-      monitor = ",highrr,0x0,1";
+      monitor = ",highrr,0x0,1,bitdepth, 10, cm, hdr, sdrbrightness, 1.25, sdrsaturation, 1";
 
       env = [
         "XCURSOR_SIZE,24"
@@ -142,6 +142,7 @@ in
         force_default_wallpaper = 0;
         animate_manual_resizes = true;
         disable_hyprland_logo = true;
+        vrr = 1;
       };
 
       windowrulev2 = [
@@ -156,6 +157,10 @@ in
       ];
 
       layerrule = [ "blur,rofi" ];
+
+      experimental = {
+        xx_color_management_v4 = true;
+      };
 
       bind = [
         "${mainMod}, RETURN, exec, kitty"
