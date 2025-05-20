@@ -38,6 +38,10 @@ in
       LIBVA_DRIVER_NAME = "iHD";
     };
 
+    environment.systemPackages = with pkgs; [
+      vulkan-tools
+    ];
+
   };
 
 }

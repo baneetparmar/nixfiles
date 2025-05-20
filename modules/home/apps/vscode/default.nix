@@ -20,7 +20,7 @@ in
     programs.vscode = {
       enable = true;
       package = pkgs.vscode;
-      extensions = with pkgs.vscode-extensions; [
+      profiles.deafault.extensions = with pkgs.vscode-extensions; [
         enkia.tokyo-night # theme
       ];
     };

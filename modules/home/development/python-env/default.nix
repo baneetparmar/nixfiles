@@ -19,12 +19,12 @@ in
     home.packages = with pkgs; [
       pipx
       poetry
-      python312
-      python312Packages.pip
+      python313
+      python313Packages.pip
 
       ruff
-      ruff-lsp
-      python312Packages.python-lsp-server
+      python313Packages.python-lsp-ruff
+      python313Packages.python-lsp-server
     ];
   };
 }

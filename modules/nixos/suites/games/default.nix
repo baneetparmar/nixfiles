@@ -29,10 +29,10 @@ in
 
     environment.systemPackages = with pkgs; [
       lutris
-      wine
-      wine64
       mangohud
+
       winetricks
+      wineWowPackages.stable
       wineWowPackages.waylandFull
     ];
   };

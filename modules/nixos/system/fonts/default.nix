@@ -21,7 +21,7 @@ in
       jetbrains-mono
       font-awesome
       fira-code
-      fira-code-nerdfont
+      nerd-fonts.fira-code
       fantasque-sans-mono
       noto-fonts-color-emoji
       inputs.apple-fonts.packages.${pkgs.system}.sf-pro
