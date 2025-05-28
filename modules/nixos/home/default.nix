@@ -7,7 +7,6 @@
   outputs,
   namespace,
   globals,
-  overlays,
   ...
 }:
 with lib;

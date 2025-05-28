@@ -20,6 +20,13 @@ in
       enable = true;
       scripts = with pkgs.mpvScripts; [ autoload ];
       config = {
+        profile = "gpu-hq";
+        vo = "gpu-next";
+        gpu-api = "vulkan";
+        gpu-context = "waylandvk";
+        target-colorspace-hdr = "auto";
+        target-colorspace-hint = "auto";
+        hwdec = "auto";
         sub-file-paths = "$HOME/Videos/.subtitles/";
       };
     };

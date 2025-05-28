@@ -1,10 +1,10 @@
 {
   lib,
-  namespace,
   config,
   options,
-  pkgs,
+  namespace,
   outputs,
+  pkgs,
   ...
 }:
 with lib;

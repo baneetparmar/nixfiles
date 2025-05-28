@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
 
     ../../modules/nixos/import.nix
+    inputs.nur.modules.nixos.default
     inputs.nix-snapd.nixosModules.default
   ];
 
@@ -46,9 +47,10 @@
     };
 
     environment.systemPackages = with pkgs; [
-      vulkan-hdr-layer
+      vulkan-hdr-layer-kwin6
       where-is-my-sddm-theme
       lact # experimental
+      gtk3
     ];
     zramSwap.enable = true;
     zramSwap.memoryPercent = 200;
@@ -56,6 +58,11 @@
     services.ratbagd.enable = true;
     services.gvfs.enable = true;
     services.udisks2.enable = true;
+
+    services.preload.enable = true;
+
+    # glib schemas fix
+    environment.variables.GSETTINGS_SCHEMA_DIR = "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
 
     # Experimental Stuff
     hardware.amdgpu.opencl.enable = true;

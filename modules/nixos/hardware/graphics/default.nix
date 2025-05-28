@@ -23,6 +23,9 @@ in
       enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
+        libva
+        libva-utils
+        libvdpau-va-gl
         intel-media-driver
         intel-vaapi-driver
         rocmPackages.clr.icd
@@ -40,7 +43,11 @@ in
 
     environment.systemPackages = with pkgs; [
       vulkan-tools
+      vulkan-headers
+      vulkan-validation-layers
     ];
+
+    systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
   };
 

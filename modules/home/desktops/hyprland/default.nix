@@ -13,7 +13,6 @@ with lib;
 with lib.${namespace};
 let
   mainMod = "SUPER";
-  wallpaper = "/home/${globals.username}/.nixfiles/assets/wallpaper/live/dark.mp4";
   screenshotDir = "/home/${globals.username}/Pictures/Screenshots";
   screenshotFileName = "$(date +%s).png";
 in
@@ -22,17 +21,22 @@ in
   config = {
     wayland.windowManager.hyprland = {
       enable = true;
+      package = null;
+      portalPackage = null;
+      systemd.enable = false;
       systemd.variables = [ "--all" ];
     };
     ${namespace} = {
       services = {
         hyprlock = enabled;
         hypridle = enabled;
+        hyprsunset = enabled;
       };
       misc.hyprcursor-phinger = enabled;
     };
 
     home.packages = with pkgs; [
+      nvtopPackages.full
       sassc
       slurp
       wayshot
@@ -63,9 +67,10 @@ in
       ];
 
       exec-once = [
-        "clipse -listen"
-        "mpvpaper -o 'no-audio loop' DP-2 ${wallpaper}"
-        "${pkgs.rquickshare}/bin/rquickshare"
+        "uwsm app -- swww-daemon"
+        "uwsm app -- clipse -listen"
+        "uwsm app -- ${pkgs.rquickshare}/bin/rquickshare"
+        "uwsm app -- run-widget ~/.config/Ax-Shell/main.py"
       ];
 
       input = {
@@ -82,7 +87,7 @@ in
       general = {
         gaps_in = 5;
         gaps_out = 5;
-        border_size = 2;
+        border_size = 0;
         "col.active_border" = "rgba(19014101) rgba(5b448aff) 90deg";
         layout = "dwindle";
         allow_tearing = true;
@@ -90,8 +95,8 @@ in
 
       decoration = {
         rounding = 10;
-        active_opacity = 0.95;
-        inactive_opacity = 0.9;
+        active_opacity = 1;
+        inactive_opacity = 0.85;
 
         shadow = {
           enabled = true;
@@ -103,7 +108,7 @@ in
         blur = {
           enabled = true;
           size = 8;
-          passes = 4;
+          passes = 15;
           noise = 0;
           brightness = 1;
           special = true;
@@ -156,27 +161,31 @@ in
         "stayfocused, class: ^(clipboardManager)$"
       ];
 
-      layerrule = [ "blur,rofi" ];
+      layerrule = [
+        "blur,rofi"
+        "blurpopups,fabric"
+        "noanim,fabric"
+      ];
 
       experimental = {
         xx_color_management_v4 = true;
       };
 
       bind = [
-        "${mainMod}, RETURN, exec, kitty"
+        "${mainMod}, RETURN, exec, uwsm app -- kitty"
         "${mainMod}, Q, killactive,"
-        "${mainMod}, W, exec, firefox --new-window"
-        "${mainMod}, E, exec, nautilus -w"
+        "${mainMod}, W, exec, uwsm app -- firefox --new-window"
+        "${mainMod}, E, exec, uwsm app -- nautilus -w"
         "CONTROLALT, V, togglefloating,"
         "${mainMod}, P, pseudo,"
         "${mainMod}, J, togglesplit,"
         "${mainMod}, L, exec, pidof hyprlock || hyprlock"
         "${mainMod}_SHIFT, F, fullscreen, 0"
         "${mainMod}, F, fullscreen, 1"
-        "ALT, Space, exec, pkill rofi || rofi -show drun"
+        "ALT, Space, exec, pkill rofi || rofi -show drun -run-command \"uwsm app -- {cmd}\""
         "${mainMod}, S, exec, wayshot -f ${screenshotDir}/${screenshotFileName}"
         "${mainMod}_SHIFT, S, exec, wayshot -f ${screenshotDir}/${screenshotFileName} -s $(slurp)"
-        "${mainMod},V, exec, kitty --class clipboardManager -e fish -c 'clipse'"
+        "${mainMod},V, exec, uwsm app -- kitty --class clipboardManager -e fish -c 'clipse'"
 
         "${mainMod}, left, movefocus, l"
         "${mainMod}, right, movefocus, r"

@@ -13,11 +13,11 @@ let
 in
 {
   options.${namespace}.hardware.audio = with types; {
-    enable = mkBoolOpt false "Whether or not to enable audio on the system.";
+    enable = mkBoolOpt false "Whether or not to enable pipewire audio support.";
   };
 
   config = mkIf cfg.enable {
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

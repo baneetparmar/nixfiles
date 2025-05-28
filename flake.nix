@@ -19,6 +19,11 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wallpapers.url = "github:baneetparmar/walls-n-windows";
 
     #---- Additional flakes -----#
     nix-neovim.url = "github:baneetparmar/nix-neovim";
@@ -29,6 +34,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     nix-snapd = {
       url = "github:nix-community/nix-snapd";

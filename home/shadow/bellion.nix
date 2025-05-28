@@ -4,12 +4,17 @@
   inputs,
   globals,
   namespace,
+  config,
   ...
 }:
 with lib;
 with lib.${namespace};
+
 {
-  imports = [ ../../modules/home/import.nix ];
+  imports = [
+    ../../modules/home/import.nix
+    inputs.nur.modules.homeManager.default
+  ];
 
   home = {
     username = "${globals.username}";
@@ -64,7 +69,7 @@ with lib.${namespace};
       nh = enabled;
     };
     misc = {
-      hyprpanel = enabled;
+      ax-shell = enabled;
     };
   };
   home.packages = with pkgs; [
