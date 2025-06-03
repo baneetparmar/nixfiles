@@ -59,7 +59,9 @@ in
           networkmanager.dev
         ];
       })
-      typstPackages.use-tabler-icons
+      caffeine-ng
+      tabler-icons
+      vte
     ];
   };
 }

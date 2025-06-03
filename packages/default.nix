@@ -2,4 +2,5 @@
 {
   google-play-books = pkgs.callPackage ./google-play-books { };
   vulkan-hdr-layer = pkgs.callPackage ./vulkan-hdr-layer { };
+  tabler-icons = pkgs.callPackage ./tabler-icons { };
 }

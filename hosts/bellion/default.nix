@@ -47,7 +47,7 @@
     };
 
     environment.systemPackages = with pkgs; [
-      vulkan-hdr-layer-kwin6
+      vulkan-hdr-layer
       where-is-my-sddm-theme
       lact # experimental
       gtk3
@@ -58,6 +58,7 @@
     services.ratbagd.enable = true;
     services.gvfs.enable = true;
     services.udisks2.enable = true;
+    services.power-profiles-daemon.enable = true;
 
     services.preload.enable = true;
 

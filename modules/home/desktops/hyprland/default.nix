@@ -1,11 +1,11 @@
 {
   lib,
-  namespace,
   config,
-  options,
-  pkgs,
-  globals,
   inputs,
+  namespace,
+  options,
+  globals,
+  pkgs,
 
   ...
 }:
@@ -67,10 +67,10 @@ in
       ];
 
       exec-once = [
-        "uwsm app -- swww-daemon"
         "uwsm app -- clipse -listen"
         "uwsm app -- ${pkgs.rquickshare}/bin/rquickshare"
         "uwsm app -- run-widget ~/.config/Ax-Shell/main.py"
+        "uwsm app -- mpvpaper -o 'no-audio loop' DP-2 ${inputs.wallpapers.windows.kylo-rens-lightsaber}"
       ];
 
       input = {
@@ -95,22 +95,25 @@ in
 
       decoration = {
         rounding = 10;
-        active_opacity = 1;
-        inactive_opacity = 0.85;
+        active_opacity = 0.90;
+        inactive_opacity = 0.75;
 
         shadow = {
           enabled = true;
-          range = 4;
-          render_power = 3;
+          range = 2;
+          render_power = 1;
           color = "rgba(1a1a1aee)";
         };
 
         blur = {
           enabled = true;
-          size = 8;
-          passes = 15;
+          size = 24;
+          passes = 2;
           noise = 0;
-          brightness = 1;
+          brightness = 0.5;
+          contrast = 1.5;
+          vibrancy = 1.5;
+          vibrancy_darkness = 2.0;
           special = true;
           popups = true;
           new_optimizations = true;
@@ -121,17 +124,28 @@ in
       animations = {
         enabled = true;
         first_launch_animation = true;
-
-        bezier = "overshot,0.05,0.9,0.1,1.1";
+        bezier = [
+          "linear, 0, 0, 1, 1"
+          "md3_standard, 0.2, 0, 0, 1"
+          "md3_decel, 0.05, 0.7, 0.1, 1"
+          "md3_accel, 0.3, 0, 0.8, 0.15"
+          "overshot, 0.05, 0.9, 0.1, 1.1"
+          "crazyshot, 0.1, 1.5, 0.76, 0.92"
+          "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
+          "fluent_decel, 0.1, 1, 0, 1"
+          "easeInOutCirc, 0.85, 0, 0.15, 1"
+          "easeOutCirc, 0, 0.55, 0.45, 1"
+          "easeOutExpo, 0.16, 1, 0.3, 1"
+        ];
 
         animation = [
-          "windows, 1, 7,overshot"
-          "windowsOut, 1, 7, default, popin 80%"
+          "windows, 1, 3, md3_decel, popin 60%"
           "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+          "fade, 1, 2.5, md3_decel"
+          "workspaces, 1, 3.5, easeOutExpo, slide"
+          "specialWorkspace, 1, 3, md3_decel, slidevert"
         ];
+
       };
 
       dwindle = {
@@ -162,8 +176,6 @@ in
       ];
 
       layerrule = [
-        "blur,rofi"
-        "blurpopups,fabric"
         "noanim,fabric"
       ];
 
