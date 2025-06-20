@@ -1,7 +1,7 @@
 {
   lib,
-  namespace,
   config,
+  namespace,
   options,
   pkgs,
   ...
@@ -18,15 +18,17 @@ in
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      desktops.displayManager = {
-        enable = true;
-        dm = "sddm";
+      desktops = {
+        displayManager = {
+          enable = true;
+          dm = "sddm";
+        };
+        hyprland = enabled;
       };
-      desktops.hyprland = enabled;
 
       apps = {
         firefox = enabled;
-        kdeconnect = enabled;
+        neovim = enabled;
       };
     };
 
@@ -38,5 +40,12 @@ in
         xdg-desktop-portal-gnome
       ];
     };
+
+    zramSwap.enable = true;
+    zramSwap.memoryPercent = 200;
+
+    services.gvfs.enable = true;
+    services.udisks2.enable = true;
+    services.power-profiles-daemon.enable = true;
   };
 }

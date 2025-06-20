@@ -1,9 +1,9 @@
 {
   lib,
-  pkgs,
   config,
-  options,
   namespace,
+  options,
+  pkgs,
   ...
 }:
 
@@ -25,10 +25,10 @@ in
         amdvlk
         libva
         libva-utils
+        vaapiVdpau
         libvdpau-va-gl
         intel-media-driver
-        intel-vaapi-driver
-        rocmPackages.clr.icd
+        intel-vaapi-driver # older but works better for Firefox & Chrome
       ];
       extraPackages32 = with pkgs.driversi686Linux; [
         amdvlk
@@ -37,15 +37,15 @@ in
     };
 
     environment.variables = {
-      AMD_VULKAN_ICD = "RADV";
-      LIBVA_DRIVER_NAME = "iHD";
+      AMD_VULKAN_ICD = "RADV"; # use mesa drivers instead of amdvlk.
     };
 
     environment.systemPackages = with pkgs; [
       vulkan-tools
-      vulkan-headers
-      vulkan-validation-layers
     ];
+
+    hardware.amdgpu.opencl.enable = true;
+    hardware.amdgpu.initrd.enable = true;
 
     systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 

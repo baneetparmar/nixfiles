@@ -24,6 +24,10 @@ in
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
+      extraConfig.pipewire = {
+        "default.clock.min-quantum" = 512;
+      };
     };
 
     environment.systemPackages = with pkgs; [

@@ -23,6 +23,7 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     wallpapers.url = "github:baneetparmar/walls-n-windows";
 
     #---- Additional flakes -----#

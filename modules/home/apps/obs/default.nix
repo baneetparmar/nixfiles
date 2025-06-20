@@ -16,7 +16,16 @@ in
     enable = mkBoolOpt false "Whether or not to enable the OBS Studio screen recording and streaming software.";
   };
   config = mkIf cfg.enable {
-    programs.obs-studio.enable = true;
-    programs.obs-studio.plugins = with pkgs.obs-studio-plugins; [ wlrobs ];
+    programs.obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-vaapi
+        obs-gstreamer
+        obs-vkcapture
+      ];
+    };
   };
 }

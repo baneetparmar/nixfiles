@@ -30,14 +30,24 @@ in
         auto-optimise-store = false;
 
         trusted-users = [ "@wheel" ];
+
+        substituters = [
+          "https://cache.nixos.org"
+          "https://devenv.cachix.org"
+          "https://cosmic.cachix.org"
+          "https://nix-gaming.cachix.org"
+          "https://chaotic-nyx.cachix.org"
+          "https://hyprland.cachix.org"
+          "https://baneetparmar.cachix.org"
+        ];
         trusted-substituters = [
           "https://cache.nixos.org"
           "https://devenv.cachix.org"
           "https://cosmic.cachix.org"
           "https://nix-gaming.cachix.org"
-          "https://chaotic-nyx.cachix.org/"
-          "https://baneetparmar.cachix.org"
+          "https://chaotic-nyx.cachix.org"
           "https://hyprland.cachix.org"
+          "https://baneetparmar.cachix.org"
         ];
         trusted-public-keys = [
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="

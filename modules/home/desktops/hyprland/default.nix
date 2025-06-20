@@ -52,7 +52,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
 
-      monitor = ",highrr,0x0,1,bitdepth, 10, cm, hdr, sdrbrightness, 1.25, sdrsaturation, 1";
+      monitor = ",highrr,0x0,1,bitdepth, 8, cm, auto, sdrbrightness, 1.25, sdrsaturation, 1";
 
       env = [
         "XCURSOR_SIZE,24"
