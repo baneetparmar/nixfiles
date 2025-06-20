@@ -27,6 +27,7 @@
     archetypes.gaming = enabled;
     misc = {
       nix-ld = enabled;
+      virtual-machine = enabled;
     };
   };
 
