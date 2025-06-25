@@ -1,5 +1,5 @@
 keys:
-  - &shadow age1uck5xxtf5n0975rxdx07rwnqvrp2d2ekmyn7d55lmggkegp5q34swwzdpv
+  - &shadow age16uhld6pdu7e7krkt5wgd5qmrfy5nk93pu4kjgejzypk0hvl5rsmqn5wpjx
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:

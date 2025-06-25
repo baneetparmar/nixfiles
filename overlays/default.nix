@@ -12,8 +12,6 @@
     };
   };
 
-  hyprpanel = inputs.hyprpanel.overlay;
-
   nix-vscode-extensions = inputs.nix-vscode-extensions.overlays.default;
 
   nur = inputs.nur.overlays.default;

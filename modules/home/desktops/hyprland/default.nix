@@ -95,8 +95,8 @@ in
 
       decoration = {
         rounding = 10;
-        active_opacity = 0.90;
-        inactive_opacity = 0.75;
+        active_opacity = 0.99;
+        inactive_opacity = 0.95;
 
         shadow = {
           enabled = true;
@@ -107,12 +107,12 @@ in
 
         blur = {
           enabled = true;
-          size = 24;
-          passes = 2;
+          size = 1;
+          passes = 4;
           noise = 0;
-          brightness = 0.5;
-          contrast = 1.5;
-          vibrancy = 1.5;
+          brightness = 0.7;
+          contrast = 1.2;
+          vibrancy = 1.2;
           vibrancy_darkness = 2.0;
           special = true;
           popups = true;

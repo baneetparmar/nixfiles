@@ -28,10 +28,6 @@
 
     #---- Additional flakes -----#
     nix-neovim.url = "github:baneetparmar/nix-neovim";
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/Hyprpanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";

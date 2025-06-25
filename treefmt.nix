@@ -9,5 +9,8 @@
     mdsh.enable = true;
   };
 
-  settings.global.excludes = [ "*.lock" ];
+  settings.global.excludes = [
+    "*.lock"
+    "secrets.yaml"
+  ];
 }

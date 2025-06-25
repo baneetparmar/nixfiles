@@ -10,6 +10,7 @@
 
 {
   imports = [
+    ./sops.nix
     ./disko.nix
     ./hardware-configuration.nix
 
@@ -54,7 +55,11 @@
     environment.systemPackages = with pkgs; [
       vulkan-hdr-layer-kwin6
       where-is-my-sddm-theme
+      gtk3
     ];
+
+    # glib schemas fix
+    environment.variables.GSETTINGS_SCHEMA_DIR = "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
 
     services.preload.enable = true;
 

@@ -114,7 +114,7 @@ with lib.${namespace};
     vesktop
     qbittorrent
     gitmoji-cli
-    signal-desktop
+    unstable.signal-desktop
     element-desktop
 
     unstable.rquickshare

@@ -61,7 +61,6 @@ in
       })
       caffeine-ng
       tabler-icons
-      vte
     ];
   };
 }
