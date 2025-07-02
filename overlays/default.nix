@@ -11,8 +11,7 @@
       config.allowUnfree = true;
     };
   };
+  nur = inputs.nur.overlays.default;
 
   nix-vscode-extensions = inputs.nix-vscode-extensions.overlays.default;
-
-  nur = inputs.nur.overlays.default;
 }

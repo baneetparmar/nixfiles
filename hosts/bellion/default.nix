@@ -36,6 +36,7 @@
     networking.hostName = "bellion";
 
     services.xserver.enable = true;
+    programs.xwayland.enable = true;
     boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     services.xserver.videoDrivers = [ "amdgpu" ];
 
