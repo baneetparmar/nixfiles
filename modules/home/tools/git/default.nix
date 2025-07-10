@@ -29,5 +29,9 @@ in
         user.signingkey = "595FF4E242BD61CE";
       };
     };
+    home.packages = with pkgs; [
+      lazygit
+      gitmoji-cli
+    ];
   };
 }

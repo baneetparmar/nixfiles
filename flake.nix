@@ -32,12 +32,9 @@
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
-    nix-snapd = {
-      url = "github:nix-community/nix-snapd";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    # hypr-darkwindow = {
+    #   url = "github:micha4w/Hypr-DarkWindow/custom_shaders";
+    # };
   };
 
   outputs =

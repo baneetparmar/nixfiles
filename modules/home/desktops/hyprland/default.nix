@@ -25,6 +25,9 @@ in
       portalPackage = null;
       systemd.enable = false;
       systemd.variables = [ "--all" ];
+      plugins = [
+        # inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
+      ];
     };
     ${namespace} = {
       services = {
@@ -51,7 +54,6 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-
       monitor = ",highrr,0x0,1,bitdepth, 8, cm, auto, sdrbrightness, 1.25, sdrsaturation, 1";
 
       env = [
@@ -95,12 +97,12 @@ in
 
       decoration = {
         rounding = 10;
-        active_opacity = 0.99;
+        active_opacity = 0.95;
         inactive_opacity = 0.95;
 
         shadow = {
           enabled = true;
-          range = 2;
+          range = 4;
           render_power = 1;
           color = "rgba(1a1a1aee)";
         };
@@ -109,7 +111,7 @@ in
           enabled = true;
           size = 1;
           passes = 4;
-          noise = 0;
+          noise = 0.5;
           brightness = 0.7;
           contrast = 1.2;
           vibrancy = 1.2;

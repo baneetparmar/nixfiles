@@ -16,7 +16,6 @@
 
     ../../modules/nixos/import.nix
     inputs.nur.modules.nixos.default
-    inputs.nix-snapd.nixosModules.default
 
     # required for using chaotic-nyx on stable channel
     inputs.chaotic.nixosModules.nyx-cache
@@ -28,19 +27,24 @@
     archetypes.gaming = enabled;
     misc = {
       nix-ld = enabled;
-      virtual-machine = enabled;
     };
   };
 
   config = {
     networking.hostName = "bellion";
 
-    services.xserver.enable = true;
+    # services.xserver.enable = true;
     programs.xwayland.enable = true;
+    services.xserver = {
+      desktopManager = {
+        xterm.enable = false;
+        xfce.enable = true;
+      };
+    };
     boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     services.xserver.videoDrivers = [ "amdgpu" ];
 
-    services.snap.enable = true;
+    services.flatpak.enable = true;
 
     security.rtkit.enable = true;
     security.sudo.wheelNeedsPassword = false;

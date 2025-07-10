@@ -47,11 +47,8 @@ with lib.${namespace};
     services = {
       ssh = enabled;
     };
-    development = {
-      misc-env = enabled;
-      python-env = enabled;
-      rust-env = enabled;
-      webdev-env = enabled;
+    dev = {
+      core = enabled;
     };
     tools = {
       aria = enabled;
@@ -83,14 +80,14 @@ with lib.${namespace};
     grex
     clipse
     ripgrep
-    lazygit
     bandwhich
-
-    glow # markdown reader
-    krabby
-    zathura
-
     pinentry-curses
+
+    qview # image viewer
+    glow # markdown reader
+    zathura # ebook reader
+
+    krabby
 
     (appimage-run.override { extraPkgs = p: [ p.libsecret ]; })
 
@@ -102,8 +99,6 @@ with lib.${namespace};
     accountsservice
     libgnome-keyring
 
-    qview
-
     varia
     stremio
     alsa-oss
@@ -113,10 +108,9 @@ with lib.${namespace};
     miru
     vesktop
     qbittorrent
-    gitmoji-cli
-    unstable.signal-desktop
     element-desktop
 
     unstable.rquickshare
+    unstable.signal-desktop
   ];
 }
