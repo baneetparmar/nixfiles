@@ -27,26 +27,26 @@ in
       nodePackages.nodejs
 
       # LSP
-      ccls
-      sqls
-      next-ls
-      htmx-lsp
-      tailwindcss-language-server
-      vscode-langservers-extracted
-      nil
-      sqls
-      gopls
-      jq-lsp
-      marksman
-      vim-language-server
-      jdt-language-server
-      yaml-language-server
-      lua-language-server
-      bash-language-server
-      autotools-language-server
-      ruff
-      python313Packages.python-lsp-ruff
-      python313Packages.python-lsp-server
+      # ccls
+      # sqls
+      # next-ls
+      # htmx-lsp
+      # tailwindcss-language-server
+      # vscode-langservers-extracted
+      # nil
+      # sqls
+      # gopls
+      # jq-lsp
+      # marksman
+      # vim-language-server
+      # jdt-language-server
+      # yaml-language-server
+      # lua-language-server
+      # bash-language-server
+      # autotools-language-server
+      # ruff
+      # python313Packages.python-lsp-ruff
+      # python313Packages.python-lsp-server
     ];
   };
 

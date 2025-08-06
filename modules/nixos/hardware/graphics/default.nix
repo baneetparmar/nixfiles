@@ -29,6 +29,7 @@ in
         libvdpau-va-gl
         intel-media-driver
         intel-vaapi-driver # older but works better for Firefox & Chrome
+        vpl-gpu-rt
       ];
       extraPackages32 = with pkgs.driversi686Linux; [
         amdvlk

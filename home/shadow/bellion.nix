@@ -22,6 +22,11 @@ with lib.${namespace};
     stateVersion = globals.stateVersion;
     sessionVariables = {
       FLAKE = "/home/${globals.username}/.nixfiles";
+      NIXOS_OZONE_WL = "1";
+      GDK_BACKEND = "wayland,x11,*";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
     };
     sessionPath = [
       "$HOME/.local/bin/"

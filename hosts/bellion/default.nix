@@ -33,18 +33,17 @@
   config = {
     networking.hostName = "bellion";
 
-    # services.xserver.enable = true;
-    programs.xwayland.enable = true;
-    services.xserver = {
-      desktopManager = {
-        xterm.enable = false;
-        xfce.enable = true;
+    boot = {
+      loader.grub = {
+        theme = "${pkgs.space-isolation-grub-theme}";
+        splashImage = "${pkgs.space-isolation-grub-theme}/background.jpg";
       };
     };
+
+    programs.xwayland.enable = true;
+
     boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     services.xserver.videoDrivers = [ "amdgpu" ];
-
-    services.flatpak.enable = true;
 
     security.rtkit.enable = true;
     security.sudo.wheelNeedsPassword = false;
@@ -65,6 +64,7 @@
 
     # glib schemas fix
     environment.variables.GSETTINGS_SCHEMA_DIR = "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     services.preload.enable = true;
 

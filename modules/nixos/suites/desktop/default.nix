@@ -3,6 +3,7 @@
   config,
   namespace,
   options,
+  inputs,
   pkgs,
   ...
 }:
@@ -35,7 +36,8 @@ in
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
+        # xdg-desktop-portal-hyprland
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
         kdePackages.xdg-desktop-portal-kde
         xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk

@@ -46,30 +46,41 @@ in
       };
     };
 
+    home.pointerCursor = {
+      enable = true;
+      name = "phinger-cursors-dark";
+      size = 24;
+      package = pkgs.phinger-cursors;
+      x11.enable = true;
+      x11.defaultCursor = "phinger-cursors-dark";
+    };
+
     qt = {
       enable = true;
       platformTheme.name = "qtct";
       style.name = "kvantum";
-      style.package = pkgs.graphite-kde-theme;
     };
 
     gtk = {
       enable = true;
       theme = {
-        package = pkgs.graphite-gtk-theme.override {
-          themeVariants = [ "blue" ];
-          colorVariants = [ "dark" ];
-          sizeVariants = [ "compact" ];
+        name = "Orchis-Dark-Compact";
+        package = pkgs.orchis-theme.override {
           tweaks = [
-            "normal"
-            "rimless"
+            "compact"
+            "macos"
+            "primary"
           ];
         };
-        name = "Graphite-blue-Dark-compact";
       };
       iconTheme = {
         package = pkgs.kora-icon-theme;
         name = "kora";
+      };
+      cursorTheme = {
+        name = "phinger-cursors-dark";
+        package = pkgs.phinger-cursors;
+        size = 24;
       };
     };
   };

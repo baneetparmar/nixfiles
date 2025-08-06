@@ -26,7 +26,7 @@ in
       systemd.enable = false;
       systemd.variables = [ "--all" ];
       plugins = [
-        # inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
+        inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
       ];
     };
     ${namespace} = {
@@ -54,18 +54,16 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      monitor = ",highrr,0x0,1,bitdepth, 8, cm, auto, sdrbrightness, 1.25, sdrsaturation, 1";
+      monitor = ",highrr,0x0,1,bitdepth, 10, cm, hdredid, sdrbrightness, 1.21, sdrsaturation, 1";
 
       env = [
         "XCURSOR_SIZE,24"
         "XCURSOR_THEME,phinger-cursors-dark"
         "HYPRCURSOR_SIZE,24"
         "HYPRCURSOR_THEME,phinger-cursors-dark"
-        "NIXOS_OZONE_WL, 1" # for ozone-based and electron apps to run on wayland
         "XDG_SESSION_TYPE,wayland"
         "WLR_NO_HARDWARE_CURSORS,1"
         "WLR_RENDERER_ALLOW_SOFTWARE,1"
-        "QT_QPA_PLATFORM,wayland"
       ];
 
       exec-once = [
@@ -95,10 +93,14 @@ in
         allow_tearing = true;
       };
 
+      binds = {
+        movefocus_cycles_fullscreen = true;
+      };
+
       decoration = {
         rounding = 10;
-        active_opacity = 0.95;
-        inactive_opacity = 0.95;
+        active_opacity = 0.999;
+        inactive_opacity = 0.999;
 
         shadow = {
           enabled = true;
@@ -109,18 +111,12 @@ in
 
         blur = {
           enabled = true;
-          size = 1;
-          passes = 4;
-          noise = 0.5;
-          brightness = 0.7;
-          contrast = 1.2;
-          vibrancy = 1.2;
-          vibrancy_darkness = 2.0;
+          size = 8;
+          passes = 2;
           special = true;
           popups = true;
           new_optimizations = true;
           ignore_opacity = true;
-          xray = true;
         };
       };
       animations = {
@@ -163,13 +159,10 @@ in
         force_default_wallpaper = 0;
         animate_manual_resizes = true;
         disable_hyprland_logo = true;
-        vrr = 1;
       };
 
       windowrulev2 = [
-        "opaque, title: (.*)(- mpv)$"
-        "opaque, class: (com.stremio.stremio)$"
-        "opaque, class: (.*)(steam)(.*)"
+        "plugin:shadewindow chromakey, class:^(?!firefox).*$"
         "maximize, class: ^(com.interversehq.qView)$"
         "float, class: ^(clipboardManager)$"
         "size 800 600, class: ^(clipboardManager)$"
@@ -180,6 +173,12 @@ in
       layerrule = [
         "noanim,fabric"
       ];
+
+      render = {
+        "cm_auto_hdr" = 2;
+        "direct_scanout" = 2;
+        "new_render_scheduling" = false;
+      };
 
       experimental = {
         xx_color_management_v4 = true;
@@ -196,7 +195,8 @@ in
         "${mainMod}, L, exec, pidof hyprlock || hyprlock"
         "${mainMod}_SHIFT, F, fullscreen, 0"
         "${mainMod}, F, fullscreen, 1"
-        "ALT, Space, exec, pkill rofi || rofi -show drun -run-command \"uwsm app -- {cmd}\""
+        "${mainMod}, Space, exec, pkill rofi || rofi -show drun -run-command \"uwsm app -- {cmd}\""
+        "Alt, Space, exec, fabric-cli exec ax-shell \"notch.open_notch('launcher')\""
         "${mainMod}, S, exec, wayshot -f ${screenshotDir}/${screenshotFileName}"
         "${mainMod}_SHIFT, S, exec, wayshot -f ${screenshotDir}/${screenshotFileName} -s $(slurp)"
         "${mainMod},V, exec, uwsm app -- kitty --class clipboardManager -e fish -c 'clipse'"
@@ -233,7 +233,8 @@ in
 
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
-        "CONTROLALT, Delete, exec, hyprctl dispatch exit"
+        # "CONTROLALT, Delete, exec, hyprctl dispatch exit"
+        "CONTROLALT, Delete, exec, fabric-cli exec ax-shell \"notch.open_notch('power')\""
       ];
 
       bindl = [ ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" ];

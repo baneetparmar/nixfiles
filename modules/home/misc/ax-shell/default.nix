@@ -1,10 +1,10 @@
 {
   lib,
-  namespace,
   config,
   options,
-  pkgs,
+  namespace,
   inputs,
+  pkgs,
   ...
 }:
 with lib;
@@ -20,10 +20,12 @@ in
     home.packages = with pkgs; [
       cava
       matugen
+      cliphist
       gnome-bluetooth
       gobject-introspection
       gpu-screen-recorder
       grimblast
+      hyprpicker
       hyprshot
       imagemagick
       nvtopPackages.full
@@ -32,9 +34,11 @@ in
       swww
       tesseract
       tmux
+      upower
       webp-pixbuf-loader
       wl-clipboard
       wlinhibit
+
       pkgs.nur.repos.HeyImKyu.fabric-cli
       (pkgs.nur.repos.HeyImKyu.run-widget.override {
         extraPythonPackages = with python3Packages; [
@@ -51,12 +55,27 @@ in
 
           pyjson5
           pytomlpp
+          pygobject3
+          pywayland
+          pygobject-stubs
+
+          buildPythonPackage
+          rec {
+            pname = "python-currencyconverter";
+            version = "1.7";
+            src = fetchPypi {
+              inherit pname version;
+              sha256 = "0v7pmmskhj1z8hx7mysjf88h3jszs6ap7pcvy5iw8qhw17w6m0hw";
+            };
+            doCheck = false;
+          }
         ];
         extraBuildInputs = [
           pkgs.nur.repos.HeyImKyu.fabric-gray
           playerctl
           networkmanager
           networkmanager.dev
+          vte
         ];
       })
       caffeine-ng

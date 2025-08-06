@@ -24,17 +24,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    #---- Additional flake inputs -----#
+    nix-neovim.url = "github:baneetparmar/nix-neovim";
+    nix-neovim.inputs.nixpkgs.follows = "nixpkgs";
+
     wallpapers.url = "github:baneetparmar/walls-n-windows";
 
-    #---- Additional flakes -----#
-    nix-neovim.url = "github:baneetparmar/nix-neovim";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    # hypr-darkwindow = {
-    #   url = "github:micha4w/Hypr-DarkWindow/custom_shaders";
-    # };
+    hyprland.url = "github:hyprwm/Hyprland";
+    hypr-darkwindow = {
+      url = "github:micha4w/Hypr-DarkWindow";
+      inputs.hyprland.follows = "hyprland";
+    };
+    fabric.url = "github:Fabric-Development/fabric";
+    fabric.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -58,7 +65,7 @@
         username = "shadow";
         stateVersion = "25.05";
       };
-      # use namespace to avoid collisions with default names
+      # use namespace to avoid collisions
       namespace = "custom";
       mkHost = host: {
         ${host} =

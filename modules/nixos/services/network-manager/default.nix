@@ -17,40 +17,29 @@ in
   };
 
   config = mkIf cfg.enable {
+    services.resolved = {
+      enable = true;
+      dnssec = "true";
+      domains = [ "~." ];
+      dnsovertls = "true";
+      extraConfig = ''
+        MulticastDNS=resolve
+      '';
+      llmnr = "true";
+    };
+
     networking = {
-      nameservers = [
-        "8.8.8.8"
-        "8.8.4.4"
-      ];
       networkmanager.enable = true;
-      networkmanager.insertNameservers = [
-        "8.8.8.8"
-        "8.8.4.4"
+      networkmanager.dns = "systemd-resolved";
+
+      nameservers = [
+        "76.76.2.5#p2.freedns.controld.com"
+        "76.76.10.5#p2.freedns.controld.com"
+        "2606:1a40::5#p2.freedns.controld.com"
+        "2606:1a40:1::5#p2.freedns.controld.com"
       ];
       firewall = {
         enable = false;
-        # allowedTCPPorts = [
-        #   80
-        #   443
-        # ];
-        # allowedUDPPortRanges = [
-        #   {
-        #     from = 3000;
-        #     to = 3010;
-        #   }
-        #   {
-        #     from = 5500;
-        #     to = 5510;
-        #   }
-        #   {
-        #     from = 5000;
-        #     to = 5010;
-        #   }
-        #   {
-        #     from = 50000;
-        #     to = 55000;
-        #   }
-        # ];
       };
     };
   };
