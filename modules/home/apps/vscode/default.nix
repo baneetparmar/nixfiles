@@ -60,7 +60,7 @@ in
           "editor.fontLigatures" = true;
           "terminal.integrated.fontLigatures.enabled" = true;
           "files.autoSave" = "afterDelay";
-          "workbench.colorTheme" = "Tokyo Night";
+          "workbench.colorTheme" = "Aura Dark";
           "workbench.iconTheme" = "material-icon-theme";
           "workbench.productIconTheme" = "tabler-icons";
           "editor.formatOnSave" = true;
@@ -98,6 +98,7 @@ in
             "nix" = true;
           };
           "codeium.enableSearch" = true;
+          "window.titleBarStyle" = "native";
         };
       };
     };

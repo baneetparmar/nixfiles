@@ -51,6 +51,7 @@ in
       inotify-tools
       gtk-session-lock
       python312Packages.gpustat
+      unstable.linux-wallpaperengine
     ];
 
     wayland.windowManager.hyprland.settings = {
@@ -70,7 +71,7 @@ in
         "uwsm app -- clipse -listen"
         "uwsm app -- ${pkgs.rquickshare}/bin/rquickshare"
         "uwsm app -- run-widget ~/.config/Ax-Shell/main.py"
-        "uwsm app -- mpvpaper -o 'no-audio loop' DP-2 ${inputs.wallpapers.windows.kylo-rens-lightsaber}"
+        "uwsm app -- ${pkgs.unstable.linux-wallpaperengine}/bin/linux-wallpaperengine -r DP-2 -s --no-fullscreen-pause 3355301528"
       ];
 
       input = {
@@ -99,8 +100,6 @@ in
 
       decoration = {
         rounding = 10;
-        active_opacity = 0.999;
-        inactive_opacity = 0.999;
 
         shadow = {
           enabled = true;
@@ -162,7 +161,8 @@ in
       };
 
       windowrulev2 = [
-        "plugin:shadewindow chromakey, class:^(?!firefox).*$"
+        "plugin:shadewindow chromakey, class:.*"
+        "opacity 0.99, class:.*"
         "maximize, class: ^(com.interversehq.qView)$"
         "float, class: ^(clipboardManager)$"
         "size 800 600, class: ^(clipboardManager)$"

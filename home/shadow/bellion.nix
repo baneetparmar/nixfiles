@@ -117,5 +117,7 @@ with lib.${namespace};
 
     unstable.rquickshare
     unstable.signal-desktop
+
+    pomatez
   ];
 }

@@ -24,8 +24,7 @@ in
       kdePackages.qtstyleplugin-kvantum
 
       phinger-cursors
-      graphite-gtk-theme
-      graphite-kde-theme
+      fluent-gtk-theme
 
       jetbrains-mono
       font-awesome
@@ -64,12 +63,16 @@ in
     gtk = {
       enable = true;
       theme = {
-        name = "Orchis-Dark-Compact";
-        package = pkgs.orchis-theme.override {
+        name = "fluent-round-grey-Dark-compact";
+        package = pkgs.fluent-gtk-theme.override {
+          themeVariants = [ "grey" ];
+          colorVariants = [ "dark" ];
+          sizeVariants = [ "compact" ];
           tweaks = [
-            "compact"
-            "macos"
-            "primary"
+            "float"
+            "round"
+            "blur"
+            "noborder"
           ];
         };
       };

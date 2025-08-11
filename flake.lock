@@ -282,15 +282,16 @@
         "nix-filter": "nix-filter"
       },
       "locked": {
-        "lastModified": 1753051116,
-        "narHash": "sha256-iyMIPqglRapcXuvyQkivJf7945Ew1qTW/4TqxHQ4KiE=",
+        "lastModified": 1752870285,
+        "narHash": "sha256-bpSzzDqGtRQd/SMgZiUhhNZBoSUenPkBlI1jI0JDS90=",
         "owner": "micha4w",
         "repo": "Hypr-DarkWindow",
-        "rev": "1885c34ee7076a61954f391c24b0e4fcabbcd711",
+        "rev": "cdb8c2e6d0782f3dfed27c44ba50c6c0a968fe99",
         "type": "github"
       },
       "original": {
         "owner": "micha4w",
+        "ref": "cdb8c2e6d0782f3dfed27c44ba50c6c0a968fe99",
         "repo": "Hypr-DarkWindow",
         "type": "github"
       }
