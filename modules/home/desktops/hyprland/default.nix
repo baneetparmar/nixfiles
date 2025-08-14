@@ -100,6 +100,8 @@ in
 
       decoration = {
         rounding = 10;
+        active_opacity = 0.95;
+        inactive_opacity = 0.95;
 
         shadow = {
           enabled = true;
@@ -162,7 +164,7 @@ in
 
       windowrulev2 = [
         "plugin:shadewindow chromakey, class:.*"
-        "opacity 0.99, class:.*"
+        "opacity 0.999, class:.*"
         "maximize, class: ^(com.interversehq.qView)$"
         "float, class: ^(clipboardManager)$"
         "size 800 600, class: ^(clipboardManager)$"

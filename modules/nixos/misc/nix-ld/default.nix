@@ -271,6 +271,7 @@ in
       zlib
 
       gtk3
+      libgbm
     ];
   };
 }

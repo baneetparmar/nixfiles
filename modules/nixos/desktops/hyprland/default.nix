@@ -31,5 +31,6 @@ in
       package = mkForce hypr-graphics.mesa;
       package32 = mkForce hypr-graphics.pkgsi686Linux.mesa;
     };
+    programs.uwsm.enable = true;
   };
 }
