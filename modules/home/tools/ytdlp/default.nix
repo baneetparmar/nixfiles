@@ -23,13 +23,17 @@ in
       extraConfig = ''
         --no-overwrites
         --no-playlist
-        --embed-metadata
+        --add-metadata
         --format "bestvideo+bestaudio"
         --output '%(track_number,playlist_autonumber)d-%(track,title)s.%(ext)s'
-        --embed-thumbnail
-        --add-metadata
         --no-update
         --paths "~/Videos/"
+        --embed-subs
+        --embed-metadata
+        --embed-chapters
+        --embed-thumbnail
+        --embed-info-json
+        --no-write-auto-subs
       '';
     };
   };
