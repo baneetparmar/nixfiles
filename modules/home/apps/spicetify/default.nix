@@ -25,7 +25,7 @@ in
         adblockify
         hidePodcasts
       ];
-      theme = spicePkgs.themes.defaultDynamic;
+      theme = spicePkgs.themes.hazy;
     };
   };
 }
