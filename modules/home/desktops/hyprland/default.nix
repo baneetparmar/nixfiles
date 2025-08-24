@@ -28,6 +28,13 @@ in
       plugins = [
         inputs.hypr-darkwindow.packages.${pkgs.system}.Hypr-DarkWindow
       ];
+      importantPrefixes = [
+        "$"
+        "bezier"
+        "name"
+        "source"
+        "output"
+      ];
     };
     ${namespace} = {
       services = {
@@ -55,7 +62,23 @@ in
     ];
 
     wayland.windowManager.hyprland.settings = {
-      monitor = ",highrr,0x0,1,bitdepth, 10, cm, hdredid, sdrbrightness, 1.21, sdrsaturation, 1";
+      monitorv2 = {
+        output = "DP-2";
+        mode = "1920x1080@144";
+        position = "0x0";
+        bitdepth = 10;
+        cm = "hdr";
+        supports_hdr = true;
+        supports_wide_color = true;
+
+        max_luminance = 400;
+        max_avg_luminance = 400;
+
+        sdr_max_luminance = 210;
+
+        sdrbrightness = 1;
+        sdrsaturation = 1.4;
+      };
 
       env = [
         "XCURSOR_SIZE,24"
@@ -100,8 +123,8 @@ in
 
       decoration = {
         rounding = 10;
-        active_opacity = 0.95;
-        inactive_opacity = 0.95;
+        active_opacity = 0.90;
+        inactive_opacity = 0.90;
 
         shadow = {
           enabled = true;

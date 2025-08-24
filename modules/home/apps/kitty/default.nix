@@ -42,7 +42,7 @@ in
 
         tab_bar_style = "hidden";
 
-        background_opacity = "0.9";
+        # background_opacity = "0.9";
       };
 
       extraConfig = ''
