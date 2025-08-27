@@ -37,7 +37,7 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     hyprland.url = "github:hyprwm/Hyprland?ref=314a0ea441e33122836965c50d4c5bcf9acd0cdd";
     hypr-darkwindow = {
-      url = "github:micha4w/Hypr-DarkWindow?ref=cdb8c2e6d0782f3dfed27c44ba50c6c0a968fe99";
+      url = "github:micha4w/Hypr-DarkWindow";
       inputs.hyprland.follows = "hyprland";
     };
     fabric.url = "github:Fabric-Development/fabric";
