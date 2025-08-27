@@ -43,6 +43,10 @@
     programs.xwayland.enable = true;
 
     boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+
+    #https://github.com/chaotic-cx/nyx/issues/1158
+    system.modulesTree = [ (lib.getOutput "modules" pkgs.linuxPackages_cachyos.kernel) ]; # !!!!!!!!
+
     services.xserver.videoDrivers = [ "amdgpu" ];
 
     security.rtkit.enable = true;

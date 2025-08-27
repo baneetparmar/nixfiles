@@ -25,8 +25,8 @@ in
         ls = "lsd";
       };
       shellAbbrs = {
-          ds = "devshell";
-        };
+        ds = "devshell";
+      };
 
       shellInit = ''
         direnv hook fish | source
