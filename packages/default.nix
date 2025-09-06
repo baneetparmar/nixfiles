@@ -6,4 +6,5 @@
   space-isolation-grub-theme = pkgs.callPackage ./space-isolation-grub-theme { };
   space-isolation-plymouth-theme = pkgs.callPackage ./space-isolation-plymouth-theme { };
   pomatez = pkgs.callPackage ./pomatez { };
+  freedownload-manager = pkgs.callPackage ./freedownload-manager { };
 }

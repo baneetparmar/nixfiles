@@ -104,20 +104,17 @@ with lib.${namespace};
     accountsservice
     libgnome-keyring
 
-    varia
     stremio
     alsa-oss
-    localsend
     google-chrome
 
     miru
     vesktop
     qbittorrent
-    element-desktop
 
     unstable.rquickshare
     unstable.signal-desktop
 
-    pomatez
+    freedownload-manager
   ];
 }
