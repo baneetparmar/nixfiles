@@ -29,10 +29,7 @@
     nix-neovim.url = "github:baneetparmar/nix-neovim";
     nix-neovim.inputs.nixpkgs.follows = "nixpkgs";
 
-    wallpapers.url = "github:baneetparmar/walls-n-windows";
-
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     hyprland.url = "github:hyprwm/Hyprland?ref=314a0ea441e33122836965c50d4c5bcf9acd0cdd";
@@ -40,8 +37,6 @@
       url = "github:micha4w/Hypr-DarkWindow";
       inputs.hyprland.follows = "hyprland";
     };
-    fabric.url = "github:Fabric-Development/fabric";
-    fabric.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
