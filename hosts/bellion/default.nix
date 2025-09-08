@@ -60,6 +60,23 @@
       '';
     };
 
+    fonts.fontconfig = {
+      subpixel = {
+        rgba = "rgb";
+        lcdfilter = "light";
+      };
+      hinting = {
+        enable = true;
+        autohint = true;
+      };
+      defaultFonts = {
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [ "Fanstasque Sans Mono" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
+
     environment.systemPackages = with pkgs; [
       vulkan-hdr-layer-kwin6
       where-is-my-sddm-theme

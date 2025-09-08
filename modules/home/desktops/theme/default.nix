@@ -14,7 +14,7 @@ let
 in
 {
   options.${namespace}.desktops.theme = with types; {
-    enable = mkBoolOpt false "Whether or not to enable standard theme configs.";
+    enable = mkBoolOpt false "Whether or not to set default theme configuration.";
   };
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -26,20 +26,17 @@ in
       phinger-cursors
       fluent-gtk-theme
 
-      jetbrains-mono
-      font-awesome
-      fira-code
+      fira-sans
       nerd-fonts.fira-code
       fantasque-sans-mono
+      noto-fonts
       noto-fonts-color-emoji
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro
-      inputs.apple-fonts.packages.${pkgs.system}.sf-mono
     ];
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
-        sansSerif = [ "sf pro" ];
-        serif = [ "sf pro" ];
+        sansSerif = [ "Noto Sans" ];
+        serif = [ "Noto Serif" ];
         monospace = [ "Fanstasque Sans Mono" ];
         emoji = [ "Noto Color Emoji" ];
       };
@@ -71,7 +68,6 @@ in
           tweaks = [
             "float"
             "round"
-            "blur"
             "noborder"
           ];
         };

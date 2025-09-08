@@ -18,14 +18,13 @@ in
   };
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      jetbrains-mono
       font-awesome
-      fira-code
+      fira-sans
       nerd-fonts.fira-code
+      jetbrains-mono
       fantasque-sans-mono
+      noto-fonts
       noto-fonts-color-emoji
-      inputs.apple-fonts.packages.${pkgs.system}.sf-pro
-      inputs.apple-fonts.packages.${pkgs.system}.sf-mono
     ];
   };
 }

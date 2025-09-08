@@ -28,7 +28,7 @@
     #---- Additional flake inputs -----#
     nix-neovim.url = "github:baneetparmar/nix-neovim";
     nix-neovim.inputs.nixpkgs.follows = "nixpkgs";
-
+    wallpapers.url = "github:baneetparmar/walls-n-windows";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
