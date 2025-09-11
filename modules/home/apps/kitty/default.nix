@@ -1,7 +1,7 @@
 {
   lib,
-  namespace,
   config,
+  namespace,
   options,
   pkgs,
   ...
@@ -18,6 +18,7 @@ in
   config = mkIf cfg.enable {
     programs.kitty = {
       enable = true;
+      package = pkgs.unstable.kitty;
       font = {
         name = "Fantasque Sans Mono";
         size = 13;
@@ -41,8 +42,6 @@ in
         confirm_os_window_close = 0;
 
         tab_bar_style = "hidden";
-
-        # background_opacity = "0.9";
       };
 
       extraConfig = ''

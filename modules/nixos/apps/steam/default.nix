@@ -24,7 +24,7 @@ in
     programs.steam = {
       enable = true;
       extest.enable = true;
-      gamescopeSession.enable = true;
+      gamescopeSession.enable = false;
       protontricks.enable = true;
       remotePlay.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;

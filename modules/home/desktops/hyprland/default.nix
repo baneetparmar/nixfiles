@@ -145,7 +145,6 @@ in
       };
       animations = {
         enabled = true;
-        first_launch_animation = true;
         bezier = [
           "linear, 0, 0, 1, 1"
           "md3_standard, 0.2, 0, 0, 1"
@@ -173,10 +172,6 @@ in
       dwindle = {
         pseudotile = false;
         preserve_split = true;
-      };
-
-      gestures = {
-        workspace_swipe = false;
       };
 
       misc = {

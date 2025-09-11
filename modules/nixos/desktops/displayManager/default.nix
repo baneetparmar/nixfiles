@@ -1,10 +1,10 @@
 {
   lib,
-  namespace,
   config,
   options,
-  pkgs,
+  namespace,
   inputs,
+  pkgs,
   ...
 }:
 with lib;
@@ -23,7 +23,7 @@ in
   config = mkIf cfg.enable {
     services.displayManager.sddm = mkIf (cfg.dm == "sddm") {
       enable = true;
-      wayland.enable = true;
+      wayland.enable = false;
       theme = "where_is_my_sddm_theme";
       package = lib.mkDefault pkgs.kdePackages.sddm;
       extraPackages = with pkgs; [ qt6.qt5compat ];
