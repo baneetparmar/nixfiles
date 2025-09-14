@@ -27,10 +27,10 @@ in
       portalPackage =
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
-    hardware.graphics = {
-      package = mkForce hypr-graphics.mesa;
-      package32 = mkForce hypr-graphics.pkgsi686Linux.mesa;
-    };
+    # hardware.graphics = {
+    #   package = mkForce hypr-graphics.mesa;
+    #   package32 = mkForce hypr-graphics.pkgsi686Linux.mesa;
+    # };
     programs.uwsm.enable = true;
   };
 }

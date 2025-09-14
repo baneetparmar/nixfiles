@@ -92,7 +92,7 @@ in
 
       exec-once = [
         "uwsm app -- clipse -listen"
-        "uwsm app -- ${pkgs.rquickshare}/bin/rquickshare"
+        "uwsm app -- ${pkgs.caffeine-ng}/bin/caffeine start"
         "uwsm app -- run-widget ~/.config/Ax-Shell/main.py"
         "uwsm app -- ${pkgs.unstable.linux-wallpaperengine}/bin/linux-wallpaperengine -r DP-2 -s --no-fullscreen-pause 3355301528"
       ];
