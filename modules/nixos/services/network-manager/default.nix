@@ -1,7 +1,7 @@
 {
   lib,
-  namespace,
   config,
+  namespace,
   options,
   pkgs,
   ...
@@ -33,10 +33,10 @@ in
       networkmanager.dns = "systemd-resolved";
 
       nameservers = [
-        "76.76.2.5#p2.freedns.controld.com"
-        "76.76.10.5#p2.freedns.controld.com"
-        "2606:1a40::5#p2.freedns.controld.com"
-        "2606:1a40:1::5#p2.freedns.controld.com"
+        "1.1.1.1#one.one.one.one"
+        "1.0.0.1#one.one.one.one"
+        "2606:4700:4700::1111#one.one.one.one"
+        "2606:4700:4700::1001#one.one.one.one"
       ];
       firewall = {
         enable = false;

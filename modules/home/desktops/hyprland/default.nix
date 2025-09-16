@@ -50,7 +50,6 @@ in
       sassc
       slurp
       wayshot
-      mpvpaper
       hyprcursor
       hyprpicker
       wf-recorder
@@ -92,7 +91,6 @@ in
 
       exec-once = [
         "uwsm app -- clipse -listen"
-        "uwsm app -- ${pkgs.caffeine-ng}/bin/caffeine start"
         "uwsm app -- run-widget ~/.config/Ax-Shell/main.py"
         "uwsm app -- ${pkgs.unstable.linux-wallpaperengine}/bin/linux-wallpaperengine -r DP-2 -s --no-fullscreen-pause 3355301528"
       ];
