@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb";
-    hash = "sha256-IS+WFtoU65XL/Ufs+f+gttq6BBPgDSLFKUtlWfNtxJM=";
+    hash = "sha256-HHrwD1txyVdNvXXeDr/FxfjnJDTEo2BtQanB0CiEpH4=";
   };
 
   unpackPhase = ''

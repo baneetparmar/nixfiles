@@ -116,5 +116,6 @@ with lib.${namespace};
     unstable.signal-desktop
 
     freedownload-manager
+    nur.repos.hexadecimalDinosaur.jetbrains-fleet
   ];
 }
