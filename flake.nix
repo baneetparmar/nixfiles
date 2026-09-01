@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,42 +55,54 @@
       inherit (self) outputs;
       inherit (nixpkgs) lib;
 
-      # make Host configs.
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-      ];
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "x86_64-linux"
+      "x86_64-darwin"
+    ];
 
       globals = {
-        username = "shadow";
+        username = "baneetparmar";
         stateVersion = "25.05";
       };
       # use namespace to avoid collisions
       namespace = "custom";
-      mkHost = host: {
-        ${host} =
-          let
-            func = lib.nixosSystem;
-            systemFunc = func;
-          in
-          systemFunc {
-            specialArgs = {
-              inherit
-                inputs
-                outputs
-                globals
-                namespace
-                ;
 
-              lib = nixpkgs.lib.extend (
-                self: super: { "${namespace}" = import ./lib { inherit (nixpkgs) lib; }; }
-              );
+      customLib = nixpkgs.lib.extend (
+        self: super: { "${namespace}" = import ./lib { inherit (nixpkgs) lib; }; }
+      );
 
-            };
-            modules = [ ./hosts/${host} ];
-          };
+      # os folder name -> builder. "if it's linux, build linux; if it's
+      # darwin, build darwin" - this table is the only OS-specific part left.
+      builders = {
+        linux = lib.nixosSystem;
+        darwin = inputs.nix-darwin.lib.darwinSystem;
       };
-      mkHostConfigs = hosts: lib.foldl (acc: set: acc // set) { } (lib.map (host: mkHost host) hosts);
-      readHosts = lib.attrNames (builtins.readDir ./hosts);
+
+      # every host under ./hosts/<arch>/<os>/<hostname>, arch/os/system deciphered
+      # automatically from the path by lib.custom.discoverHosts
+      discoveredHosts = customLib.${namespace}.discoverHosts ./hosts;
+
+      # one function builds either kind of system - dispatch happens via
+      # lib.custom.selectBuilder, keyed off each discovered host's `os`
+      mkHost =
+        { os, hostname, path, system, ... }:
+        {
+          ${hostname} = (customLib.${namespace}.selectBuilder builders os) {
+            inherit system;
+
+            specialArgs = {
+              inherit inputs outputs globals namespace;
+              lib = customLib;
+            };
+            modules = [ path ];
+          };
+        };
+
+      mkHostConfigs =
+        os:
+        lib.foldl (acc: set: acc // set) { } (
+          lib.map mkHost (builtins.filter (h: h.os == os) discoveredHosts)
+        );
 
       # required for treefmt-nix
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
@@ -96,7 +112,8 @@
 
       overlays = import ./overlays { inherit inputs outputs; };
 
-      nixosConfigurations = mkHostConfigs (readHosts);
+      nixosConfigurations = mkHostConfigs "linux";
+      darwinConfigurations = mkHostConfigs "darwin";
 
       packages = forAllSystems (
         system:

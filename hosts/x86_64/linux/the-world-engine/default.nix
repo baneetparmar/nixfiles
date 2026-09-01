@@ -31,7 +31,7 @@
   };
 
   config = {
-    networking.hostName = "bellion";
+    networking.hostName = "the-world-engine";
 
     boot = {
       loader.grub = {
