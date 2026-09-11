@@ -14,7 +14,7 @@
     ./disko.nix
     ./hardware-configuration.nix
 
-    ../../modules/nixos/import.nix
+    ../../modules/system/import.nix
     inputs.nur.modules.nixos.default
 
     # required for using chaotic-nyx on stable channel

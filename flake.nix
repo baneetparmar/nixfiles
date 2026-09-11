@@ -2,14 +2,15 @@
   description = "Modular NixOS configuration using flakes and home-manger";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs?ref=nixpkgs-26.05-darwin";
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-25.05";
+      url = "github:nix-community/home-manager?ref=release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
@@ -55,10 +56,10 @@
       inherit (self) outputs;
       inherit (nixpkgs) lib;
 
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "x86_64-linux"
-      "x86_64-darwin"
-    ];
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "x86_64-darwin"
+      ];
 
       globals = {
         username = "baneetparmar";
@@ -70,6 +71,11 @@
       customLib = nixpkgs.lib.extend (
         self: super: { "${namespace}" = import ./lib { inherit (nixpkgs) lib; }; }
       );
+
+      # x86_64-darwin needs pkgs from nixpkgs-darwin (nixpkgs 26.11 dropped
+      # the platform) - everything else stays on the main nixpkgs input.
+      pkgsFor = system: (if lib.hasSuffix "-darwin" system then inputs.nixpkgs-darwin else nixpkgs).legacyPackages.${system};
+
 
       # os folder name -> builder. "if it's linux, build linux; if it's
       # darwin, build darwin" - this table is the only OS-specific part left.
@@ -85,13 +91,24 @@
       # one function builds either kind of system - dispatch happens via
       # lib.custom.selectBuilder, keyed off each discovered host's `os`
       mkHost =
-        { os, hostname, path, system, ... }:
+        {
+          os,
+          hostname,
+          path,
+          system,
+          ...
+        }:
         {
           ${hostname} = (customLib.${namespace}.selectBuilder builders os) {
             inherit system;
-
             specialArgs = {
-              inherit inputs outputs globals namespace;
+              inherit
+                inputs
+                outputs
+                globals
+                namespace
+                system
+                ;
               lib = customLib;
             };
             modules = [ path ];
@@ -105,7 +122,7 @@
         );
 
       # required for treefmt-nix
-      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+     eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f (pkgsFor system));
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {
@@ -118,7 +135,7 @@
       packages = forAllSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = pkgsFor system;
         in
         import ./packages { inherit pkgs; }
       );
@@ -128,7 +145,7 @@
       devShells = forAllSystems (
         system:
         import ./shell.nix {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = pkgsFor system;
         }
       );
     };

@@ -4,6 +4,8 @@
   inputs,
   globals,
   namespace,
+  username,
+  system,
   config,
   ...
 }:
@@ -17,11 +19,11 @@ with lib.${namespace};
   ];
 
   home = {
-    username = "${globals.username}";
-    homeDirectory = "/home/${globals.username}";
+    username = lib.mkForce username;
+    homeDirectory = lib.mkForce (homeDir system username);
     stateVersion = globals.stateVersion;
     sessionVariables = {
-      FLAKE = "/home/${globals.username}/.nixfiles";
+      FLAKE = "${homeDir system username}/.nixfiles";
       NIXOS_OZONE_WL = "1";
       GDK_BACKEND = "wayland,x11,*";
       QT_QPA_PLATFORM = "wayland;xcb";
@@ -43,7 +45,6 @@ with lib.${namespace};
       mpv = enabled;
       obs = enabled;
       rofi = enabled;
-      vscode = enabled;
       spicetify = enabled;
     };
     desktops = {
