@@ -173,7 +173,7 @@ rec {
     let
       getDir =
         d:
-        mapAttrs (file: type: if type == "directory" then getDir "${d}/${file}" else type) (
+        mapAttrs (file: type: if type == "directory" then getDir (d + "/${file}") else type) (
           builtins.readDir d
         );
       files = d: collect isString (mapAttrsRecursive (path: type: concatStringsSep "/" path) (getDir d));

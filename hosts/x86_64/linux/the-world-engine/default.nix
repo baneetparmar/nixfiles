@@ -14,7 +14,7 @@
     ./disko.nix
     ./hardware-configuration.nix
 
-    ../../modules/system/import.nix
+    ../../../../modules/system/import.nix
     inputs.nur.modules.nixos.default
 
     # required for using chaotic-nyx on stable channel
@@ -87,8 +87,6 @@
     # glib schemas fix
     environment.variables.GSETTINGS_SCHEMA_DIR = "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas";
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-    services.preload.enable = true;
 
     system.stateVersion = globals.stateVersion;
   };

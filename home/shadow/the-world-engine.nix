@@ -105,7 +105,7 @@ with lib.${namespace};
     accountsservice
     libgnome-keyring
 
-    stremio
+    stremio-linux-shell
     alsa-oss
     google-chrome
 

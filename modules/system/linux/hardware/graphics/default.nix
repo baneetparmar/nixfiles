@@ -22,17 +22,15 @@ in
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        amdvlk
         libva
         libva-utils
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
         intel-media-driver
         intel-vaapi-driver # older but works better for Firefox & Chrome
         vpl-gpu-rt
       ];
       extraPackages32 = with pkgs.driversi686Linux; [
-        amdvlk
         intel-vaapi-driver
       ];
     };

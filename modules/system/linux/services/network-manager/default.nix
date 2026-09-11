@@ -22,10 +22,10 @@ in
       dnssec = "true";
       domains = [ "~." ];
       dnsovertls = "true";
-      extraConfig = ''
-        MulticastDNS=resolve
-      '';
       llmnr = "true";
+      settings = {
+        Resolve.MulticastDNS = "resolve";
+      };
     };
 
     networking = {
