@@ -1,7 +1,7 @@
 keys:
-  - &shadow age16uhld6pdu7e7krkt5wgd5qmrfy5nk93pu4kjgejzypk0hvl5rsmqn5wpjx
+  - &spirit-of-eternity age1f24dswy929vm5s92n2dy4z887qmt458f36rc66wrmxnuaw0fvs2qxgdtpj
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:
       - age:
-          - *shadow
+          - *spirit-of-eternity
