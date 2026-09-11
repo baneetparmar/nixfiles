@@ -74,8 +74,10 @@
 
       # x86_64-darwin needs pkgs from nixpkgs-darwin (nixpkgs 26.11 dropped
       # the platform) - everything else stays on the main nixpkgs input.
-      pkgsFor = system: (if lib.hasSuffix "-darwin" system then inputs.nixpkgs-darwin else nixpkgs).legacyPackages.${system};
-
+      pkgsFor =
+        system:
+        (if lib.hasSuffix "-darwin" system then inputs.nixpkgs-darwin else nixpkgs)
+        .legacyPackages.${system};
 
       # os folder name -> builder. "if it's linux, build linux; if it's
       # darwin, build darwin" - this table is the only OS-specific part left.
@@ -122,7 +124,7 @@
         );
 
       # required for treefmt-nix
-     eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f (pkgsFor system));
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f (pkgsFor system));
       treefmtEval = eachSystem (pkgs: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {

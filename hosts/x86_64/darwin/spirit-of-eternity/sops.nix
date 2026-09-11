@@ -1,4 +1,4 @@
 { ... }:
 {
- # sops.secrets."site/username" = { sopsFile = ./secrets.yaml; };
+  # sops.secrets."site/username" = { sopsFile = ./secrets.yaml; };
 }
