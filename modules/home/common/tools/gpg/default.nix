@@ -21,6 +21,16 @@ in
       enable = true;
       pinentry.package = pkgs.pinentry-curses;
     };
+
+    home.activation.importSopsGpgKeys =
+      lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        if [ -f /run/secrets/github.com/gpg/public ]; then
+          ${pkgs.gnupg}/bin/gpg \
+            --import \
+            /run/secrets/github.com/gpg/public \
+            /run/secrets/github.com/gpg/private
+        fi
+      '';
   };
 
 }

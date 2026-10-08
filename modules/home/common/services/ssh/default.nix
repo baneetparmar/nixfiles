@@ -35,5 +35,31 @@ in
         };
       };
     };
+
+    # Link SSH keys from secrets
+    home.file.".ssh/github_personal".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "/run/secrets/github.com/ssh/private";
+
+    home.file.".ssh/github_personal.pub".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "/run/secrets/github.com/ssh/public";
+
+    home.file.".ssh/pesto".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "/run/secrets/pesto.dev/ssh/private";
+
+    home.file.".ssh/pesto.pub".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "/run/secrets/pesto.dev/ssh/public";
+
+    home.file.".ssh/google".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "/run/secrets/google.google.com/ssh/private";
+
+    home.file.".ssh/google.pub".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "/run/secrets/google.google.com/ssh/public";
   };
+
 }
